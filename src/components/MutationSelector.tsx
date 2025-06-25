@@ -76,9 +76,9 @@ export const MutationSelector: React.FC<MutationSelectorProps> = ({
         </div>
         
         {/* Restrictions Notice */}
-        <div className="text-[7px] text-gray-400 leading-relaxed">
+        <div className="text-[10px] text-gray-400 leading-relaxed">
           <div className="font-semibold text-yellow-300 mb-1">Restrictions:</div>
-          Only one Golden OR Rainbow variant allowed. Only one of Chilled/Wet/Frozen allowed. Only one of Burnt/Cooked allowed. These match the actual Roblox game limitations.
+          Only one of Wet/Chilled/Frozen allowed. Only one of Burnt/Cooked allowed. These match the actual Roblox game limitations.
         </div>
       </div>
     </div>

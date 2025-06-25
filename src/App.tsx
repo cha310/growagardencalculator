@@ -59,15 +59,34 @@ function App() {
   const handleTemperatureMutationToggle = (mutation: any) => {
     setState(prev => {
       const isSelected = prev.temperatureMutations.some(m => m.id === mutation.id);
+      
       if (isSelected) {
+        // If already selected, remove it
         return {
           ...prev,
           temperatureMutations: prev.temperatureMutations.filter(m => m.id !== mutation.id)
         };
       } else {
+        // If not selected, check for mutual exclusions before adding
+        let filteredMutations = [...prev.temperatureMutations];
+        
+        // Mutual exclusion groups
+        const coldGroup = ['wet', 'chilled', 'frozen'];
+        const heatGroup = ['burnt', 'cooked'];
+        
+        if (coldGroup.includes(mutation.id)) {
+          // Remove any other cold mutations
+          filteredMutations = filteredMutations.filter(m => !coldGroup.includes(m.id));
+        }
+        
+        if (heatGroup.includes(mutation.id)) {
+          // Remove any other heat mutations
+          filteredMutations = filteredMutations.filter(m => !heatGroup.includes(m.id));
+        }
+        
         return {
           ...prev,
-          temperatureMutations: [...prev.temperatureMutations, mutation]
+          temperatureMutations: [...filteredMutations, mutation]
         };
       }
     });

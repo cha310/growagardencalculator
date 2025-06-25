@@ -1,0 +1,178 @@
+import React, { useState, useEffect } from 'react';
+import { CalculationState } from './types';
+import { growthMutations, temperatureMutations } from './data/gameData';
+import { PlantSelector } from './components/PlantSelector';
+import { MutationSelector } from './components/MutationSelector';
+import { CalculationPanel } from './components/CalculationPanel';
+import { ResultsPanel } from './components/ResultsPanel';
+
+function App() {
+  const [state, setState] = useState<CalculationState>({
+    selectedPlant: null,
+    selectedCategory: 'All',
+    growthMutation: growthMutations[0],
+    temperatureMutation: temperatureMutations[0],
+    environmentMutations: [],
+    weight: 1,
+    quantity: 1,
+    friendBonus: 0,
+  });
+
+  const [result, setResult] = useState<number>(0);
+
+  // Calculate result whenever state changes
+  useEffect(() => {
+    if (!state.selectedPlant) {
+      setResult(0);
+      return;
+    }
+
+    const environmentBonus = state.environmentMutations.reduce((sum, mutation) => sum + mutation.bonus, 0);
+    const totalBonusPercent = state.temperatureMutation.bonus + environmentBonus;
+    const bonusMultiplier = 1 + totalBonusPercent / 100;
+    const friendMultiplier = 1 + state.friendBonus / 100;
+
+    const calculatedResult = 
+      state.selectedPlant.baseValue *
+      state.growthMutation.multiplier *
+      bonusMultiplier *
+      state.weight *
+      state.quantity *
+      friendMultiplier;
+
+    setResult(calculatedResult);
+  }, [state]);
+
+  const handlePlantSelect = (plant: any) => {
+    setState(prev => ({ ...prev, selectedPlant: plant }));
+  };
+
+  const handleCategorySelect = (category: string) => {
+    setState(prev => ({ ...prev, selectedCategory: category }));
+  };
+
+  const handleGrowthMutationSelect = (mutation: any) => {
+    setState(prev => ({ ...prev, growthMutation: mutation }));
+  };
+
+  const handleTemperatureMutationSelect = (mutation: any) => {
+    setState(prev => ({ ...prev, temperatureMutation: mutation }));
+  };
+
+  const handleEnvironmentMutationToggle = (mutation: any) => {
+    setState(prev => {
+      const isSelected = prev.environmentMutations.some(m => m.id === mutation.id);
+      if (isSelected) {
+        return {
+          ...prev,
+          environmentMutations: prev.environmentMutations.filter(m => m.id !== mutation.id)
+        };
+      } else {
+        return {
+          ...prev,
+          environmentMutations: [...prev.environmentMutations, mutation]
+        };
+      }
+    });
+  };
+
+  const handleWeightChange = (weight: number) => {
+    setState(prev => ({ ...prev, weight }));
+  };
+
+  const handleQuantityChange = (quantity: number) => {
+    setState(prev => ({ ...prev, quantity }));
+  };
+
+  const handleFriendBonusChange = (bonus: number) => {
+    setState(prev => ({ ...prev, friendBonus: bonus }));
+  };
+
+  const handleReset = () => {
+    setState({
+      selectedPlant: null,
+      selectedCategory: 'All',
+      growthMutation: growthMutations[0],
+      temperatureMutation: temperatureMutations[0],
+      environmentMutations: [],
+      weight: 1,
+      quantity: 1,
+      friendBonus: 0,
+    });
+  };
+
+  return (
+    <div className="min-h-screen bg-gray-900 p-4">
+      {/* Decorative Corner Elements */}
+      <div className="fixed top-2 left-2 w-4 h-4 bg-yellow-300 z-10"></div>
+      <div className="fixed top-2 right-2 w-4 h-4 bg-yellow-300 z-10"></div>
+      <div className="fixed bottom-2 left-2 w-4 h-4 bg-yellow-300 z-10"></div>
+      <div className="fixed bottom-2 right-2 w-4 h-4 bg-yellow-300 z-10"></div>
+      
+      <div className="max-w-7xl mx-auto">
+        {/* Header */}
+        <div className="text-center mb-12 mt-8">
+          <h1 className="text-2xl md:text-4xl text-yellow-300 mb-4 py-4">
+            Grow a Garden Calculator
+          </h1>
+          <div className="flex justify-center items-center mt-4">
+            <div className="w-8 h-1 bg-yellow-300 mr-2"></div>
+            <div className="w-2 h-2 bg-yellow-300"></div>
+            <div className="w-8 h-1 bg-yellow-300 ml-2"></div>
+          </div>
+        </div>
+
+        {/* Main Grid Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:items-stretch min-h-[600px]">
+          {/* Left Column - Plant Selection Only */}
+          <div>
+            <PlantSelector
+              selectedPlant={state.selectedPlant}
+              selectedCategory={state.selectedCategory}
+              onPlantSelect={handlePlantSelect}
+              onCategorySelect={handleCategorySelect}
+            />
+          </div>
+
+          {/* Right Column - Modifiers, Calculation, and Results */}
+          <div className="space-y-6">
+            <MutationSelector
+              growthMutation={state.growthMutation}
+              temperatureMutation={state.temperatureMutation}
+              environmentMutations={state.environmentMutations}
+              onGrowthMutationSelect={handleGrowthMutationSelect}
+              onTemperatureMutationSelect={handleTemperatureMutationSelect}
+              onEnvironmentMutationToggle={handleEnvironmentMutationToggle}
+            />
+            
+            <CalculationPanel
+              weight={state.weight}
+              quantity={state.quantity}
+              friendBonus={state.friendBonus}
+              onWeightChange={handleWeightChange}
+              onQuantityChange={handleQuantityChange}
+              onFriendBonusChange={handleFriendBonusChange}
+            />
+            
+            <ResultsPanel
+              state={state}
+              result={result}
+              onReset={handleReset}
+            />
+          </div>
+        </div>
+        
+        {/* Footer */}
+        <div className="text-center mt-12 mb-4">
+          <div className="flex justify-center items-center">
+            <div className="w-16 h-1 bg-green-600 mr-2"></div>
+            <div className="text-xs text-gray-500">RETRO GARDEN CALCULATOR v1.0</div>
+            <div className="w-16 h-1 bg-green-600 ml-2"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default App;

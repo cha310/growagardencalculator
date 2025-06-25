@@ -1,26 +1,30 @@
 import React from 'react';
 import { GrowthMutation, TemperatureMutation, EnvironmentMutation } from '../types';
-import { growthMutations, temperatureMutations, environmentMutations } from '../data/gameData';
+import { growthMutations, temperatureMutations as allTemperatureMutations, environmentMutations } from '../data/gameData';
 
 interface MutationSelectorProps {
   growthMutation: GrowthMutation;
-  temperatureMutation: TemperatureMutation;
+  temperatureMutations: TemperatureMutation[];
   environmentMutations: EnvironmentMutation[];
   onGrowthMutationSelect: (mutation: GrowthMutation) => void;
-  onTemperatureMutationSelect: (mutation: TemperatureMutation) => void;
+  onTemperatureMutationToggle: (mutation: TemperatureMutation) => void;
   onEnvironmentMutationToggle: (mutation: EnvironmentMutation) => void;
 }
 
 export const MutationSelector: React.FC<MutationSelectorProps> = ({
   growthMutation,
-  temperatureMutation,
+  temperatureMutations: selectedTemperatureMutations,
   environmentMutations,
   onGrowthMutationSelect,
-  onTemperatureMutationSelect,
+  onTemperatureMutationToggle,
   onEnvironmentMutationToggle,
 }) => {
   const isEnvironmentSelected = (mutation: EnvironmentMutation) => {
     return environmentMutations.some(m => m.id === mutation.id);
+  };
+
+  const isTemperatureSelected = (mutation: TemperatureMutation) => {
+    return selectedTemperatureMutations.some(m => m.id === mutation.id);
   };
 
   return (
@@ -52,33 +56,15 @@ export const MutationSelector: React.FC<MutationSelectorProps> = ({
         
         {/* Temperature Mutations */}
         <div>
-          <label className="block text-green-400 text-xs mb-2">TEMPERATURE MUTATION:</label>
-          <div className="grid grid-cols-1 gap-2">
-            {temperatureMutations.map(mutation => (
-              <button
-                key={mutation.id}
-                className={`mutation-option text-left ${
-                  temperatureMutation.id === mutation.id ? 'selected' : ''
-                }`}
-                onClick={() => onTemperatureMutationSelect(mutation)}
-              >
-                {mutation.name.toUpperCase()} {mutation.bonus >= 0 ? '+' : ''}{mutation.bonus}
-              </button>
-            ))}
-          </div>
-        </div>
-        
-        {/* Environment Mutations */}
-        <div>
-          <label className="block text-green-400 text-xs mb-2">ENVIRONMENT MUTATIONS:</label>
+          <label className="block text-green-400 text-xs mb-2">MUTATIONS:</label>
           <div className="grid grid-cols-2 gap-2">
-            {environmentMutations.map(mutation => (
+            {allTemperatureMutations.map((mutation: TemperatureMutation) => (
               <button
                 key={mutation.id}
-                className={`mutation-option multiple text-left ${
-                  isEnvironmentSelected(mutation) ? 'selected' : ''
+                className={`mutation-option multiple text-center ${
+                  isTemperatureSelected(mutation) ? 'selected' : ''
                 }`}
-                onClick={() => onEnvironmentMutationToggle(mutation)}
+                onClick={() => onTemperatureMutationToggle(mutation)}
               >
                 <div className="text-xs">{mutation.name.toUpperCase()}</div>
                 <div className="text-xs opacity-75">
@@ -87,6 +73,12 @@ export const MutationSelector: React.FC<MutationSelectorProps> = ({
               </button>
             ))}
           </div>
+        </div>
+        
+        {/* Restrictions Notice */}
+        <div className="text-[7px] text-gray-400 leading-relaxed">
+          <div className="font-semibold text-yellow-300 mb-1">Restrictions:</div>
+          Only one Golden OR Rainbow variant allowed. Only one of Chilled/Wet/Frozen allowed. Only one of Burnt/Cooked allowed. These match the actual Roblox game limitations.
         </div>
       </div>
     </div>

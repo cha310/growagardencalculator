@@ -90,7 +90,8 @@ export const PlantSelector: React.FC<PlantSelectorProps> = ({
 const getPlantIcon = (plantId: string, plantType: string) => {
   // Real game images for specific plants
   const realImages: { [key: string]: string } = {
-    'carrot': '/carrot.webp'
+    'carrot': '/carrot.webp', 
+    'rose': '/Strawberry.webp'
   };
 
   // Use real image if available
@@ -123,7 +124,15 @@ const getDisplayName = (name: string) => {
       'BLUEBERRY': 'BLUEBRR',
       'BELLPEPPER': 'BELLPPR',
       'PRICKLYPEAR': 'PRICKLY',
-      'ORANGETULIP': 'ORTULIP'
+      'ORANGETULIP': 'ORTULIP',
+      'WILD CARROT': 'WILDCAR',
+      'GREEN APPLE': 'GREEAPL',
+      'DRAGON FRUIT': 'DRAGFRT',
+      'ROSY DELIGHT': 'ROSYDEL',
+      'ELEPHANT EARS': 'ELEPHNT',
+      'SUGAR APPLE': 'SUGAAPL',
+      'PARASOL FLOWER': 'PARASOL',
+      'CANTALOUPE': 'CANTLPE'
     };
     
     return abbreviations[upperName] || upperName.substring(0, 8);

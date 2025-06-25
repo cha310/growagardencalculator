@@ -11,7 +11,7 @@ function App() {
     selectedPlant: null,
     selectedCategory: 'All',
     growthMutation: growthMutations[0],
-    temperatureMutation: temperatureMutations[0],
+    temperatureMutations: [],
     environmentMutations: [],
     weight: 1,
     quantity: 1,
@@ -28,7 +28,8 @@ function App() {
     }
 
     const environmentBonus = state.environmentMutations.reduce((sum, mutation) => sum + mutation.bonus, 0);
-    const totalBonusPercent = state.temperatureMutation.bonus + environmentBonus;
+    const temperatureBonus = state.temperatureMutations.reduce((sum, mutation) => sum + mutation.bonus, 0);
+    const totalBonusPercent = temperatureBonus + environmentBonus;
     const bonusMultiplier = 1 + totalBonusPercent / 100;
     const friendMultiplier = 1 + state.friendBonus / 100;
 
@@ -55,8 +56,21 @@ function App() {
     setState(prev => ({ ...prev, growthMutation: mutation }));
   };
 
-  const handleTemperatureMutationSelect = (mutation: any) => {
-    setState(prev => ({ ...prev, temperatureMutation: mutation }));
+  const handleTemperatureMutationToggle = (mutation: any) => {
+    setState(prev => {
+      const isSelected = prev.temperatureMutations.some(m => m.id === mutation.id);
+      if (isSelected) {
+        return {
+          ...prev,
+          temperatureMutations: prev.temperatureMutations.filter(m => m.id !== mutation.id)
+        };
+      } else {
+        return {
+          ...prev,
+          temperatureMutations: [...prev.temperatureMutations, mutation]
+        };
+      }
+    });
   };
 
   const handleEnvironmentMutationToggle = (mutation: any) => {
@@ -93,7 +107,7 @@ function App() {
       selectedPlant: null,
       selectedCategory: 'All',
       growthMutation: growthMutations[0],
-      temperatureMutation: temperatureMutations[0],
+      temperatureMutations: [],
       environmentMutations: [],
       weight: 1,
       quantity: 1,
@@ -138,10 +152,10 @@ function App() {
           <div className="space-y-6">
             <MutationSelector
               growthMutation={state.growthMutation}
-              temperatureMutation={state.temperatureMutation}
+              temperatureMutations={state.temperatureMutations}
               environmentMutations={state.environmentMutations}
               onGrowthMutationSelect={handleGrowthMutationSelect}
-              onTemperatureMutationSelect={handleTemperatureMutationSelect}
+              onTemperatureMutationToggle={handleTemperatureMutationToggle}
               onEnvironmentMutationToggle={handleEnvironmentMutationToggle}
             />
             

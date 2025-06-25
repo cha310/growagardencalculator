@@ -8,10 +8,11 @@ interface ResultsPanelProps {
 }
 
 export const ResultsPanel: React.FC<ResultsPanelProps> = ({ state, result, onReset }) => {
-  const { selectedPlant, growthMutation, temperatureMutation, environmentMutations, weight, quantity, friendBonus } = state;
+  const { selectedPlant, growthMutation, temperatureMutations, environmentMutations, weight, quantity, friendBonus } = state;
   
   const environmentBonus = environmentMutations.reduce((sum, mutation) => sum + mutation.bonus, 0);
-  const totalMultiplier = 1 + (temperatureMutation.bonus + environmentBonus) / 100;
+  const temperatureBonus = temperatureMutations.reduce((sum, mutation) => sum + mutation.bonus, 0);
+  const totalMultiplier = 1 + (temperatureBonus + environmentBonus) / 100;
   const friendMultiplier = 1 + friendBonus / 100;
   
   if (!selectedPlant) {
@@ -59,7 +60,7 @@ export const ResultsPanel: React.FC<ResultsPanelProps> = ({ state, result, onRes
             </div>
             <div className="flex justify-between">
               <span>Temperature Bonus:</span>
-              <span className="text-yellow-300">{temperatureMutation.bonus >= 0 ? '+' : ''}{temperatureMutation.bonus}%</span>
+              <span className="text-yellow-300">{temperatureBonus >= 0 ? '+' : ''}{temperatureBonus}%</span>
             </div>
             {environmentMutations.length > 0 && (
               <div className="flex justify-between">

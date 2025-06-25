@@ -10,7 +10,7 @@ function App() {
   const [state, setState] = useState<CalculationState>({
     selectedPlant: null,
     selectedCategory: 'All',
-    growthMutation: growthMutations[0],
+    growthMutations: [growthMutations[0]],
     temperatureMutations: [],
     environmentMutations: [],
     weight: 1,
@@ -32,10 +32,11 @@ function App() {
     const totalBonusPercent = temperatureBonus + environmentBonus;
     const bonusMultiplier = 1 + totalBonusPercent / 100;
     const friendMultiplier = 1 + state.friendBonus / 100;
+    const growthMultiplier = state.growthMutations.reduce((product, mutation) => product * mutation.multiplier, 1);
 
     const calculatedResult = 
       state.selectedPlant.baseValue *
-      state.growthMutation.multiplier *
+      growthMultiplier *
       bonusMultiplier *
       state.weight *
       state.quantity *
@@ -52,8 +53,34 @@ function App() {
     setState(prev => ({ ...prev, selectedCategory: category }));
   };
 
-  const handleGrowthMutationSelect = (mutation: any) => {
-    setState(prev => ({ ...prev, growthMutation: mutation }));
+  const handleGrowthMutationToggle = (mutation: any) => {
+    setState(prev => {
+      const isSelected = prev.growthMutations.some(m => m.id === mutation.id);
+      
+      if (isSelected) {
+        // If already selected, remove it
+        return {
+          ...prev,
+          growthMutations: prev.growthMutations.filter(m => m.id !== mutation.id)
+        };
+      } else {
+        // If not selected, check for mutual exclusions before adding
+        let filteredMutations = [...prev.growthMutations];
+        
+        // Mutual exclusion: Gold and Rainbow variants
+        const exclusiveVariants = ['gold', 'rainbow'];
+        
+        if (exclusiveVariants.includes(mutation.id)) {
+          // Remove any other exclusive variants
+          filteredMutations = filteredMutations.filter(m => !exclusiveVariants.includes(m.id));
+        }
+        
+        return {
+          ...prev,
+          growthMutations: [...filteredMutations, mutation]
+        };
+      }
+    });
   };
 
   const handleTemperatureMutationToggle = (mutation: any) => {
@@ -125,7 +152,7 @@ function App() {
     setState({
       selectedPlant: null,
       selectedCategory: 'All',
-      growthMutation: growthMutations[0],
+      growthMutations: [growthMutations[0]],
       temperatureMutations: [],
       environmentMutations: [],
       weight: 1,
@@ -170,10 +197,10 @@ function App() {
           {/* Right Column - Modifiers, Calculation, and Results */}
           <div className="space-y-6">
             <MutationSelector
-              growthMutation={state.growthMutation}
+              growthMutations={state.growthMutations}
               temperatureMutations={state.temperatureMutations}
               environmentMutations={state.environmentMutations}
-              onGrowthMutationSelect={handleGrowthMutationSelect}
+              onGrowthMutationToggle={handleGrowthMutationToggle}
               onTemperatureMutationToggle={handleTemperatureMutationToggle}
               onEnvironmentMutationToggle={handleEnvironmentMutationToggle}
             />

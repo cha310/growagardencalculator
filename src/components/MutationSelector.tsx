@@ -3,19 +3,19 @@ import { GrowthMutation, TemperatureMutation, EnvironmentMutation } from '../typ
 import { growthMutations, temperatureMutations as allTemperatureMutations, environmentMutations } from '../data/gameData';
 
 interface MutationSelectorProps {
-  growthMutation: GrowthMutation;
+  growthMutations: GrowthMutation[];
   temperatureMutations: TemperatureMutation[];
   environmentMutations: EnvironmentMutation[];
-  onGrowthMutationSelect: (mutation: GrowthMutation) => void;
+  onGrowthMutationToggle: (mutation: GrowthMutation) => void;
   onTemperatureMutationToggle: (mutation: TemperatureMutation) => void;
   onEnvironmentMutationToggle: (mutation: EnvironmentMutation) => void;
 }
 
 export const MutationSelector: React.FC<MutationSelectorProps> = ({
-  growthMutation,
+  growthMutations: selectedGrowthMutations,
   temperatureMutations: selectedTemperatureMutations,
   environmentMutations,
-  onGrowthMutationSelect,
+  onGrowthMutationToggle,
   onTemperatureMutationToggle,
   onEnvironmentMutationToggle,
 }) => {
@@ -25,6 +25,16 @@ export const MutationSelector: React.FC<MutationSelectorProps> = ({
 
   const isTemperatureSelected = (mutation: TemperatureMutation) => {
     return selectedTemperatureMutations.some(m => m.id === mutation.id);
+  };
+
+  const isGrowthSelected = (mutation: GrowthMutation) => {
+    return selectedGrowthMutations.some(m => m.id === mutation.id);
+  };
+
+  const getMultiplierText = (mutation: TemperatureMutation) => {
+    // Convert bonus percentage to multiplier (bonus% = (multiplier - 1) * 100)
+    const multiplier = 1 + mutation.bonus / 100;
+    return `${multiplier}x`;
   };
 
   return (
@@ -38,17 +48,20 @@ export const MutationSelector: React.FC<MutationSelectorProps> = ({
       <div className="space-y-6">
         {/* Growth Mutations */}
         <div>
-          <label className="block text-green-400 text-xs mb-2">GROWTH MUTATION:</label>
-          <div className="grid grid-cols-1 gap-2">
+          <label className="block text-green-400 text-xs mb-2">VARIANTS:</label>
+          <div className="grid grid-cols-2 gap-2">
             {growthMutations.map(mutation => (
               <button
                 key={mutation.id}
-                className={`mutation-option text-left ${
-                  growthMutation.id === mutation.id ? 'selected' : ''
+                className={`mutation-option multiple text-center ${
+                  isGrowthSelected(mutation) ? 'selected' : ''
                 }`}
-                onClick={() => onGrowthMutationSelect(mutation)}
+                onClick={() => onGrowthMutationToggle(mutation)}
               >
-                {mutation.name.toUpperCase()} ×{mutation.multiplier}
+                <div className="text-xs">{mutation.name.toUpperCase()}</div>
+                <div className="text-xs opacity-75">
+                  ({mutation.multiplier}x)
+                </div>
               </button>
             ))}
           </div>
@@ -68,7 +81,7 @@ export const MutationSelector: React.FC<MutationSelectorProps> = ({
               >
                 <div className="text-xs">{mutation.name.toUpperCase()}</div>
                 <div className="text-xs opacity-75">
-                  {mutation.bonus >= 0 ? '+' : ''}{mutation.bonus}
+                  ({getMultiplierText(mutation)})
                 </div>
               </button>
             ))}
@@ -78,7 +91,7 @@ export const MutationSelector: React.FC<MutationSelectorProps> = ({
         {/* Restrictions Notice */}
         <div className="text-[10px] text-gray-400 leading-relaxed">
           <div className="font-semibold text-yellow-300 mb-1">Restrictions:</div>
-          Only one of Wet/Chilled/Frozen allowed. Only one of Burnt/Cooked allowed. These match the actual Roblox game limitations.
+          Only one of Gold/Rainbow Variant allowed. Only one of Wet/Chilled/Frozen allowed. Only one of Burnt/Cooked allowed. These match the actual Roblox game limitations.
         </div>
       </div>
     </div>

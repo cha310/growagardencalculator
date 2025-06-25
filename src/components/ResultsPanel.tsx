@@ -8,10 +8,11 @@ interface ResultsPanelProps {
 }
 
 export const ResultsPanel: React.FC<ResultsPanelProps> = ({ state, result, onReset }) => {
-  const { selectedPlant, growthMutation, temperatureMutations, environmentMutations, weight, quantity, friendBonus } = state;
+  const { selectedPlant, growthMutations, temperatureMutations, environmentMutations, weight, quantity, friendBonus } = state;
   
   const environmentBonus = environmentMutations.reduce((sum, mutation) => sum + mutation.bonus, 0);
   const temperatureBonus = temperatureMutations.reduce((sum, mutation) => sum + mutation.bonus, 0);
+  const growthMultiplier = growthMutations.reduce((product, mutation) => product * mutation.multiplier, 1);
   const totalMultiplier = 1 + (temperatureBonus + environmentBonus) / 100;
   const friendMultiplier = 1 + friendBonus / 100;
   
@@ -55,8 +56,8 @@ export const ResultsPanel: React.FC<ResultsPanelProps> = ({ state, result, onRes
               <span className="text-yellow-300">{selectedPlant.baseValue}</span>
             </div>
             <div className="flex justify-between">
-              <span>Growth Mutation:</span>
-              <span className="text-yellow-300">×{growthMutation.multiplier}</span>
+              <span>Growth Multiplier:</span>
+              <span className="text-yellow-300">×{growthMultiplier}</span>
             </div>
             <div className="flex justify-between">
               <span>Temperature Bonus:</span>

@@ -27,7 +27,7 @@ export interface EnvironmentMutation {
 export interface CalculationState {
   selectedPlant: Plant | null;
   selectedCategory: string;
-  growthMutation: GrowthMutation;
+  growthMutations: GrowthMutation[];
   temperatureMutations: TemperatureMutation[];
   environmentMutations: EnvironmentMutation[];
   weight: number;

@@ -48,8 +48,9 @@ export const categories = ['All', 'Common', 'Uncommon', 'Rare', 'Legendary', 'My
 
 export const growthMutations: GrowthMutation[] = [
   { id: 'default', name: 'Default', multiplier: 1 },
-  { id: 'golden', name: 'Golden', multiplier: 20 },
-  { id: 'rainbow', name: 'Rainbow', multiplier: 50 },
+  { id: 'gold', name: 'Gold Variant', multiplier: 20 },
+  { id: 'rainbow', name: 'Rainbow Variant', multiplier: 50 },
+  { id: 'shiny', name: 'Shiny Variant', multiplier: 3 },
 ];
 
 export const temperatureMutations: TemperatureMutation[] = [

@@ -53,14 +53,13 @@ export const MutationSelector: React.FC<MutationSelectorProps> = ({
             {growthMutations.map(mutation => (
               <button
                 key={mutation.id}
-                className={`mutation-option multiple text-center ${
+                className={`mutation-option multiple text-center py-1.5 px-0.5 ${
                   isGrowthSelected(mutation) ? 'selected' : ''
                 }`}
                 onClick={() => onGrowthMutationToggle(mutation)}
               >
-                <div className="text-xs">{mutation.name.toUpperCase()}</div>
-                <div className="text-xs opacity-75">
-                  ({mutation.multiplier}x)
+                <div className="text-[6px] leading-none whitespace-nowrap overflow-hidden text-ellipsis">
+                  {mutation.name.toUpperCase()} ({mutation.multiplier}x)
                 </div>
               </button>
             ))}
@@ -70,21 +69,22 @@ export const MutationSelector: React.FC<MutationSelectorProps> = ({
         {/* Temperature Mutations */}
         <div>
           <label className="block text-green-400 text-xs mb-2">MUTATIONS:</label>
-          <div className="grid grid-cols-2 gap-2">
-            {allTemperatureMutations.map((mutation: TemperatureMutation) => (
-              <button
-                key={mutation.id}
-                className={`mutation-option multiple text-center ${
-                  isTemperatureSelected(mutation) ? 'selected' : ''
-                }`}
-                onClick={() => onTemperatureMutationToggle(mutation)}
-              >
-                <div className="text-xs">{mutation.name.toUpperCase()}</div>
-                <div className="text-xs opacity-75">
-                  ({getMultiplierText(mutation)})
-                </div>
-              </button>
-            ))}
+          <div className="max-h-80 overflow-y-auto scrollbar-thin scrollbar-track-gray-800 scrollbar-thumb-green-600">
+            <div className="grid grid-cols-2 gap-2 pr-2">
+                              {allTemperatureMutations.map((mutation: TemperatureMutation) => (
+                  <button
+                    key={mutation.id}
+                    className={`mutation-option multiple text-center py-1.5 px-0.5 ${
+                      isTemperatureSelected(mutation) ? 'selected' : ''
+                    }`}
+                    onClick={() => onTemperatureMutationToggle(mutation)}
+                  >
+                    <div className="text-[7px] leading-none whitespace-nowrap overflow-hidden text-ellipsis">
+                      {mutation.name.toUpperCase()} ({getMultiplierText(mutation)})
+                    </div>
+                  </button>
+                ))}
+            </div>
           </div>
         </div>
         

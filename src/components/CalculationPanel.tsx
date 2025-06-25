@@ -26,29 +26,31 @@ export const CalculationPanel: React.FC<CalculationPanelProps> = ({
       </div>
       
       <div className="space-y-4">
-        <div>
-          <label className="block text-green-400 text-xs mb-2">WEIGHT:</label>
-          <input
-            type="number"
-            className="pixel-input w-full"
-            value={weight}
-            onChange={(e) => onWeightChange(Math.max(0, parseFloat(e.target.value) || 0))}
-            min="0"
-            step="0.1"
-            placeholder="0.0"
-          />
-        </div>
-        
-        <div>
-          <label className="block text-green-400 text-xs mb-2">QUANTITY:</label>
-          <input
-            type="number"
-            className="pixel-input w-full"
-            value={quantity}
-            onChange={(e) => onQuantityChange(Math.max(1, parseInt(e.target.value) || 1))}
-            min="1"
-            placeholder="1"
-          />
+        <div className="grid grid-cols-2 gap-4">
+          <div>
+            <label className="block text-green-400 text-xs mb-2">WEIGHT:</label>
+            <input
+              type="number"
+              className="pixel-input w-full"
+              value={weight}
+              onChange={(e) => onWeightChange(Math.max(0, parseFloat(e.target.value) || 0))}
+              min="0"
+              step="0.1"
+              placeholder="0.0"
+            />
+          </div>
+          
+          <div>
+            <label className="block text-green-400 text-xs mb-2">QUANTITY:</label>
+            <input
+              type="number"
+              className="pixel-input w-full"
+              value={quantity}
+              onChange={(e) => onQuantityChange(Math.max(1, parseInt(e.target.value) || 1))}
+              min="1"
+              placeholder="1"
+            />
+          </div>
         </div>
         
         <div>

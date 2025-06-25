@@ -20,7 +20,7 @@ export const PlantSelector: React.FC<PlantSelectorProps> = ({
     : plants.filter(plant => plant.category === selectedCategory);
 
   return (
-    <div className="pixel-card flex flex-col max-h-[1400px]">
+    <div className="pixel-card flex flex-col max-h-[1033px]">
       <div className="flex items-center mb-4 flex-shrink-0">
         <div className="w-2 h-2 bg-yellow-300 mr-2"></div>
         <h2 className="text-yellow-300 text-sm">SELECT PLANT</h2>

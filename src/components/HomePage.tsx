@@ -75,6 +75,11 @@ const FAQSection: React.FC = () => {
 };
 
 export const HomePage: React.FC = () => {
+  // Update page title for home page
+  useEffect(() => {
+    document.title = 'Grow a Garden Calculator.me';
+  }, []);
+
   const [state, setState] = useState<CalculationState>({
     selectedPlant: null,
     selectedCategory: 'All',
@@ -335,7 +340,7 @@ export const HomePage: React.FC = () => {
                   rel="noopener noreferrer"
                   className="text-green-400 py-3 px-4 rounded-lg font-semibold hover:text-green-300 transition-colors mb-3 inline-flex items-center"
                 >
-                  Play on Roblox ↗
+                  Play on Roblox
                 </a>
               </div>
             </div>

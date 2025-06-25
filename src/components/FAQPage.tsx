@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Navigation } from './Navigation';
 
@@ -73,6 +73,14 @@ const FAQSection: React.FC = () => {
 
 // FAQ Page Component
 export const FAQPage: React.FC = () => {
+  // Update page title for FAQ page
+  useEffect(() => {
+    document.title = 'FAQs - Grow a Garden Calculator | Roblox Fruit Value Calculator';
+    return () => {
+      document.title = 'Grow a Garden Calculator - Roblox Fruit Value Calculator';
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-gray-900">
       <Navigation />

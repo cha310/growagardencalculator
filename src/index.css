@@ -89,7 +89,7 @@
     box-shadow: 2px 2px 0px #1a5c1a;
   }
   
-  /* Plant Cards */
+  /* Plant Cards and Scrolling */
   .plant-grid {
     scrollbar-width: thin;
     scrollbar-color: #4CAF50 #374151;
@@ -106,6 +106,31 @@
   .plant-grid::-webkit-scrollbar-thumb {
     background: #4CAF50;
     border-radius: 0;
+  }
+  
+  /* Plant selection scroll container */
+  .overflow-y-auto {
+    scrollbar-width: thin;
+    scrollbar-color: #4CAF50 #374151;
+  }
+  
+  .overflow-y-auto::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .overflow-y-auto::-webkit-scrollbar-track {
+    background: #374151;
+    border-radius: 0;
+  }
+  
+  .overflow-y-auto::-webkit-scrollbar-thumb {
+    background: #4CAF50;
+    border-radius: 0;
+    border: 1px solid #2d5f2d;
+  }
+  
+  .overflow-y-auto::-webkit-scrollbar-thumb:hover {
+    background: #5CBF60;
   }
   
   .plant-card {

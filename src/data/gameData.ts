@@ -1,32 +1,38 @@
 import { Plant, GrowthMutation, TemperatureMutation, EnvironmentMutation } from '../types';
 
 export const plants: Plant[] = [
-  // Flowers
-  { id: 'rose', name: 'Rose', baseValue: 10, category: 'Flowers' },
-  { id: 'tulip', name: 'Tulip', baseValue: 8, category: 'Flowers' },
-  { id: 'lily', name: 'Lily', baseValue: 12, category: 'Flowers' },
-  { id: 'sunflower', name: 'Sunflower', baseValue: 15, category: 'Flowers' },
+  // Common Plants
+  { id: 'carrot', name: 'Carrot', baseValue: 20, category: 'Common', type: 'Vegetables' },
+  { id: 'strawberry', name: 'Strawberry', baseValue: 50, category: 'Common', type: 'Fruits' },
   
-  // Vegetables
-  { id: 'carrot', name: 'Carrot', baseValue: 5, category: 'Vegetables' },
-  { id: 'tomato', name: 'Tomato', baseValue: 7, category: 'Vegetables' },
-  { id: 'potato', name: 'Potato', baseValue: 6, category: 'Vegetables' },
-  { id: 'lettuce', name: 'Lettuce', baseValue: 4, category: 'Vegetables' },
+  // Uncommon Plants
+  { id: 'blueberry', name: 'Blueberry', baseValue: 400, category: 'Uncommon', type: 'Fruits' },
   
-  // Fruits
-  { id: 'apple', name: 'Apple', baseValue: 20, category: 'Fruits' },
-  { id: 'orange', name: 'Orange', baseValue: 18, category: 'Fruits' },
-  { id: 'banana', name: 'Banana', baseValue: 22, category: 'Fruits' },
-  { id: 'grape', name: 'Grape', baseValue: 25, category: 'Fruits' },
+  // Rare Plants
+  { id: 'tomato', name: 'Tomato', baseValue: 800, category: 'Rare', type: 'Vegetables' },
+  { id: 'cauliflower', name: 'Cauliflower', baseValue: 1300, category: 'Rare', type: 'Vegetables' },
+  { id: 'watermelon', name: 'Watermelon', baseValue: 2500, category: 'Rare', type: 'Fruits' },
   
-  // Trees
-  { id: 'oak', name: 'Oak Tree', baseValue: 100, category: 'Trees' },
-  { id: 'pine', name: 'Pine Tree', baseValue: 80, category: 'Trees' },
-  { id: 'maple', name: 'Maple Tree', baseValue: 120, category: 'Trees' },
-  { id: 'birch', name: 'Birch Tree', baseValue: 90, category: 'Trees' },
+  // Legendary Plants
+  { id: 'apple', name: 'Green Apple', baseValue: 3500, category: 'Legendary', type: 'Fruits' },
+  { id: 'avocado', name: 'Avocado', baseValue: 5000, category: 'Legendary', type: 'Fruits' },
+  { id: 'banana', name: 'Banana', baseValue: 7000, category: 'Legendary', type: 'Fruits' },
+  
+  // Mythical Plants
+  { id: 'pineapple', name: 'Pineapple', baseValue: 7500, category: 'Mythical', type: 'Fruits' },
+  { id: 'kiwi', name: 'Kiwi', baseValue: 10000, category: 'Mythical', type: 'Fruits' },
+  { id: 'bellpepper', name: 'Bell Pepper', baseValue: 55000, category: 'Mythical', type: 'Vegetables' },
+  { id: 'pricklypear', name: 'Prickly Pear', baseValue: 555000, category: 'Mythical', type: 'Fruits' },
+  
+  // Divine Plants
+  { id: 'loquat', name: 'Loquat', baseValue: 900000, category: 'Divine', type: 'Fruits' },
+  { id: 'feijoa', name: 'Feijoa', baseValue: 2750000, category: 'Divine', type: 'Fruits' },
+  
+  // Prismatic Plants
+  { id: 'sugarapple', name: 'Sugar Apple', baseValue: 25000000, category: 'Prismatic', type: 'Fruits' },
 ];
 
-export const categories = ['All', 'Flowers', 'Vegetables', 'Fruits', 'Trees'];
+export const categories = ['All', 'Common', 'Uncommon', 'Rare', 'Legendary', 'Mythical', 'Divine', 'Prismatic'];
 
 export const growthMutations: GrowthMutation[] = [
   { id: 'default', name: 'Default', multiplier: 1 },

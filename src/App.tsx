@@ -123,7 +123,7 @@ function App() {
         </div>
 
         {/* Main Grid Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:items-stretch min-h-[600px]">
+        <div className="grid grid-cols-1 lg:grid-cols-[65%_35%] gap-6 lg:items-stretch min-h-[600px]">
           {/* Left Column - Plant Selection Only */}
           <div>
             <PlantSelector

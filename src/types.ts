@@ -2,7 +2,8 @@ export interface Plant {
   id: string;
   name: string;
   baseValue: number;
-  category: string;
+  category: 'Common' | 'Uncommon' | 'Rare' | 'Legendary' | 'Mythical' | 'Divine' | 'Prismatic';
+  type: 'Flowers' | 'Vegetables' | 'Fruits' | 'Trees';
 }
 
 export interface GrowthMutation {

@@ -109,7 +109,7 @@
   }
   
   .plant-card {
-    @apply bg-gray-700 border-2 border-gray-600 p-1 cursor-pointer transition-all duration-100 flex flex-col items-center justify-center text-center;
+    @apply bg-gray-700 border-2 border-gray-600 p-1 cursor-pointer transition-all duration-100 text-center;
     box-shadow: 1px 1px 0px #333;
     min-height: 112px;
     max-height: 112px;

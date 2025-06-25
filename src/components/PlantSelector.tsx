@@ -55,15 +55,17 @@ export const PlantSelector: React.FC<PlantSelectorProps> = ({
             {filteredPlants.map(plant => (
               <button
                 key={plant.id}
-                className={`plant-card h-28 ${
+                className={`plant-card h-28 relative ${
                   selectedPlant?.id === plant.id ? 'selected' : ''
                 }`}
                 onClick={() => onPlantSelect(plant)}
               >
-                <div className="plant-icon flex-shrink-0">
-                  {getPlantIcon(plant.id, plant.type)}
+                <div className="flex flex-col items-center justify-center h-full">
+                  <div className="plant-icon flex-shrink-0 mb-2">
+                    {getPlantIcon(plant.id, plant.type)}
+                  </div>
                 </div>
-                <div className="plant-name mt-1" title={plant.name.toUpperCase()}>
+                <div className="plant-name absolute bottom-1 left-0 right-0 px-1" title={plant.name.toUpperCase()}>
                   {getDisplayName(plant.name)}
                 </div>
               </button>
@@ -93,7 +95,7 @@ const getPlantIcon = (plantId: string, plantType: string) => {
 
   // Use real image if available
   if (realImages[plantId]) {
-    return <img src={realImages[plantId]} alt={plantId} className="w-20 h-20 object-contain" />;
+    return <img src={realImages[plantId]} alt={plantId} className="w-22 h-22 object-contain" />;
   }
 
   // Fallback to emoji icons based on plant type

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { plants } from '../data/gameData';
 
 export const CropsPage: React.FC = () => {
@@ -180,8 +181,12 @@ export const CropsPage: React.FC = () => {
     return num.toString();
   };
 
-  return (
-    <div className="max-w-7xl mx-auto px-4 py-8">
+      return (
+      <div className="max-w-7xl mx-auto px-4 py-8">
+        <Helmet>
+          <title>Crops - Grow a Garden Calculator</title>
+          <meta name="description" content="Browse all crops in Grow a Garden - detailed information about seeds, prices, values, and shop categories for every plant in the game." />
+        </Helmet>
       {/* Breadcrumb */}
       <div className="mb-6">
         <nav className="flex items-center space-x-2 text-sm">

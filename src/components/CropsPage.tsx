@@ -133,7 +133,7 @@ export const CropsPage: React.FC = () => {
     weight: Math.round(plant.baseValue * 0.001 * 100) / 100, // 估算重量
     tier: plant.category,
     harvest: 'Multi', // 大部分植物都是Multi harvest
-    obtainable: 'YES',
+    obtainable: plant.obtainable === false ? 'NO' : 'YES',
     category: plant.shop || "Tom's Shop" // 使用商店信息，如果没有则默认为Tom's Shop
   }));
 
@@ -305,7 +305,7 @@ export const CropsPage: React.FC = () => {
                     <td className="p-3 text-gray-300 text-sm text-center">{formatNumber(crop.value)} / {crop.weight}</td>
                     <td className={`p-3 font-semibold text-sm text-center ${getTierColor(crop.tier)}`}>{crop.tier}</td>
                     <td className="p-3 text-gray-300 text-sm text-center">{crop.harvest === 'Single' ? '-' : 'Multi'}</td>
-                    <td className="p-3 text-green-400 font-semibold text-sm text-center">{crop.obtainable}</td>
+                    <td className={`p-3 font-semibold text-sm text-center ${crop.obtainable === 'YES' ? 'text-green-400' : 'text-red-400'}`}>{crop.obtainable}</td>
                   </tr>
                 ))}
               </tbody>
@@ -345,7 +345,7 @@ export const CropsPage: React.FC = () => {
                   </div>
                   <div className="flex justify-between">
                     <span className="text-gray-400">Obtainable:</span>
-                    <span className="text-green-400 font-semibold">{crop.obtainable}</span>
+                    <span className={`font-semibold ${crop.obtainable === 'YES' ? 'text-green-400' : 'text-red-400'}`}>{crop.obtainable}</span>
                   </div>
                 </div>
               </div>

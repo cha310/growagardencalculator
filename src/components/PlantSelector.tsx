@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Plant } from '../types';
 import { plants, categories } from '../data/gameData';
 
@@ -15,9 +15,22 @@ export const PlantSelector: React.FC<PlantSelectorProps> = ({
   onPlantSelect,
   onCategorySelect,
 }) => {
-  const filteredPlants = selectedCategory === 'All' 
-    ? plants 
-    : plants.filter(plant => plant.category === selectedCategory);
+  const [searchTerm, setSearchTerm] = useState('');
+
+  // Filter plants by category and search term
+  const filteredPlants = plants.filter(plant => {
+    const matchesCategory = selectedCategory === 'All' || plant.category === selectedCategory;
+    const matchesSearch = plant.name.toLowerCase().includes(searchTerm.toLowerCase());
+    return matchesCategory && matchesSearch;
+  });
+
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchTerm(e.target.value);
+  };
+
+  const clearSearch = () => {
+    setSearchTerm('');
+  };
 
   return (
     <div className="pixel-card flex flex-col max-h-[1033px]">
@@ -28,6 +41,28 @@ export const PlantSelector: React.FC<PlantSelectorProps> = ({
       </div>
       
       <div className="space-y-4 flex-1 flex flex-col min-h-0">
+        {/* Search Box */}
+        <div className="flex-shrink-0">
+          <label className="block text-green-400 text-xs mb-2">SEARCH:</label>
+          <div className="relative">
+            <input
+              type="text"
+              value={searchTerm}
+              onChange={handleSearchChange}
+              placeholder="Search for a plant…"
+              className="w-full px-3 py-2 bg-gray-800 border border-gray-600 rounded text-white text-sm placeholder-gray-400 focus:outline-none focus:border-green-400"
+            />
+            {searchTerm && (
+              <button
+                onClick={clearSearch}
+                className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-white text-lg"
+              >
+                ×
+              </button>
+            )}
+          </div>
+        </div>
+
         {/* Category Filter Buttons */}
         <div className="flex-shrink-0">
           <label className="block text-green-400 text-xs mb-2">CATEGORY:</label>
@@ -49,31 +84,42 @@ export const PlantSelector: React.FC<PlantSelectorProps> = ({
         {/* Plant Grid with Scrolling */}
         <div className="flex-1 flex flex-col min-h-0">
           <label className="block text-green-400 text-xs mb-2 flex-shrink-0">
-            PLANTS ({filteredPlants.length}):
+            PLANTS:
           </label>
           <div className="flex-1 overflow-y-auto min-h-0">
-            <div className="grid grid-cols-5 gap-2 plant-grid content-start pb-2">
-              {filteredPlants.map(plant => (
-                <button
-                  key={plant.id}
-                  className={`plant-card h-28 relative ${
-                    selectedPlant?.id === plant.id ? 'selected' : ''
-                  }`}
-                  onClick={() => onPlantSelect(plant)}
-                >
-                  <div className="flex flex-col items-center justify-center h-full">
-                    <div className="plant-icon flex-shrink-0 mb-2">
-                      {getPlantIcon(plant.id, plant.type)}
-                    </div>
+            {filteredPlants.length === 0 ? (
+              <div className="text-center text-gray-400 py-8">
+                <div className="text-sm">未找到匹配的植物</div>
+                {searchTerm && (
+                  <div className="text-xs mt-2">
+                    尝试搜索: "{searchTerm}"
                   </div>
-                  <div className="plant-name absolute bottom-0 left-0 right-0 px-1 py-1 h-8" title={plant.name.toUpperCase()}>
-                    <div className="text-center leading-tight whitespace-pre-line text-[7px] h-full flex items-end justify-center">
-                      {getDisplayName(plant.name)}
+                )}
+              </div>
+            ) : (
+              <div className="grid grid-cols-5 gap-2 plant-grid content-start pb-2">
+                {filteredPlants.map(plant => (
+                  <button
+                    key={plant.id}
+                    className={`plant-card h-28 relative ${
+                      selectedPlant?.id === plant.id ? 'selected' : ''
+                    }`}
+                    onClick={() => onPlantSelect(plant)}
+                  >
+                    <div className="flex flex-col items-center justify-center h-full">
+                      <div className="plant-icon flex-shrink-0 mb-2">
+                        {getPlantIcon(plant.id, plant.type)}
+                      </div>
                     </div>
-                  </div>
-                </button>
-              ))}
-            </div>
+                    <div className="plant-name absolute bottom-0 left-0 right-0 px-1 py-1 h-8" title={plant.name.toUpperCase()}>
+                      <div className="text-center leading-tight whitespace-pre-line text-[7px] h-full flex items-end justify-center">
+                        {getDisplayName(plant.name)}
+                      </div>
+                    </div>
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
         </div>
         

@@ -6,6 +6,11 @@ export const Navigation: React.FC = () => {
   const [showWikiDropdown, setShowWikiDropdown] = useState(false);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
+  // 统一的滚动到顶部函数
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   const handleMouseEnter = () => {
     if (timeoutRef.current) {
       clearTimeout(timeoutRef.current);
@@ -33,7 +38,7 @@ export const Navigation: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center space-x-8">
-            <Link to="/" className="flex items-center">
+            <Link to="/" className="flex items-center" onClick={scrollToTop}>
               <img 
                 src="/icons/growagardencalculator.svg" 
                 alt="Grow a Garden Calculator" 
@@ -48,6 +53,7 @@ export const Navigation: React.FC = () => {
                     ? 'text-yellow-300 border-b-2 border-yellow-300' 
                     : 'text-gray-300 hover:text-yellow-300'
                 }`}
+                onClick={scrollToTop}
               >
                 Home
               </Link>
@@ -57,12 +63,13 @@ export const Navigation: React.FC = () => {
                 onMouseLeave={handleMouseLeave}
               >
                 <Link 
-                  to="/wiki" 
+                  to="/grow-a-garden-wiki" 
                   className={`transition-colors px-3 py-2 text-sm flex items-center ${
-                    location.pathname === '/wiki' || location.pathname === '/crops'
+                    location.pathname === '/grow-a-garden-wiki' || location.pathname === '/grow-a-garden-wiki-crops'
                       ? 'text-yellow-300 border-b-2 border-yellow-300' 
                       : 'text-gray-300 hover:text-yellow-300'
                   }`}
+                  onClick={scrollToTop}
                 >
                   Wiki
                   <svg className="ml-1 w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
@@ -78,8 +85,9 @@ export const Navigation: React.FC = () => {
                     onMouseLeave={handleMouseLeave}
                   >
                     <Link 
-                      to="/crops" 
+                      to="/grow-a-garden-wiki-crops" 
                       className="block px-4 py-3 text-sm text-gray-300 hover:text-yellow-300 hover:bg-gray-700 transition-colors first:rounded-t-lg last:rounded-b-lg"
+                      onClick={scrollToTop}
                     >
                       🌱 Crops
                     </Link>
@@ -87,12 +95,13 @@ export const Navigation: React.FC = () => {
                 )}
               </div>
               <Link 
-                to="/faqs" 
+                to="/grow-a-garden-faqs" 
                 className={`transition-colors px-3 py-2 text-sm ${
-                  location.pathname === '/faqs' 
+                  location.pathname === '/grow-a-garden-faqs' 
                     ? 'text-yellow-300 border-b-2 border-yellow-300' 
                     : 'text-gray-300 hover:text-yellow-300'
                 }`}
+                onClick={scrollToTop}
               >
                 FAQs
               </Link>

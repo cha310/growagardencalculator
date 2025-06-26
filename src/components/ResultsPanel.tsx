@@ -54,11 +54,21 @@ export const ResultsPanel: React.FC<ResultsPanelProps> = ({ state, result, onRes
         <div className="text-center">
           <div className="text-2xl md:text-4xl font-bold text-yellow-300 mb-2 result-value break-all overflow-hidden px-2">
             {(() => {
-              if (result >= 1e12) return (result / 1e12).toFixed(2) + 'T';
-              if (result >= 1e9) return (result / 1e9).toFixed(2) + 'B';
-              if (result >= 1e6) return (result / 1e6).toFixed(2) + 'M';
-              if (result >= 1e3) return (result / 1e3).toFixed(2) + 'K';
-              return result.toFixed(2);
+              const fullNumber = result.toLocaleString('en-US', { 
+                minimumFractionDigits: 0, 
+                maximumFractionDigits: 2 
+              });
+              
+              // 检查完整数值的长度，如果太长则使用简化格式
+              // 估算字符宽度：大约每个字符占用0.6em，容器大约能容纳12-15个字符
+              if (fullNumber.length > 12) {
+                if (result >= 1e12) return (result / 1e12).toFixed(2) + 'T';
+                if (result >= 1e9) return (result / 1e9).toFixed(2) + 'B';
+                if (result >= 1e6) return (result / 1e6).toFixed(2) + 'M';
+                if (result >= 1e3) return (result / 1e3).toFixed(2) + 'K';
+              }
+              
+              return fullNumber;
             })()}
           </div>
           <div className="text-xs text-green-400">TOTAL VALUE</div>

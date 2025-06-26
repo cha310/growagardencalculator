@@ -6,7 +6,6 @@ import { PlantSelector } from './PlantSelector';
 import { MutationSelector } from './MutationSelector';
 import { CalculationPanel } from './CalculationPanel';
 import { ResultsPanel } from './ResultsPanel';
-import { Navigation } from './Navigation';
 
 // FAQ Component
 const AccordionFAQItem: React.FC<{ 
@@ -283,29 +282,12 @@ export const HomePage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-900">
-      <Navigation />
-      
-      {/* Decorative Corner Elements */}
-      <div className="fixed top-2 left-2 w-4 h-4 bg-yellow-300 z-10"></div>
-      <div className="fixed top-2 right-2 w-4 h-4 bg-yellow-300 z-10"></div>
-      <div className="fixed bottom-2 left-2 w-4 h-4 bg-yellow-300 z-10"></div>
-      <div className="fixed bottom-2 right-2 w-4 h-4 bg-yellow-300 z-10"></div>
-      
-      <div className="max-w-7xl mx-auto p-4">
+    <div className="min-h-screen bg-gray-800 text-white">
+      <div className="max-w-7xl mx-auto px-4 py-8">
         {/* Header */}
-        <div className="text-center mb-12 mt-8">
-          <h1 className="text-2xl md:text-4xl text-yellow-300 mb-2 py-4">
-            Grow a Garden Calculator
-          </h1>
-          <div className="text-sm text-green-400 mb-4">
-            Roblox · Grow a Garden Calculator: Maximize Garden Profits & Value
-          </div>
-          <div className="flex justify-center items-center mt-4">
-            <div className="w-8 h-1 bg-yellow-300 mr-2"></div>
-            <div className="w-2 h-2 bg-yellow-300"></div>
-            <div className="w-8 h-1 bg-yellow-300 ml-2"></div>
-          </div>
+        <div className="text-center mb-8">
+          <h1 className="text-4xl font-bold text-yellow-300 mb-2">Grow a Garden Calculator</h1>
+          <p className="text-gray-300 text-lg">Calculate your crop values and optimize your garden profits</p>
         </div>
 
         {/* Main Grid Layout */}
@@ -365,44 +347,6 @@ export const HomePage: React.FC = () => {
           </div>
           
           <FAQSection />
-        </div>
-
-        {/* Bottom Navigation */}
-        <div className="bg-gray-900 mt-8 py-6">
-          <div className="max-w-7xl mx-auto px-4">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
-              {/* Left - Domain/Brand */}
-              <div>
-                <h3 className="text-sm font-semibold text-yellow-300 mb-2">growagardencalculator.me</h3>
-                                <p className="text-xs text-gray-300 mb-3">
-                 Free tool for Roblox players to track prices, optimize harvests, and maximize profits.
-                 </p>
-              </div>
-
-              {/* Center - Quick Actions */}
-              <div className="text-center">
-                <h3 className="text-lg font-semibold text-yellow-300 mb-4">Quick Actions</h3>
-                <div className="space-y-3">
-                  <Link to="/faqs" className="text-green-400 py-2 px-4 rounded hover:text-green-300 transition-colors inline-block">
-                    📋 FAQs
-                  </Link>
-                </div>
-              </div>
-
-              {/* Right - Play Game */}
-              <div className="text-center md:text-right">
-                <h3 className="text-lg font-semibold text-yellow-300 mb-4">Play Grow a Garden</h3>
-                <a 
-                  href="https://www.roblox.com/games/126884695634066/Grow-a-Garden" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-green-400 py-3 px-4 rounded-lg font-semibold hover:text-green-300 transition-colors mb-3 inline-flex items-center"
-                >
-                  Play on Roblox
-                </a>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>

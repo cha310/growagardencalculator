@@ -107,11 +107,15 @@ export const HomePage: React.FC = () => {
     const friendMultiplier = 1 + state.friendBonus / 100;
     const growthMultiplier = state.growthMutations.reduce((product, mutation) => product * mutation.multiplier, 1);
 
+    // 计算基于重量比例的价值
+    const plantStandardWeight = state.selectedPlant.weight || 1;
+    const weightRatio = state.weight / plantStandardWeight;
+    
     const calculatedResult = 
       state.selectedPlant.baseValue *
+      weightRatio *
       growthMultiplier *
       bonusMultiplier *
-      state.weight *
       state.quantity *
       friendMultiplier;
 
@@ -119,7 +123,11 @@ export const HomePage: React.FC = () => {
   }, [state]);
 
   const handlePlantSelect = (plant: any) => {
-    setState(prev => ({ ...prev, selectedPlant: plant }));
+    setState(prev => ({ 
+      ...prev, 
+      selectedPlant: plant,
+      weight: plant?.weight || 1 // 自动设置植物重量，如果没有重量则默认为1
+    }));
   };
 
   const handleCategorySelect = (category: string) => {

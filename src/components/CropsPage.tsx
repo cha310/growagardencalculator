@@ -74,12 +74,9 @@ export const CropsPage: React.FC = () => {
           <h1 className="text-5xl font-bold text-white mb-4">
             Grow a Garden Crops
           </h1>
-          <div className="max-w-4xl mx-auto text-gray-300 text-lg leading-relaxed">
+          <div className="max-w-6xl mx-auto text-gray-300 text-base leading-relaxed">
             <p className="mb-4">
-              Hey, fellow gardeners! If you're diving into the colorful world of Grow a Garden on Roblox, you're probably wondering, "What are crops, and how do I make the most of them?" Well, buckle up, because crops are the heart and soul of this awesome gardening simulator!
-            </p>
-            <p>
-              Whether you're a newbie planting your first carrot or a seasoned farmer chasing those rare mutations, understanding crops is key to building a thriving, money-making garden. Let's break it down in true grower style, with all the tips you need to get your green thumb glowing!
+              Hey, fellow gardeners! If you're diving into the colorful world of Grow a Garden on Roblox, you're probably wondering, "What exactly are crops, and how can I maximize them?" Well, get ready—because crops are the lifeblood of this fantastic gardening sim! Whether you're a beginner sowing your first radish or a pro farmer hunting for those elusive mutations, mastering crops is the secret to cultivating a flourishing, profit-making paradise. Let’s dig into the dirt and uncover all the juicy tips you need to make your garden thrive! 🌱
             </p>
           </div>
         </div>
@@ -102,7 +99,7 @@ export const CropsPage: React.FC = () => {
 
         {/* Category Filter */}
         <div className="mb-8">
-          <h3 className="text-2xl font-bold text-white mb-4">Filter by Tier:</h3>
+          <h3 className="text-2xl font-bold text-white mb-4">All Crops in Grow a Garden </h3>
           <div className="flex flex-wrap gap-3">
             {categories.map(category => (
               <button

@@ -7,29 +7,66 @@ export const CropsPage: React.FC = () => {
 
   // 作物数据
   const crops = [
-    { name: 'Carrot', image: '/plant/carrot.png', price: { sheckle: 10, robux: 7 }, value: 18, weight: 0.24, tier: 'Common', harvest: 'Single', obtainable: 'YES' },
-    { name: 'Strawberry', image: '/plant/strawberry.png', price: { sheckle: 50, robux: 21 }, value: 14, weight: 0.29, tier: 'Common', harvest: 'Multi', obtainable: 'YES' },
-    { name: 'Blueberry', image: '/plant/blueberry.png', price: { sheckle: 400, robux: 49 }, value: 18, weight: 0.17, tier: 'Uncommon', harvest: 'Multi', obtainable: 'YES' },
-    { name: 'Tomato', image: '/plant/tomato.png', price: { sheckle: 800, robux: 79 }, value: 27, weight: 0.44, tier: 'Rare', harvest: 'Multi', obtainable: 'YES' },
-    { name: 'Cauliflower', image: '/plant/cauliflower.png', price: { sheckle: 1300, robux: 135 }, value: 36, weight: 4.74, tier: 'Rare', harvest: 'Multi', obtainable: 'YES' },
-    { name: 'Watermelon', image: '/plant/watermelon.png', price: { sheckle: 2500, robux: 195 }, value: 2708, weight: 7.3, tier: 'Rare', harvest: 'Single', obtainable: 'YES' },
-    { name: 'Green Apple', image: '/plant/green-apple.png', price: { sheckle: 3500, robux: 399 }, value: 271, weight: 2.85, tier: 'Legendary', harvest: 'Multi', obtainable: 'YES' },
-    { name: 'Avocado', image: '/plant/avocado.png', price: { sheckle: 5000, robux: 419 }, value: 91, weight: 3.32, tier: 'Legendary', harvest: 'Multi', obtainable: 'YES' },
-    { name: 'Banana', image: '/plant/banana.png', price: { sheckle: 7000, robux: 459 }, value: 1805, weight: 1.42, tier: 'Legendary', harvest: 'Multi', obtainable: 'YES' },
-    { name: 'Pineapple', image: '/plant/pineapple.png', price: { sheckle: 7500, robux: 475 }, value: 1805, weight: 2.85, tier: 'Mythical', harvest: 'Multi', obtainable: 'YES' },
-    { name: 'Kiwi', image: '/plant/kiwi.png', price: { sheckle: 10000, robux: 529 }, value: 2482, weight: 4.75, tier: 'Mythical', harvest: 'Multi', obtainable: 'YES' },
-    { name: 'Bell Pepper', image: '/plant/bell-pepper.png', price: { sheckle: 55000, robux: 589 }, value: 4964, weight: 7.61, tier: 'Mythical', harvest: 'Multi', obtainable: 'YES' },
-    { name: 'Prickly Pear', image: '/plant/prickly-pear.png', price: { sheckle: 555000, robux: 599 }, value: 6319, weight: 6.65, tier: 'Mythical', harvest: 'Multi', obtainable: 'YES' },
-    { name: 'Loquat', image: '/plant/loquat.png', price: { sheckle: 900000, robux: 629 }, value: 7220, weight: 6.17, tier: 'Divine', harvest: 'Multi', obtainable: 'YES' },
-    { name: 'Feijoa', image: '/plant/feijoa.png', price: { sheckle: 2750000, robux: 679 }, value: 11733, weight: 9.5, tier: 'Divine', harvest: 'Multi', obtainable: 'YES' },
-    { name: 'Sugar Apple', image: '/plant/sugar-apple.png', price: { sheckle: 25000000, robux: 819 }, value: 43320, weight: 8.55, tier: 'Prismatic', harvest: 'Multi', obtainable: 'YES' }
+    { name: 'Carrot', image: '/plant/carrot.png', price: { sheckle: 10, robux: 7 }, value: 18, weight: 0.24, tier: 'Common', harvest: 'Single', obtainable: 'YES', category: "Tom's Shop" },
+    { name: 'Strawberry', image: '/plant/strawberry.png', price: { sheckle: 50, robux: 21 }, value: 14, weight: 0.29, tier: 'Common', harvest: 'Multi', obtainable: 'YES', category: "Tom's Shop" },
+    { name: 'Blueberry', image: '/plant/blueberry.png', price: { sheckle: 400, robux: 49 }, value: 18, weight: 0.17, tier: 'Uncommon', harvest: 'Multi', obtainable: 'YES', category: "Tom's Shop" },
+    { name: 'Tomato', image: '/plant/tomato.png', price: { sheckle: 800, robux: 79 }, value: 27, weight: 0.44, tier: 'Rare', harvest: 'Multi', obtainable: 'YES', category: "Tom's Shop" },
+    { name: 'Cauliflower', image: '/plant/cauliflower.png', price: { sheckle: 1300, robux: 135 }, value: 36, weight: 4.74, tier: 'Rare', harvest: 'Multi', obtainable: 'YES', category: "Tom's Shop" },
+    { name: 'Watermelon', image: '/plant/watermelon.png', price: { sheckle: 2500, robux: 195 }, value: 2708, weight: 7.3, tier: 'Rare', harvest: 'Single', obtainable: 'YES', category: "Tom's Shop" },
+    { name: 'Green Apple', image: '/plant/green-apple.png', price: { sheckle: 3500, robux: 399 }, value: 271, weight: 2.85, tier: 'Legendary', harvest: 'Multi', obtainable: 'YES', category: "Tom's Shop" },
+    { name: 'Avocado', image: '/plant/avocado.png', price: { sheckle: 5000, robux: 419 }, value: 91, weight: 3.32, tier: 'Legendary', harvest: 'Multi', obtainable: 'YES', category: "Tom's Shop" },
+    { name: 'Banana', image: '/plant/banana.png', price: { sheckle: 7000, robux: 459 }, value: 1805, weight: 1.42, tier: 'Legendary', harvest: 'Multi', obtainable: 'YES', category: "Tom's Shop" },
+    { name: 'Pineapple', image: '/plant/pineapple.png', price: { sheckle: 7500, robux: 475 }, value: 1805, weight: 2.85, tier: 'Mythical', harvest: 'Multi', obtainable: 'YES', category: "Tom's Shop" },
+    { name: 'Kiwi', image: '/plant/kiwi.png', price: { sheckle: 10000, robux: 529 }, value: 2482, weight: 4.75, tier: 'Mythical', harvest: 'Multi', obtainable: 'YES', category: "Tom's Shop" },
+    { name: 'Bell Pepper', image: '/plant/bell-pepper.png', price: { sheckle: 55000, robux: 589 }, value: 4964, weight: 7.61, tier: 'Mythical', harvest: 'Multi', obtainable: 'YES', category: "Tom's Shop" },
+    { name: 'Prickly Pear', image: '/plant/prickly-pear.png', price: { sheckle: 555000, robux: 599 }, value: 6319, weight: 6.65, tier: 'Mythical', harvest: 'Multi', obtainable: 'YES', category: "Tom's Shop" },
+    { name: 'Loquat', image: '/plant/loquat.png', price: { sheckle: 900000, robux: 629 }, value: 7220, weight: 6.17, tier: 'Divine', harvest: 'Multi', obtainable: 'YES', category: "Tom's Shop" },
+    { name: 'Feijoa', image: '/plant/feijoa.png', price: { sheckle: 2750000, robux: 679 }, value: 11733, weight: 9.5, tier: 'Divine', harvest: 'Multi', obtainable: 'YES', category: "Tom's Shop" },
+    { name: 'Sugar Apple', image: '/plant/sugar-apple.png', price: { sheckle: 25000000, robux: 819 }, value: 43320, weight: 8.55, tier: 'Prismatic', harvest: 'Multi', obtainable: 'YES', category: "Tom's Shop" },
+    
+    // Queen Bee Shop
+    { name: 'Bee Balm', image: '/plant/bee-balm.png', price: { sheckle: 15000, robux: 299 }, value: 3500, weight: 2.1, tier: 'Mythical', harvest: 'Multi', obtainable: 'YES', category: 'Queen Bee Shop' },
+    { name: 'Hive Fruit', image: '/plant/hive-fruit.png', price: { sheckle: 75000, robux: 599 }, value: 8200, weight: 4.5, tier: 'Divine', harvest: 'Multi', obtainable: 'YES', category: 'Queen Bee Shop' },
+    
+    // Twilight Shop
+    { name: 'Moon Blossom', image: '/plant/moon-blossom.png', price: { sheckle: 25000, robux: 399 }, value: 4200, weight: 3.2, tier: 'Mythical', harvest: 'Multi', obtainable: 'YES', category: 'Twilight Shop' },
+    { name: 'Moon Mango', image: '/plant/moon-mango.png', price: { sheckle: 85000, robux: 699 }, value: 9500, weight: 5.8, tier: 'Divine', harvest: 'Multi', obtainable: 'YES', category: 'Twilight Shop' },
+    
+    // Blood Moon Shop
+    { name: 'Blood Banana', image: '/plant/blood-banana.png', price: { sheckle: 45000, robux: 499 }, value: 6500, weight: 3.8, tier: 'Mythical', harvest: 'Multi', obtainable: 'YES', category: 'Blood Moon Shop' },
+    
+    // Flower Seed
+    { name: 'Rose', image: '/plant/rose.png', price: { sheckle: 5000, robux: 199 }, value: 850, weight: 1.2, tier: 'Legendary', harvest: 'Multi', obtainable: 'YES', category: 'Flower Seed' },
+    { name: 'Sunflower', image: '/plant/sunflower.png', price: { sheckle: 8000, robux: 249 }, value: 1200, weight: 2.5, tier: 'Legendary', harvest: 'Multi', obtainable: 'YES', category: 'Flower Seed' },
+    
+    // Summer Seed
+    { name: 'Cantaloupe', image: '/plant/cantaloupe.png', price: { sheckle: 12000, robux: 299 }, value: 2100, weight: 6.2, tier: 'Mythical', harvest: 'Single', obtainable: 'YES', category: 'Summer Seed' },
+    
+    // Easter Event 2025
+    { name: 'Easter Egg', image: '/plant/easter-egg.png', price: { sheckle: 50000, robux: 0 }, value: 7500, weight: 1.8, tier: 'Divine', harvest: 'Single', obtainable: 'YES', category: 'Easter Event 2025' }
   ];
 
-  const categories = ['All', 'Common', 'Uncommon', 'Rare', 'Legendary', 'Mythical', 'Divine', 'Prismatic'];
+  const categories = [
+    'All',
+    "Tom's Shop", 
+    'Queen Bee Shop', 
+    'Twilight Shop', 
+    'Blood Moon Shop', 
+    'Crafters Seed', 
+    'Summer Seed', 
+    'Flower Seed', 
+    'Exotic Seed', 
+    'Normal Seed', 
+    'Lunar Glow Event', 
+    'Angry Plant Event', 
+    'Easter Event 2025', 
+    "Bizzy Bear's Crafting Station", 
+    'Uncategorized'
+  ];
 
   const filteredCrops = selectedCategory === 'All' 
     ? crops 
-    : crops.filter(crop => crop.tier === selectedCategory);
+    : crops.filter(crop => crop.category === selectedCategory);
 
   const getTierColor = (tier: string) => {
     const colors = {
@@ -98,62 +135,86 @@ export const CropsPage: React.FC = () => {
         </div>
 
         {/* Category Filter */}
-        <div className="mb-8">
-          <h3 className="text-2xl font-bold text-white mb-4">All Crops in Grow a Garden </h3>
-          <div className="flex flex-wrap gap-3">
-            {categories.map(category => (
-              <button
-                key={category}
-                onClick={() => setSelectedCategory(category)}
-                className={`px-4 py-2 rounded-lg transition-all duration-300 ${
-                  selectedCategory === category
-                    ? 'bg-yellow-300 text-gray-900 font-semibold'
-                    : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
-                }`}
-              >
-                {category}
-              </button>
-            ))}
+                  <div className="mb-8">
+            <h3 className="text-2xl font-bold text-white mb-4">All Crops in Grow a Garden </h3>
+            {/* 横向滚动标签页 */}
+            <div className="relative">
+              <div className="overflow-x-auto scrollbar-hide">
+                <div className="flex gap-1 pb-1 min-w-max border-b border-gray-600">
+                  {categories.map(category => (
+                    <button
+                      key={category}
+                      onClick={() => setSelectedCategory(category)}
+                      className={`px-4 py-3 transition-all duration-300 text-sm whitespace-nowrap flex-shrink-0 relative ${
+                        selectedCategory === category
+                          ? 'text-yellow-300 font-semibold'
+                          : 'text-gray-400 hover:text-gray-300'
+                      }`}
+                    >
+                      {category}
+                      {selectedCategory === category && (
+                        <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-yellow-300"></div>
+                      )}
+                    </button>
+                  ))}
+                </div>
+              </div>
+              {/* 滚动指示器 */}
+              <div className="absolute right-0 top-0 bottom-1 w-8 bg-gradient-to-l from-gray-900 to-transparent pointer-events-none"></div>
+            </div>
           </div>
-        </div>
 
         {/* All Crops Section */}
-        <div className="bg-gray-800/80 backdrop-blur-sm rounded-xl p-8 border border-gray-700 mb-12">
-          <h2 className="text-3xl font-bold text-white mb-6">All Crops in Grow a Garden</h2>
+        <div className="bg-gray-800/80 backdrop-blur-sm rounded-xl px-8 pt-1 pb-8 border border-gray-700 mb-12">
           
           {/* Desktop Table */}
-          <div className="hidden lg:block overflow-x-auto">
-            <table className="w-full text-left">
+          <div className="hidden lg:block">
+            <table className="w-full text-left table-fixed">
+              <colgroup>
+                <col className="w-20" />
+                <col className="w-32" />
+                <col className="w-32" />
+                <col className="w-32" />
+                <col className="w-24" />
+                <col className="w-20" />
+                <col className="w-24" />
+              </colgroup>
               <thead>
                 <tr className="border-b border-gray-600">
-                  <th className="p-4 text-yellow-300 font-semibold">Image</th>
-                  <th className="p-4 text-yellow-300 font-semibold">Name</th>
-                  <th className="p-4 text-yellow-300 font-semibold">Price (Sheckle / Robux)</th>
-                  <th className="p-4 text-yellow-300 font-semibold">Min Value / Weight(kg)</th>
-                  <th className="p-4 text-yellow-300 font-semibold">Tier</th>
-                  <th className="p-4 text-yellow-300 font-semibold">Harvest</th>
-                  <th className="p-4 text-yellow-300 font-semibold">Obtainable</th>
+                  <th className="p-3 text-yellow-300 font-semibold text-xs text-center">Image</th>
+                  <th className="p-3 text-yellow-300 font-semibold text-xs">Name</th>
+                  <th className="p-3 text-yellow-300 font-semibold text-xs text-center">
+                    <div>Price</div>
+                    <div>(Sheckle / Robux)</div>
+                  </th>
+                  <th className="p-3 text-yellow-300 font-semibold text-xs text-center">
+                    <div>Min Value /</div>
+                    <div>Weight(kg)</div>
+                  </th>
+                  <th className="p-3 text-yellow-300 font-semibold text-xs text-center">Tier</th>
+                  <th className="p-3 text-yellow-300 font-semibold text-xs text-center">Harvest</th>
+                  <th className="p-3 text-yellow-300 font-semibold text-xs text-center">Obtainable</th>
                 </tr>
               </thead>
               <tbody>
                 {filteredCrops.map((crop, index) => (
                   <tr key={index} className="border-b border-gray-700 hover:bg-gray-700/50 transition-colors">
-                    <td className="p-4">
+                    <td className="p-3 text-center">
                       <img 
                         src={crop.image} 
                         alt={crop.name} 
-                        className="w-12 h-12 object-contain rounded-lg"
+                        className="w-12 h-12 object-contain rounded-lg mx-auto"
                         onError={(e) => {
                           (e.target as HTMLImageElement).src = '/plant/currency-0.png';
                         }}
                       />
                     </td>
-                    <td className="p-4 text-white font-semibold">{crop.name}</td>
-                    <td className="p-4 text-gray-300">{formatNumber(crop.price.sheckle)} / {crop.price.robux}</td>
-                    <td className="p-4 text-gray-300">{formatNumber(crop.value)} / {crop.weight}</td>
-                    <td className={`p-4 font-semibold ${getTierColor(crop.tier)}`}>{crop.tier}</td>
-                    <td className="p-4 text-gray-300">{crop.harvest === 'Single' ? '-' : 'Multi'}</td>
-                    <td className="p-4 text-green-400 font-semibold">{crop.obtainable}</td>
+                    <td className="p-3 text-white font-semibold text-sm">{crop.name}</td>
+                    <td className="p-3 text-gray-300 text-sm text-center">{formatNumber(crop.price.sheckle)} / {crop.price.robux}</td>
+                    <td className="p-3 text-gray-300 text-sm text-center">{formatNumber(crop.value)} / {crop.weight}</td>
+                    <td className={`p-3 font-semibold text-sm text-center ${getTierColor(crop.tier)}`}>{crop.tier}</td>
+                    <td className="p-3 text-gray-300 text-sm text-center">{crop.harvest === 'Single' ? '-' : 'Multi'}</td>
+                    <td className="p-3 text-green-400 font-semibold text-sm text-center">{crop.obtainable}</td>
                   </tr>
                 ))}
               </tbody>

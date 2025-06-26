@@ -181,4 +181,20 @@
     @apply bg-gray-900 border-2 border-green-700 p-2;
     box-shadow: inset 2px 2px 0px #000;
   }
+
+  /* 隐藏滚动条但保持滚动功能 */
+  .scrollbar-hide {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE 10+ */
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none; /* Chrome Safari */
+  }
+
+  /* 超小字体用于表头 */
+  .text-2xs {
+    font-size: 10px;
+    line-height: 12px;
+  }
 }

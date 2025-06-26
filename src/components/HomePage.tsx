@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { CalculationState } from '../types';
-import { growthMutations, temperatureMutations } from '../data/gameData';
+import { growthMutations, temperatureMutations, environmentMutations } from '../data/gameData';
 import { PlantSelector } from './PlantSelector';
 import { MutationSelector } from './MutationSelector';
 import { CalculationPanel } from './CalculationPanel';
@@ -233,6 +233,55 @@ export const HomePage: React.FC = () => {
     });
   };
 
+  const handleMaxMutation = () => {
+    // 检查当前是否已经是最大变异状态
+    const hasRainbowAndShiny = state.growthMutations.some(m => m.id === 'rainbow') && 
+                              state.growthMutations.some(m => m.id === 'shiny');
+    const excludedMutations = ['chilled', 'wet', 'pollinated'];
+    const expectedTemperatureCount = temperatureMutations.filter(m => !excludedMutations.includes(m.id)).length;
+    
+    const isCurrentlyMaxed = 
+      hasRainbowAndShiny &&
+      state.temperatureMutations.length === expectedTemperatureCount &&
+      state.environmentMutations.length === environmentMutations.length &&
+      state.friendBonus === 100;
+
+    if (isCurrentlyMaxed) {
+      // 如果已经是最大状态，则重置到默认状态
+      setState(prev => ({
+        ...prev,
+        growthMutations: [growthMutations[0]], // 默认
+        temperatureMutations: [],
+        environmentMutations: [],
+        friendBonus: 0,
+      }));
+    } else {
+            // 设置为最大变异状态
+      
+      // Growth/Variants: 选择 Rainbow Variant 和 Shiny Variant
+      const rainbowVariant = growthMutations.find(m => m.id === 'rainbow');
+      const shinyVariant = growthMutations.find(m => m.id === 'shiny');
+      const selectedGrowthMutations = [rainbowVariant, shinyVariant].filter((mutation): mutation is any => Boolean(mutation));
+      
+      // Temperature/Mutations: 选择除了 chilled、wet、pollinated 之外的所有选项
+      const excludedMutations = ['chilled', 'wet', 'pollinated'];
+      const selectedTemperatureMutations = temperatureMutations.filter(m => 
+        !excludedMutations.includes(m.id)
+      );
+      
+      // Environment: 选择所有环境变异（没有互斥关系）
+      const allEnvironmentMutations = [...environmentMutations];
+      
+      setState(prev => ({
+        ...prev,
+        growthMutations: selectedGrowthMutations,
+        temperatureMutations: selectedTemperatureMutations,
+        environmentMutations: allEnvironmentMutations,
+        friendBonus: 100, // 设置最大朋友加成
+      }));
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gray-900">
       <Navigation />
@@ -295,6 +344,7 @@ export const HomePage: React.FC = () => {
               state={state}
               result={result}
               onReset={handleReset}
+              onMaxMutation={handleMaxMutation}
             />
           </div>
         </div>

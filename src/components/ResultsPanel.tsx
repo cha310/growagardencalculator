@@ -5,9 +5,10 @@ interface ResultsPanelProps {
   state: CalculationState;
   result: number;
   onReset: () => void;
+  onMaxMutation?: () => void;
 }
 
-export const ResultsPanel: React.FC<ResultsPanelProps> = ({ state, result, onReset }) => {
+export const ResultsPanel: React.FC<ResultsPanelProps> = ({ state, result, onReset, onMaxMutation }) => {
   const { selectedPlant, growthMutations, temperatureMutations, environmentMutations, weight, quantity, friendBonus } = state;
   
   const environmentBonus = environmentMutations.reduce((sum, mutation) => sum + mutation.bonus, 0);
@@ -15,6 +16,15 @@ export const ResultsPanel: React.FC<ResultsPanelProps> = ({ state, result, onRes
   const growthMultiplier = growthMutations.reduce((product, mutation) => product * mutation.multiplier, 1);
   const totalMultiplier = 1 + (temperatureBonus + environmentBonus) / 100;
   const friendMultiplier = 1 + friendBonus / 100;
+  
+  // 检查是否已启用最大变异
+  const hasRainbowAndShiny = growthMutations.some(m => m.id === 'rainbow') && 
+                            growthMutations.some(m => m.id === 'shiny');
+  const isMaxMutationActive = 
+    hasRainbowAndShiny &&
+    temperatureMutations.length > 0 &&
+    environmentMutations.length > 0 &&
+    friendBonus === 100;
   
   if (!selectedPlant) {
     return (
@@ -42,8 +52,14 @@ export const ResultsPanel: React.FC<ResultsPanelProps> = ({ state, result, onRes
       
       <div className="space-y-4">
         <div className="text-center">
-          <div className="text-4xl font-bold text-yellow-300 mb-2 result-value">
-            {result.toFixed(2)}
+          <div className="text-2xl md:text-4xl font-bold text-yellow-300 mb-2 result-value break-all overflow-hidden px-2">
+            {(() => {
+              if (result >= 1e12) return (result / 1e12).toFixed(2) + 'T';
+              if (result >= 1e9) return (result / 1e9).toFixed(2) + 'B';
+              if (result >= 1e6) return (result / 1e6).toFixed(2) + 'M';
+              if (result >= 1e3) return (result / 1e3).toFixed(2) + 'K';
+              return result.toFixed(2);
+            })()}
           </div>
           <div className="text-xs text-green-400">TOTAL VALUE</div>
         </div>
@@ -93,12 +109,34 @@ export const ResultsPanel: React.FC<ResultsPanelProps> = ({ state, result, onRes
           <div>Base × Growth × (1 + Bonuses%) × Weight × Quantity × (1 + Friend%)</div>
         </div>
         
-        <button
-          className="pixel-button w-full mt-4"
-          onClick={onReset}
-        >
-          RESET ALL
-        </button>
+        <div className="flex items-center justify-between gap-3 mt-4">
+          {onMaxMutation && (
+            <div className="flex items-center gap-2">
+              <button
+                className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none ${
+                  isMaxMutationActive 
+                    ? 'bg-green-600' 
+                    : 'bg-gray-600'
+                }`}
+                onClick={onMaxMutation}
+              >
+                <span
+                  className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
+                    isMaxMutationActive ? 'translate-x-6' : 'translate-x-1'
+                  }`}
+                />
+              </button>
+              <span className="text-xs text-gray-300">MAX MUTATION</span>
+            </div>
+          )}
+          
+          <button
+            className="pixel-button flex-1"
+            onClick={onReset}
+          >
+            RESET ALL
+          </button>
+        </div>
       </div>
     </div>
   );

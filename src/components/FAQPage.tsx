@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
 
 // FAQ Item Component
 const AccordionFAQItem: React.FC<{ 
@@ -71,50 +70,36 @@ const FAQSection: React.FC = () => {
 
 // FAQ Page Component
 export const FAQPage: React.FC = () => {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
-
-  const faqs = [
-    // ... existing FAQ data ...
-  ];
-
-  // 确保页面标题被正确设置
+  // Update page title for FAQ page
   useEffect(() => {
-    document.title = 'FAQs - Grow a Garden Calculator';
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute('content', 'Frequently asked questions about the Grow a Garden Calculator - get answers to common questions about plant values, mutations, and optimization strategies.');
-    }
+    document.title = 'FAQs - Grow a Garden Calculator | Roblox Fruit Value Calculator';
+    return () => {
+      document.title = 'Grow a Garden Calculator - Roblox Fruit Value Calculator';
+    };
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-800 text-white">
-      <Helmet>
-        <title>FAQs - Grow a Garden Calculator</title>
-        <meta name="description" content="Frequently asked questions about the Grow a Garden Calculator - get answers to common questions about plant values, mutations, and optimization strategies." />
-      </Helmet>
-      
-      <div className="max-w-7xl mx-auto px-4 py-12">
-        {/* Header */}
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-yellow-300 mb-4">Frequently Asked Questions</h1>
-          <p className="text-gray-300 text-lg">Get answers to common questions about the Grow a Garden Calculator</p>
-        </div>
+    <div className="max-w-7xl mx-auto px-4 py-12">
+      {/* Header */}
+      <div className="text-center mb-12">
+        <h1 className="text-4xl font-bold text-yellow-300 mb-4">Frequently Asked Questions</h1>
+        <p className="text-gray-300 text-lg">Get answers to common questions about the Grow a Garden Calculator</p>
+      </div>
 
-        {/* FAQ Content */}
-        <div className="mb-12">
-          <FAQSection />
-        </div>
+      {/* FAQ Content */}
+      <div className="mb-12">
+        <FAQSection />
+      </div>
 
-        {/* Back to Calculator */}
-        <div className="text-center">
-          <Link 
-            to="/" 
-            className="bg-green-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-green-700 transition-colors inline-flex items-center"
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          >
-            ← Back to Calculator
-          </Link>
-        </div>
+      {/* Back to Calculator */}
+      <div className="text-center">
+        <Link 
+          to="/" 
+          className="bg-green-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-green-700 transition-colors inline-flex items-center"
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        >
+          ← Back to Calculator
+        </Link>
       </div>
     </div>
   );

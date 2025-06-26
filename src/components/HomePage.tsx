@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
 import { CalculationState } from '../types';
 import { growthMutations, temperatureMutations, environmentMutations } from '../data/gameData';
 import { PlantSelector } from './PlantSelector';
@@ -18,17 +17,17 @@ const AccordionFAQItem: React.FC<{
   return (
     <div className="border-b border-gray-700">
       <button
-        className="w-full text-left py-6 px-6 flex justify-between items-center hover:bg-gray-800 transition-colors"
+        className="w-full text-left py-4 px-2 flex justify-between items-center hover:bg-gray-800 transition-colors"
         onClick={onToggle}
       >
-        <h3 className="text-green-400 text-lg font-semibold pr-4">{question}</h3>
+        <h3 className="text-green-400 text-sm font-semibold pr-4">{question}</h3>
         <span className="text-yellow-300 text-lg flex-shrink-0">
           {isOpen ? '−' : '+'}
         </span>
       </button>
       {isOpen && (
-        <div className="pb-6 px-6">
-          <p className="text-gray-300 text-base leading-relaxed">{answer}</p>
+        <div className="pb-4 px-2">
+          <p className="text-gray-300 text-sm leading-relaxed">{answer}</p>
         </div>
       )}
     </div>
@@ -36,7 +35,7 @@ const AccordionFAQItem: React.FC<{
 };
 
 const FAQSection: React.FC = () => {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [openIndex, setOpenIndex] = useState<number | null>(null); // 手风琴交互：一次只能打开一个
 
   const faqs = [
     {
@@ -59,7 +58,7 @@ const FAQSection: React.FC = () => {
 
   return (
     <div className="max-w-4xl mx-auto">
-      <div className="bg-gray-800 rounded-lg overflow-hidden shadow-lg border border-gray-600">
+      <div className="bg-gray-800 rounded-lg overflow-hidden">
         {faqs.map((faq, index) => (
           <AccordionFAQItem 
             key={index} 
@@ -75,6 +74,11 @@ const FAQSection: React.FC = () => {
 };
 
 export const HomePage: React.FC = () => {
+  // Update page title for home page
+  useEffect(() => {
+    document.title = 'Grow a Garden Calculator.me';
+  }, []);
+
   const [state, setState] = useState<CalculationState>({
     selectedPlant: null,
     selectedCategory: 'All',
@@ -87,16 +91,6 @@ export const HomePage: React.FC = () => {
   });
 
   const [result, setResult] = useState<number>(0);
-
-  // 确保页面标题被正确设置
-  useEffect(() => {
-    document.title = 'Grow a Garden Calculator - Roblox Fruit Value Calculator';
-    // 添加或更新meta description
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute('content', 'Calculate your Grow A Garden crop values precisely, optimize your planting strategy, and maximize your profits.');
-    }
-  }, []);
 
   // Calculate result whenever state changes
   useEffect(() => {
@@ -289,11 +283,6 @@ export const HomePage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gray-800 text-white">
-      <Helmet>
-        <title>Grow a Garden Calculator - Roblox Fruit Value Calculator</title>
-        <meta name="description" content="Calculate your Grow A Garden crop values precisely, optimize your planting strategy, and maximize your profits." />
-      </Helmet>
-      
       <div className="max-w-7xl mx-auto px-4 py-8">
         {/* Header */}
         <div className="text-center mb-8">
@@ -341,7 +330,7 @@ export const HomePage: React.FC = () => {
             />
           </div>
         </div>
-
+        
         {/* Footer */}
         <div className="text-center mt-12 mb-4">
           <div className="flex justify-center items-center">

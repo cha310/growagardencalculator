@@ -65,7 +65,7 @@ export const Navigation: React.FC = () => {
                 <Link 
                   to="/grow-a-garden-wiki" 
                   className={`transition-colors px-3 py-2 text-sm flex items-center ${
-                    location.pathname === '/grow-a-garden-wiki' || location.pathname === '/grow-a-garden-wiki-crops'
+                    location.pathname === '/grow-a-garden-wiki' || location.pathname === '/grow-a-garden-wiki-crops' || location.pathname === '/grow-a-garden-wiki-pets'
                       ? 'text-yellow-300 border-b-2 border-yellow-300' 
                       : 'text-gray-300 hover:text-yellow-300'
                   }`}
@@ -86,10 +86,17 @@ export const Navigation: React.FC = () => {
                   >
                     <Link 
                       to="/grow-a-garden-wiki-crops" 
-                      className="block px-4 py-3 text-sm text-gray-300 hover:text-yellow-300 hover:bg-gray-700 transition-colors first:rounded-t-lg last:rounded-b-lg"
+                      className="block px-4 py-3 text-sm text-gray-300 hover:text-yellow-300 hover:bg-gray-700 transition-colors first:rounded-t-lg"
                       onClick={scrollToTop}
                     >
                       🌱 Crops
+                    </Link>
+                    <Link 
+                      to="/grow-a-garden-wiki-pets" 
+                      className="block px-4 py-3 text-sm text-gray-300 hover:text-yellow-300 hover:bg-gray-700 transition-colors last:rounded-b-lg"
+                      onClick={scrollToTop}
+                    >
+                      🐾 Pets
                     </Link>
                   </div>
                 )}

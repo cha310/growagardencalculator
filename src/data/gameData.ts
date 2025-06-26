@@ -1,4 +1,4 @@
-import { Plant, GrowthMutation, TemperatureMutation, EnvironmentMutation } from '../types';
+import { Plant, GrowthMutation, TemperatureMutation, EnvironmentMutation, Pet } from '../types';
 
 export const plants: Plant[] = [
   // Common Plants
@@ -151,4 +151,78 @@ export const environmentMutations: EnvironmentMutation[] = [
   { id: 'blessed', name: 'Blessed', bonus: 25 },
   { id: 'cursed', name: 'Cursed', bonus: -10 },
   { id: 'magical', name: 'Magical', bonus: 75 },
+];
+
+export const pets: Pet[] = [
+  // Common Pets
+  { id: 'starfish', name: 'Starfish', trait: 'Gains an additional 5.85 XP per second, with the amount increasing as the pet ages.', tier: 'Common', obtainable: true, image: '/pet/Starfish.webp' },
+  { id: 'crab', name: 'Crab', trait: 'Occasionally travels to another player\'s garden, pinches them, and grants the owner a small amount of Sheckles.', tier: 'Common', obtainable: true, image: '/pet/Crab.webp' },
+  { id: 'seagull', name: 'Seagull', trait: 'Provides a chance for shoveling a plant to drop its equivalent seed. This ability does not work on fruits.', tier: 'Common', obtainable: true, image: '/pet/Seagull.webp' },
+  { id: 'bunny', name: 'Bunny', trait: 'Every 40 seconds, it eats a carrot or chocolate carrot from the garden, automatically selling it for 1.5 times its value.', tier: 'Common', obtainable: true, image: '/pet/Bunny.webp' },
+  { id: 'dog', name: 'Dog', trait: 'Every 60 seconds, it has a 5% chance to dig up a random seed from the Seed Shop.', tier: 'Common', obtainable: true, image: '/pet/Dog.webp' },
+  { id: 'golden-lab', name: 'Golden Lab', trait: 'Every 60 seconds, it has a 10% chance to dig up a random seed from the Seed Shop.', tier: 'Common', obtainable: true, image: '/pet/Golden-Lab.webp' },
+
+  // Uncommon Pets
+  { id: 'bee', name: 'Bee', trait: 'Approximately every 25 minutes, it flies to a nearby fruit and applies the \'Pollinated\' mutation.', tier: 'Uncommon', obtainable: true, image: '/pet/Bee.webp' },
+  { id: 'black-bunny', name: 'Black Bunny', trait: 'Every 40 seconds, it finds and eats a carrot or chocolate carrot from the garden, automatically selling it for 1.5 times its value.', tier: 'Uncommon', obtainable: true, image: '/pet/Black-Bunny.webp' },
+  { id: 'cat', name: 'Cat', trait: 'Every 80 seconds, it naps for 10 seconds, causing new fruit within a 10-stud radius to grow 1.25 times larger.', tier: 'Uncommon', obtainable: true, image: '/pet/Cat.webp' },
+  { id: 'chicken', name: 'Chicken', trait: 'Passively increases the hatch speed of all eggs by approximately 10%.', tier: 'Uncommon', obtainable: true, image: '/pet/Chicken.webp' },
+  { id: 'deer', name: 'Deer', trait: 'Provides a 3% chance for harvested berry plants to replant themselves automatically.', tier: 'Uncommon', obtainable: true, image: '/pet/Deer.webp' },
+
+  // Rare Pets
+  { id: 'monkey', name: 'Monkey', trait: 'Grants an approximate 2.5% chance to refund a fruit to your inventory upon selling, with a lower chance for rarer fruits.', tier: 'Rare', obtainable: true, image: '/pet/Monkey.webp' },
+  { id: 'orange-tabby', name: 'Orange Tabby', trait: 'Every 90 seconds, it naps for 15 seconds, causing new fruit within a 15-stud radius to grow 1.5 times larger.', tier: 'Rare', obtainable: true, image: '/pet/Orange-Tabby.webp' },
+  { id: 'pig', name: 'Pig', trait: 'Every 118 seconds, it emits a 15-second aura that grants plants within 15 studs a 2x chance to grow mutated fruits.', tier: 'Rare', obtainable: true, image: '/pet/Pig.webp' },
+  { id: 'rooster', name: 'Rooster', trait: 'Passively increases the hatch speed of all eggs by approximately 20%.', tier: 'Rare', obtainable: true, image: '/pet/Rooster.webp' },
+  { id: 'spotted-deer', name: 'Spotted Deer', trait: 'Provides a 5% chance for berry plants to remain after being harvested instead of disappearing.', tier: 'Rare', obtainable: true, image: '/pet/Spotted-Deer.webp' },
+  { id: 'flamingo', name: 'Flamingo', trait: 'Every 4 minutes, it stands on one leg for 15 seconds, causing all plants and crops within a 13-stud radius to grow 15 times faster.', tier: 'Rare', obtainable: true, image: '/pet/Flamingo.webp' },
+  { id: 'toucan', name: 'Toucan', trait: 'Grants all tropical-type plants within a 25.77-stud radius a 1.7x size bonus and a 1.18x variant chance bonus.', tier: 'Rare', obtainable: true, image: '/pet/Toucan.webp' },
+  { id: 'sea-turtle', name: 'Sea Turtle', trait: 'Every 10 minutes, grants 1000 bonus XP to a random active pet. Every 118 seconds, it has a 10% chance to apply the \'Wet\' mutation to a nearby fruit.', tier: 'Rare', obtainable: true, image: '/pet/Sea-Turtle.webp' },
+  { id: 'orangutan', name: 'Orangutan', trait: 'When crafting, each material used has a 3.49% chance of not being consumed in the process.', tier: 'Rare', obtainable: true, image: '/pet/Orangutan.webp' },
+  { id: 'seal', name: 'Seal', trait: 'When selling a pet, there is a 2.42% chance to receive its corresponding egg back.', tier: 'Rare', obtainable: true, image: '/pet/Seal.webp' },
+  { id: 'honey-bee', name: 'Honey Bee', trait: 'Approximately every 20 minutes, it applies the \'Pollinated\' mutation to a nearby fruit.', tier: 'Rare', obtainable: true, image: '/pet/Honey-Bee.webp' },
+  { id: 'wasp', name: 'Wasp', trait: 'Every 30 minutes it pollinates a fruit, and every 10 minutes it stings a random pet to advance its ability cooldown by 60 seconds.', tier: 'Rare', obtainable: true, image: '/pet/Wasp.webp' },
+  { id: 'hedgehog', name: 'Hedgehog', trait: 'Occasionally grants a size bonus of approximately 1.5x to prickly fruits such as Cactus, Durian, and Pineapple.', tier: 'Rare', obtainable: true, image: '/pet/Hedgehog.webp' },
+
+  // Legendary Pets
+  { id: 'cow', name: 'Cow', trait: 'Every 90 seconds, it "moos" for 10 seconds, causing dairy crops within 15 studs to grow 15x faster and other crops 2x faster.', tier: 'Legendary', obtainable: true, image: '/pet/Cow.webp' },
+  { id: 'panda', name: 'Panda', trait: 'Every 100 seconds, it waves bamboo for 10 seconds, granting all bamboo plants a 2x size bonus.', tier: 'Legendary', obtainable: true, image: '/pet/Panda.webp' },
+  { id: 'peacock', name: 'Peacock', trait: 'Every 2 minutes, it spreads its tail for 8 seconds, giving all flowers within 20 studs a 15% chance to mutate.', tier: 'Legendary', obtainable: true, image: '/pet/Peacock.webp' },
+  { id: 'scarlet-macaw', name: 'Scarlet Macaw', trait: 'Provides additional mutation chances and size bonuses for all tropical plants.', tier: 'Legendary', obtainable: true, image: '/pet/Scarlet-Macaw.webp' },
+  { id: 'ostrich', name: 'Ostrich', trait: 'Every minute has a 5% chance to bury a random seed in the farm.', tier: 'Legendary', obtainable: true, image: '/pet/Ostrich.webp' },
+  { id: 'polar-bear', name: 'Polar Bear', trait: 'Every 2 minutes, creates a blizzard for 8 seconds with a 10% chance to freeze nearby crops.', tier: 'Legendary', obtainable: true, image: '/pet/Polar-Bear.webp' },
+  { id: 'caterpillar', name: 'Caterpillar', trait: 'Every 2 minutes, chews leaves for 10 seconds, making all leafy plants grow 3x faster.', tier: 'Legendary', obtainable: true, image: '/pet/Caterpillar.webp' },
+  { id: 'frog', name: 'Frog', trait: 'Every 75 seconds, jumps and splashes water, giving nearby crops a chance to receive the "Wet" mutation.', tier: 'Legendary', obtainable: true, image: '/pet/Frog.webp' },
+  { id: 'turtle', name: 'Turtle', trait: 'Slowly but steadily provides small growth acceleration to nearby plants.', tier: 'Legendary', obtainable: true, image: '/pet/Turtle.webp' },
+  { id: 'moth', name: 'Moth', trait: 'Active at night, provides extra growth bonuses for nighttime plants.', tier: 'Legendary', obtainable: true, image: '/pet/Moth.webp' },
+
+  // Mythical Pets
+  { id: 'mole', name: 'Mole', trait: 'Every 90 seconds digs for 10 seconds, increasing nearby soil crops\' growth speed by 10%.', tier: 'Mythical', obtainable: true, image: '/pet/Mole.webp' },
+  { id: 'praying-mantis', name: 'Praying Mantis', trait: 'Every 80 seconds, it prays for about 10 seconds, granting a ~1.5x mutation chance to crops within a 10-stud radius.', tier: 'Mythical', obtainable: true, image: '/pet/Praying-Mantis.webp' },
+  { id: 'red-fox', name: 'Red Fox', trait: 'Every 8 minutes, it attempts to duplicate a seed from another player\'s garden and gives it to its owner.', tier: 'Mythical', obtainable: true, image: '/pet/Red-Fox.webp' },
+  { id: 'red-giant-ant', name: 'Red Giant Ant', trait: 'Grants a 5% chance to duplicate harvested crops, with an additional 5% chance for fruit-type crops.', tier: 'Mythical', obtainable: true, image: '/pet/Red-Giant-Ant.webp' },
+  { id: 'snail', name: 'Snail', trait: 'Provides an additional 5% chance for a harvested plant to drop its seed, with a lower chance for rarer plants.', tier: 'Mythical', obtainable: true, image: '/pet/Snail.webp' },
+  { id: 'squirrel', name: 'Squirrel', trait: 'Grants a 2.5% chance to keep a seed after planting it, with the chance decreasing for rarer crops.', tier: 'Mythical', obtainable: true, image: '/pet/Squirrel.webp' },
+  { id: 'bear-bee', name: 'Bear Bee', trait: 'Every 25 minutes, it applies the \'HoneyGlazed\' mutation to a nearby fruit, which adds a 5x value multiplier.', tier: 'Mythical', obtainable: true, image: '/pet/Bear-Bee.webp' },
+  { id: 'butterfly', name: 'Butterfly', trait: 'Every 30 minutes, it converts a non-favorited fruit with 5 or more mutations into a \'Rainbow\' fruit.', tier: 'Mythical', obtainable: true, image: '/pet/Butterfly.webp' },
+  { id: 'echo-frog', name: 'Echo Frog', trait: 'Approximately every 10 minutes, it causes a random nearby plant\'s growth to advance by 24 hours.', tier: 'Mythical', obtainable: true, image: '/pet/Echo-Frog.webp' },
+  { id: 'pack-bee', name: 'Pack Bee', trait: 'Increases the player\'s backpack inventory size by 25, with the bonus increasing as the pet ages.', tier: 'Mythical', obtainable: true, image: '/pet/Pack-Bee.webp' },
+  { id: 'mimic-octopus', name: 'Mimic Octopus', trait: 'Every 20 minutes, it mimics the ability of another active pet and performs that action.', tier: 'Mythical', obtainable: true, image: '/pet/Mimic-Octopus.webp' },
+  { id: 'chicken-zombie', name: 'Chicken Zombie', trait: 'Every 30 minutes has a 20% chance to apply the \'Zombified\' mutation to a fruit, and passively increases egg hatch speed by 10%.', tier: 'Mythical', obtainable: false, image: '/pet/Chicken-Zombie.webp' },
+  { id: 'firefly', name: 'Firefly', trait: 'Approximately every 80 seconds, it has a 3% chance to apply the \'Shocked\' mutation to a nearby crop.', tier: 'Mythical', obtainable: false, image: '/pet/Firefly.webp' },
+  { id: 'blood-kiwi', name: 'Blood Kiwi', trait: 'Every minute, it decreases the hatch time of the longest-duration egg by 45 seconds and boosts its hatch speed by 20%.', tier: 'Mythical', obtainable: false, image: '/pet/Blood-Kiwi.webp' },
+  { id: 'owl', name: 'Owl', trait: 'Passively boosts the experience gain of all other active pets by approximately 0.20 XP per second.', tier: 'Mythical', obtainable: false, image: '/pet/Owl.webp' },
+  { id: 'golden-bee', name: 'Golden Bee', trait: 'Occasionally pollinates fruit and provides a chance for harvested fruit to turn into gold.', tier: 'Mythical', obtainable: false, image: '/pet/Golden-Bee.webp' },
+  { id: 'cooked-owl', name: 'Cooked Owl', trait: 'Every 15 minutes, has a 15.35% chance to apply a \'Burnt\' or \'Cooked\' mutation and boosts all active pets\' XP gain by 0.17/s.', tier: 'Mythical', obtainable: false, image: '/pet/Cooked-Owl.webp' },
+
+  // Divine Pets
+  { id: 'dragonfly', name: 'Dragonfly', trait: 'Turns one random crop into gold approximately every 5 minutes.', tier: 'Divine', obtainable: true, image: '/pet/Dragonfly.webp' },
+  { id: 'night-owl', name: 'Night Owl', trait: 'Passively increases the experience gain of all active pets by over 0.20 XP per second.', tier: 'Divine', obtainable: true, image: '/pet/Night-Owl.webp' },
+  { id: 'queen-bee-pet', name: 'Queen Bee (Pet)', trait: 'Every 25 minutes, it pollinates a fruit and fully refreshes the ability cooldown of the pet with the longest remaining cooldown.', tier: 'Divine', obtainable: true, image: '/pet/Queen-Bee-(Pet).webp' },
+  { id: 'raccoon', name: 'Raccoon', trait: 'Every 15 minutes, it visits another player\'s plot to duplicate a random crop and brings it back to its owner.', tier: 'Divine', obtainable: true, image: '/pet/Raccoon.webp' },
+  { id: 'disco-bee', name: 'Disco Bee', trait: 'Approximately every 15 minutes, it has a 12% chance to apply the \'Disco\' mutation to a nearby fruit.', tier: 'Divine', obtainable: true, image: '/pet/Disco-Bee.webp' },
+  { id: 'blood-owl', name: 'Blood Owl', trait: 'Passively increases the experience gain of all active pets by over 0.50 XP per second.', tier: 'Divine', obtainable: false, image: '/pet/Blood-Owl.webp' },
+
+  // Unobtainable/Special Pets
+  { id: 'red-dragon', name: 'Red Dragon', trait: 'Occasionally applies the \'Burnt\' mutation to a random nearby fruit.', tier: 'Prismatic', obtainable: false, image: '/pet/Red-Dragon.webp' },
 ];

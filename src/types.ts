@@ -14,6 +14,15 @@ export interface Plant {
   harvestType?: 'single' | 'multi';
 }
 
+export interface Pet {
+  id: string;
+  name: string;
+  trait: string;
+  tier: 'Common' | 'Uncommon' | 'Rare' | 'Legendary' | 'Mythical' | 'Divine' | 'Prismatic';
+  obtainable: boolean;
+  image?: string;
+}
+
 export interface GrowthMutation {
   id: string;
   name: string;

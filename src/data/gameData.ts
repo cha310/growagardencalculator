@@ -1,4 +1,4 @@
-import { Plant, GrowthMutation, TemperatureMutation, EnvironmentMutation, Pet } from '../types';
+import { Plant, GrowthMutation, TemperatureMutation, EnvironmentMutation, Pet, Gear } from '../types';
 
 export const plants: Plant[] = [
   // Common Plants
@@ -225,4 +225,45 @@ export const pets: Pet[] = [
 
   // Unobtainable/Special Pets
   { id: 'red-dragon', name: 'Red Dragon', trait: 'Occasionally applies the \'Burnt\' mutation to a random nearby fruit.', tier: 'Prismatic', obtainable: false, image: '/pet/Red-Dragon.webp' },
+];
+
+export const gears: Gear[] = [
+  // Common Gears
+  { id: 'watering-can', name: 'Watering Can', description: 'A simple tool for watering plants. Increases crop growth speed slightly.', price: { sheckle: 500 }, tier: 'Common', obtainable: true, image: '/gears/Watering-Can.webp' },
+  { id: 'basic-sprinkler', name: 'Basic Sprinkler', description: 'Automatically waters nearby plants. Covers a small area but saves time.', price: { sheckle: 2000 }, tier: 'Common', obtainable: true, image: '/gears/Basic-Sprinkler.webp' },
+  { id: 'trowel', name: 'Trowel', description: 'A handy digging tool. Slightly increases seed planting speed.', price: { sheckle: 800 }, tier: 'Common', obtainable: true, image: '/gears/Trowel.webp' },
+
+  // Uncommon Gears
+  { id: 'harvest-tool', name: 'Harvest Tool', description: 'Speeds up harvesting of crops. Essential for busy farmers.', price: { sheckle: 5000 }, tier: 'Uncommon', obtainable: true, image: '/gears/Harvest-Tool.webp' },
+  { id: 'advanced-sprinkler', name: 'Advanced Sprinkler', description: 'Covers a larger area than basic sprinkler and provides better watering efficiency.', price: { sheckle: 8000 }, tier: 'Uncommon', obtainable: true, image: '/gears/Advanced-Sprinkler.webp' },
+  { id: 'cleaning-spray', name: 'Cleaning Spray', description: 'Removes dirt and debris from crops, potentially improving their quality.', price: { sheckle: 3500 }, tier: 'Uncommon', obtainable: true, image: '/gears/Cleaning-Spray.webp' },
+
+  // Rare Gears
+  { id: 'honey-sprinkler', name: 'Honey Sprinkler', description: 'Sprays honey essence that attracts beneficial insects and improves crop yields.', price: { honey: 100 }, tier: 'Rare', obtainable: true, image: '/gears/Honey-Sprinkler.webp' },
+  { id: 'master-sprinkler', name: 'Master Sprinkler', description: 'The ultimate sprinkler system with maximum coverage and efficiency.', price: { sheckle: 25000 }, tier: 'Rare', obtainable: true, image: '/gears/Master-Sprinkler.webp' },
+  { id: 'recall-wrench', name: 'Recall Wrench', description: 'Allows you to relocate planted crops without destroying them.', price: { sheckle: 15000 }, tier: 'Rare', obtainable: true, image: '/gears/Recall-Wrench.webp' },
+  { id: 'friendship-pot', name: 'Friendship Pot', description: 'Enhances the effects of friend bonuses when farming with others.', price: { sheckle: 12000 }, tier: 'Rare', obtainable: true, image: '/gears/Friendship-Pot.webp' },
+
+  // Legendary Gears
+  { id: 'lightning-rod', name: 'Lightning Rod', description: 'Attracts lightning during storms, potentially giving crops the \'Shocked\' mutation.', price: { sheckle: 50000 }, tier: 'Legendary', obtainable: true, image: '/gears/Lightning-Rod.webp' },
+  { id: 'pollen-radar', name: 'Pollen Radar', description: 'Detects and tracks pollination opportunities across your garden.', price: { honey: 500 }, tier: 'Legendary', obtainable: true, image: '/gears/Pollen-Radar.webp' },
+  { id: 'nectar-staff', name: 'Nectar Staff', description: 'A mystical staff that enhances flower growth and nectar production.', price: { honey: 750 }, tier: 'Legendary', obtainable: true, image: '/gears/Nectar-Staff.webp' },
+  { id: 'reclaimer', name: 'Reclaimer', description: 'Recovers materials from failed crops and experiments.', price: { sheckle: 75000 }, tier: 'Legendary', obtainable: true, image: '/gears/Reclaimer.webp' },
+
+  // Mythical Gears
+  { id: 'night-staff', name: 'Night Staff', description: 'Harnesses lunar energy to enhance nighttime crop growth and mutation chances.', price: { lunarPoint: 2500 }, tier: 'Mythical', obtainable: true, image: '/gears/Night-Staff.webp' },
+  { id: 'star-caller', name: 'Star Caller', description: 'Calls upon celestial forces to bless crops with rare mutations.', price: { lunarPoint: 5000 }, tier: 'Mythical', obtainable: true, image: '/gears/Star-Caller.webp' },
+  { id: 'godly-sprinkler', name: 'Godly Sprinkler', description: 'The most powerful sprinkler system, blessed by divine forces.', price: { other: 'Divine Materials' }, tier: 'Mythical', obtainable: true, image: '/gears/Godly-Sprinkler.webp' },
+
+  // Divine Gears
+  { id: 'favorite-tool', name: 'Favorite Tool', description: 'A mysterious tool that adapts to whatever task you need most.', price: { other: 'Special Event' }, tier: 'Divine', obtainable: false, image: '/gears/Favorite-Tool.webp' },
+
+  // Craftable Gears (Special Category)
+  { id: 'berry-blusher-sprinkler', name: 'Berry Blusher Sprinkler', description: 'Specialized sprinkler designed to enhance berry crop growth and color.', price: { other: 'Crafting Recipe' }, tier: 'Craftables', obtainable: true, image: '/gears/Berry-Blusher-Sprinkler.webp' },
+  { id: 'chocolate-sprinkler', name: 'Chocolate Sprinkler', description: 'Sprays chocolate essence to enhance sweet crop varieties.', price: { other: 'Crafting Recipe' }, tier: 'Craftables', obtainable: true, image: '/gears/Chocolate-Sprinkler.webp' },
+  { id: 'flower-froster-sprinkler', name: 'Flower Froster Sprinkler', description: 'Provides cooling mist that benefits flower growth in hot weather.', price: { other: 'Crafting Recipe' }, tier: 'Craftables', obtainable: true, image: '/gears/Flower-Froster-Sprinkler.webp' },
+  { id: 'spice-spritzer-sprinkler', name: 'Spice Spritzer Sprinkler', description: 'Adds spicy essence to enhance herb and spice crop growth.', price: { other: 'Crafting Recipe' }, tier: 'Craftables', obtainable: true, image: '/gears/Spice-Spritzer-Sprinkler.webp' },
+  { id: 'stalk-sprout-sprinkler', name: 'Stalk Sprout Sprinkler', description: 'Specialized for tall crops like corn and bamboo, promoting vertical growth.', price: { other: 'Crafting Recipe' }, tier: 'Craftables', obtainable: true, image: '/gears/Stalk-Sprout-Sprinkler.webp' },
+  { id: 'sweet-soaker-sprinkler', name: 'Sweet Soaker Sprinkler', description: 'Enhances fruit sweetness and overall fruit crop quality.', price: { other: 'Crafting Recipe' }, tier: 'Craftables', obtainable: true, image: '/gears/Sweet-Soaker-Sprinkler.webp' },
+  { id: 'tropical-mist-sprinkler', name: 'Tropical Mist Sprinkler', description: 'Creates tropical conditions perfect for exotic fruit growth.', price: { other: 'Crafting Recipe' }, tier: 'Craftables', obtainable: true, image: '/gears/Tropical-Mist-Sprinkler.webp' },
 ];

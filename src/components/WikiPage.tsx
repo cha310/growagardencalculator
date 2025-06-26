@@ -58,9 +58,9 @@ export const WikiPage: React.FC = () => {
             <p className="text-gray-300 mb-4">
               Gears are essential tools and equipment that enhance your gardening experience.
             </p>
-            <button className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition-colors">
+            <Link to="/grow-a-garden-wiki-gears" className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition-colors inline-block" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
               Learn More
-            </button>
+            </Link>
           </div>
         </div>
 

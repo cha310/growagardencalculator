@@ -23,6 +23,22 @@ export interface Pet {
   image?: string;
 }
 
+export interface Gear {
+  id: string;
+  name: string;
+  description: string;
+  price: {
+    sheckle?: number;
+    robux?: number;
+    honey?: number;
+    lunarPoint?: number;
+    other?: string;
+  };
+  tier: 'Common' | 'Uncommon' | 'Rare' | 'Legendary' | 'Mythical' | 'Divine' | 'Craftables';
+  obtainable: boolean;
+  image?: string;
+}
+
 export interface GrowthMutation {
   id: string;
   name: string;

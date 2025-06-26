@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { pets } from '../data/gameData';
+import { gears } from '../data/gameData';
 
-export const PetsPage: React.FC = () => {
+export const GearsPage: React.FC = () => {
   const [selectedTier, setSelectedTier] = useState('All');
 
-  const tiers = ['All', 'Common', 'Uncommon', 'Rare', 'Legendary', 'Mythical', 'Divine', 'Prismatic'];
+  const tiers = ['All', 'Common', 'Uncommon', 'Rare', 'Legendary', 'Mythical', 'Divine', 'Craftables'];
 
-  const filteredPets = selectedTier === 'All' 
-    ? pets 
-    : pets.filter(pet => pet.tier === selectedTier);
+  const filteredGears = selectedTier === 'All' 
+    ? gears 
+    : gears.filter(gear => gear.tier === selectedTier);
 
   const getTierColor = (tier: string) => {
     const colors = {
@@ -19,7 +19,7 @@ export const PetsPage: React.FC = () => {
       'Legendary': 'text-purple-400',
       'Mythical': 'text-pink-400',
       'Divine': 'text-yellow-400',
-      'Prismatic': 'text-rainbow bg-gradient-to-r from-red-400 via-yellow-400 to-blue-400 bg-clip-text text-transparent'
+      'Craftables': 'text-orange-400'
     };
     return colors[tier as keyof typeof colors] || 'text-gray-300';
   };
@@ -32,9 +32,18 @@ export const PetsPage: React.FC = () => {
       'Legendary': 'bg-purple-600',
       'Mythical': 'bg-pink-600',
       'Divine': 'bg-yellow-600',
-      'Prismatic': 'bg-gradient-to-r from-red-500 via-yellow-500 to-blue-500'
+      'Craftables': 'bg-orange-600'
     };
     return colors[tier as keyof typeof colors] || 'bg-gray-600';
+  };
+
+  const formatPrice = (price: any) => {
+    if (price.sheckle) return `${price.sheckle.toLocaleString()} Sheckles`;
+    if (price.robux) return `${price.robux} Robux`;
+    if (price.honey) return `${price.honey} Honey`;
+    if (price.lunarPoint) return `${price.lunarPoint} Lunar Points`;
+    if (price.other) return price.other;
+    return 'Unknown';
   };
 
   return (
@@ -46,23 +55,23 @@ export const PetsPage: React.FC = () => {
             Wiki
           </Link>
           <span className="text-gray-500">›</span>
-          <span className="text-gray-300">Pets</span>
+          <span className="text-gray-300">Gears</span>
         </nav>
       </div>
 
       {/* Header */}
       <div className="text-center mb-8">
         <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-          Grow A Garden Pets
+          Grow A Garden Gears
         </h1>
         <p className="text-base text-gray-300 max-w-6xl mx-auto leading-relaxed">
-          Discover all pets in Roblox's Grow a Garden! From adorable common pets to rare divine creatures, each pet has unique abilities to help you grow your garden more efficiently. Explore pet traits, rarity tiers, and obtainability.
+          Discover all the essential tools and equipment in Roblox's Grow a Garden! From basic watering cans to divine artifacts, each gear serves a specific purpose to help you cultivate your garden more efficiently. Explore gear descriptions, rarity tiers, and pricing information.
         </p>
       </div>
 
       {/* Filter Controls */}
       <div className="mb-8">
-        <h3 className="text-2xl font-bold text-white mb-4">All Pets in Grow a Garden</h3>
+        <h3 className="text-2xl font-bold text-white mb-4">All Gears in Grow a Garden</h3>
         {/* 横向滚动标签页 */}
         <div className="relative">
           <div className="overflow-x-auto scrollbar-hide">
@@ -90,9 +99,7 @@ export const PetsPage: React.FC = () => {
         </div>
       </div>
 
-
-
-      {/* All Pets Section */}
+      {/* All Gears Section */}
       <div className="bg-gray-800/80 backdrop-blur-sm rounded-xl px-8 pt-1 pb-8 border border-gray-700 mb-12">
         
         {/* Desktop Table */}
@@ -102,33 +109,35 @@ export const PetsPage: React.FC = () => {
               <tr className="border-b border-gray-600">
                 <th className="p-3 text-yellow-300 font-semibold text-xs text-center">Image</th>
                 <th className="p-3 text-yellow-300 font-semibold text-xs">Name</th>
-                <th className="p-3 text-yellow-300 font-semibold text-xs">Trait</th>
+                <th className="p-3 text-yellow-300 font-semibold text-xs">Description</th>
+                <th className="p-3 text-yellow-300 font-semibold text-xs text-center">Price</th>
                 <th className="p-3 text-yellow-300 font-semibold text-xs text-center">Rarity</th>
                 <th className="p-3 text-yellow-300 font-semibold text-xs text-center">Obtainable</th>
               </tr>
             </thead>
             <tbody>
-              {filteredPets.map((pet, index) => (
+              {filteredGears.map((gear, index) => (
                 <tr key={index} className="border-b border-gray-700 hover:bg-gray-700/50 transition-colors">
                   <td className="p-3 text-center">
                     <img 
-                      src={pet.image} 
-                      alt={pet.name} 
+                      src={gear.image} 
+                      alt={gear.name} 
                       className="w-12 h-12 object-contain rounded-lg mx-auto"
                       onError={(e) => {
-                        (e.target as HTMLImageElement).src = '/pet/growagardencalculator.png';
+                        (e.target as HTMLImageElement).src = '/gears/growagardencalculator.png';
                       }}
                     />
                   </td>
-                  <td className="p-3 text-white font-semibold text-sm">{pet.name}</td>
-                  <td className="p-3 text-gray-300 text-sm max-w-md">{pet.trait}</td>
+                  <td className="p-3 text-white font-semibold text-sm">{gear.name}</td>
+                  <td className="p-3 text-gray-300 text-sm max-w-md">{gear.description}</td>
+                  <td className="p-3 text-gray-300 text-sm text-center">{formatPrice(gear.price)}</td>
                   <td className="p-3 text-center">
-                    <span className={`inline-block px-3 py-1 rounded-full text-xs font-semibold ${getTierBadgeColor(pet.tier)} text-white`}>
-                      {pet.tier}
+                    <span className={`inline-block px-3 py-1 rounded-full text-xs font-semibold ${getTierBadgeColor(gear.tier)} text-white`}>
+                      {gear.tier}
                     </span>
                   </td>
-                  <td className={`p-3 font-semibold text-sm text-center ${pet.obtainable ? 'text-green-400' : 'text-red-400'}`}>
-                    {pet.obtainable ? 'Yes' : 'No'}
+                  <td className={`p-3 font-semibold text-sm text-center ${gear.obtainable ? 'text-green-400' : 'text-red-400'}`}>
+                    {gear.obtainable ? 'Yes' : 'No'}
                   </td>
                 </tr>
               ))}
@@ -138,30 +147,36 @@ export const PetsPage: React.FC = () => {
 
         {/* Mobile Cards */}
         <div className="md:hidden space-y-4">
-          {filteredPets.map((pet, index) => (
+          {filteredGears.map((gear, index) => (
             <div key={index} className="bg-gray-800/80 backdrop-blur-sm rounded-xl p-4 border border-gray-700">
               <div className="flex items-start space-x-4">
                 <img 
-                  src={pet.image} 
-                  alt={pet.name} 
+                  src={gear.image} 
+                  alt={gear.name} 
                   className="w-16 h-16 object-contain rounded-lg flex-shrink-0"
                   onError={(e) => {
-                    (e.target as HTMLImageElement).src = '/pet/growagardencalculator.png';
+                    (e.target as HTMLImageElement).src = '/gears/growagardencalculator.png';
                   }}
                 />
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center justify-between mb-2">
-                    <h3 className="text-white font-semibold text-lg">{pet.name}</h3>
-                    <span className={`inline-block px-2 py-1 rounded-full text-xs font-semibold ${getTierBadgeColor(pet.tier)} text-white`}>
-                      {pet.tier}
+                    <h3 className="text-white font-semibold text-lg">{gear.name}</h3>
+                    <span className={`inline-block px-2 py-1 rounded-full text-xs font-semibold ${getTierBadgeColor(gear.tier)} text-white`}>
+                      {gear.tier}
                     </span>
                   </div>
-                  <p className="text-gray-300 text-sm mb-3">{pet.trait}</p>
-                  <div className="flex items-center justify-between">
-                    <span className="text-sm text-gray-400">Obtainable:</span>
-                    <span className={`text-sm font-semibold ${pet.obtainable ? 'text-green-400' : 'text-red-400'}`}>
-                      {pet.obtainable ? 'Yes' : 'No'}
-                    </span>
+                  <p className="text-gray-300 text-sm mb-3">{gear.description}</p>
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between">
+                      <span className="text-sm text-gray-400">Price:</span>
+                      <span className="text-sm text-gray-300">{formatPrice(gear.price)}</span>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <span className="text-sm text-gray-400">Obtainable:</span>
+                      <span className={`text-sm font-semibold ${gear.obtainable ? 'text-green-400' : 'text-red-400'}`}>
+                        {gear.obtainable ? 'Yes' : 'No'}
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -172,73 +187,83 @@ export const PetsPage: React.FC = () => {
 
       {/* Information Sections */}
       <div className="space-y-8 mb-12">
-        {/* About Pets */}
+        {/* About Gears */}
         <div className="bg-gray-800/80 backdrop-blur-sm rounded-xl p-8 border border-gray-700">
-          <h2 className="text-3xl font-bold text-white mb-6">About Pets in Grow a Garden</h2>
+          <h2 className="text-3xl font-bold text-white mb-6">About Gears in Grow a Garden</h2>
           <div className="text-gray-300 text-lg leading-relaxed space-y-4">
             <p>
-              Grow a Garden pets are adorable and functional companions introduced in the popular Roblox farming game Grow a Garden, starting with the 1.04.0 update known as The Animal Update. These pets are much more than just cute additions to your farm—they actively support your gardening efforts by providing various in-game benefits and perks that enhance gameplay and crop management.
+              Gears in Grow a Garden are essential tools and equipment that enhance your farming capabilities and garden management. From simple watering cans to advanced mystical artifacts, these items provide various benefits including faster crop growth, automated watering, improved harvesting efficiency, and special mutation opportunities.
             </p>
             <p>
-              In Grow a Garden, pets are collectible animals hatched from different types of eggs available in the Pet Egg stall. There are over 50 pets, currently in seven rarity tiers: Common, Uncommon, Rare, Legendary, Mythical, Divine, and Prismatic. Each pet has unique abilities that help players grow their gardens more efficiently by speeding up crop growth, increasing harvest yields, generating free seeds, providing mutation chances, and even interacting with neighboring players' gardens.
+              Gears are available in different rarity tiers: Common, Uncommon, Rare, Legendary, Mythical, Divine, and special Craftables. Each tier generally offers more powerful effects and capabilities. Some gears can be purchased with Sheckles, Robux, Honey, or Lunar Points, while others require special crafting materials or are only available during events.
             </p>
           </div>
         </div>
 
-        {/* How Pets Work */}
+        {/* How Gears Work */}
         <div className="bg-gray-800/80 backdrop-blur-sm rounded-xl p-8 border border-gray-700">
-          <h2 className="text-3xl font-bold text-white mb-6">How Do Pets Work in Grow a Garden?</h2>
+          <h2 className="text-3xl font-bold text-white mb-6">How Do Gears Work in Grow a Garden?</h2>
           <div className="text-gray-300 text-lg leading-relaxed space-y-4">
             <ul className="space-y-3">
               <li className="flex items-start">
                 <span className="text-yellow-300 mr-3 mt-1">•</span>
                 <div>
-                  <strong className="text-white">Pet Abilities:</strong> Each pet comes with a specific trait or skill. For example, some pets can dig up free seeds periodically, others boost the growth rate or size of nearby fruits, and some increase the chances of crop mutations, which are valuable for rare and powerful plant variants.
+                  <strong className="text-white">Equipment Slots:</strong> Players can equip multiple gears simultaneously, with each piece serving different functions in your garden operations.
                 </div>
               </li>
               <li className="flex items-start">
                 <span className="text-yellow-300 mr-3 mt-1">•</span>
                 <div>
-                  <strong className="text-white">Stacking Effects:</strong> Pet abilities stack, meaning having multiple pets with similar traits can amplify their benefits. For instance, owning several pets that increase mutation chances or crop growth speed will enhance those effects cumulatively.
+                  <strong className="text-white">Automation Tools:</strong> Many gears like sprinklers provide automation benefits, reducing the manual work required to maintain your garden.
                 </div>
               </li>
               <li className="flex items-start">
                 <span className="text-yellow-300 mr-3 mt-1">•</span>
                 <div>
-                  <strong className="text-white">Pet Slots:</strong> Players can equip up to eight pets simultaneously, allowing for a strategic combination of abilities to maximize garden productivity.
+                  <strong className="text-white">Enhancement Effects:</strong> Gears can provide various benefits including growth speed bonuses, mutation chances, harvest efficiency, and special abilities.
+                </div>
+              </li>
+              <li className="flex items-start">
+                <span className="text-yellow-300 mr-3 mt-1">•</span>
+                <div>
+                  <strong className="text-white">Specialized Functions:</strong> Some gears are designed for specific crop types or conditions, such as the Tropical Mist Sprinkler for exotic fruits or the Night Staff for lunar-powered effects.
                 </div>
               </li>
             </ul>
           </div>
         </div>
 
-        {/* Why Pets Are Important */}
+        {/* Why Gears Are Important */}
         <div className="bg-gray-800/80 backdrop-blur-sm rounded-xl p-8 border border-gray-700">
-          <h2 className="text-3xl font-bold text-white mb-6">Why Are Pets Important in Grow a Garden?</h2>
+          <h2 className="text-3xl font-bold text-white mb-6">Why Are Gears Important in Grow a Garden?</h2>
           <div className="text-gray-300 text-lg leading-relaxed space-y-4">
             <p>
-              Pets add a dynamic and engaging layer to Grow a Garden by making farming less monotonous and more strategic. They help players:
+              Gears are crucial for advancing your farming operations and maximizing efficiency. They help players:
             </p>
             <ul className="space-y-3 mt-4">
               <li className="flex items-start">
                 <span className="text-green-400 mr-3 mt-1">✓</span>
-                <span>Increase crop growth speed and size</span>
+                <span>Automate repetitive tasks like watering and harvesting</span>
               </li>
               <li className="flex items-start">
                 <span className="text-green-400 mr-3 mt-1">✓</span>
-                <span>Gain extra seeds and resources without extra effort</span>
+                <span>Increase crop growth speed and quality</span>
               </li>
               <li className="flex items-start">
                 <span className="text-green-400 mr-3 mt-1">✓</span>
-                <span>Boost mutation chances for rare plants</span>
+                <span>Access special mutation opportunities</span>
               </li>
               <li className="flex items-start">
                 <span className="text-green-400 mr-3 mt-1">✓</span>
-                <span>Enhance overall farming efficiency and profits</span>
+                <span>Expand garden capabilities and coverage area</span>
               </li>
               <li className="flex items-start">
                 <span className="text-green-400 mr-3 mt-1">✓</span>
-                <span>Add charm and life to their gardens with their animations and behaviors</span>
+                <span>Optimize resource management and efficiency</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-green-400 mr-3 mt-1">✓</span>
+                <span>Unlock advanced farming strategies and techniques</span>
               </li>
             </ul>
           </div>

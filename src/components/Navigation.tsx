@@ -28,6 +28,16 @@ export const Navigation: React.FC = () => {
                 Home
               </Link>
               <Link 
+                to="/wiki" 
+                className={`transition-colors px-3 py-2 text-sm ${
+                  location.pathname === '/wiki' 
+                    ? 'text-yellow-300 border-b-2 border-yellow-300' 
+                    : 'text-gray-300 hover:text-yellow-300'
+                }`}
+              >
+                Wiki
+              </Link>
+              <Link 
                 to="/faqs" 
                 className={`transition-colors px-3 py-2 text-sm ${
                   location.pathname === '/faqs' 

@@ -1,4 +1,4 @@
-import { Plant, GrowthMutation, TemperatureMutation, EnvironmentMutation, Pet, Gear } from '../types';
+import { Plant, GrowthMutation, TemperatureMutation, EnvironmentMutation, Pet, Gear, Egg } from '../types';
 
 export const plants: Plant[] = [
   // Common Plants
@@ -266,4 +266,186 @@ export const gears: Gear[] = [
   { id: 'stalk-sprout-sprinkler', name: 'Stalk Sprout Sprinkler', description: 'Specialized for tall crops like corn and bamboo, promoting vertical growth.', price: { other: 'Crafting Recipe' }, tier: 'Craftables', obtainable: true, image: '/gears/Stalk-Sprout-Sprinkler.webp' },
   { id: 'sweet-soaker-sprinkler', name: 'Sweet Soaker Sprinkler', description: 'Enhances fruit sweetness and overall fruit crop quality.', price: { other: 'Crafting Recipe' }, tier: 'Craftables', obtainable: true, image: '/gears/Sweet-Soaker-Sprinkler.webp' },
   { id: 'tropical-mist-sprinkler', name: 'Tropical Mist Sprinkler', description: 'Creates tropical conditions perfect for exotic fruit growth.', price: { other: 'Crafting Recipe' }, tier: 'Craftables', obtainable: true, image: '/gears/Tropical-Mist-Sprinkler.webp' },
+];
+
+export const eggs: Egg[] = [
+  {
+    id: 'common-egg',
+    name: 'Common Egg',
+    price: { robux: 19, sheckle: 50000 },
+    hatchTime: { free: '10 min' },
+    probabilities: [
+      { pet: 'Bunny', chance: '33.33%' },
+      { pet: 'Dog', chance: '33.33%' },
+      { pet: 'Golden Lab', chance: '33.33%' }
+    ],
+    image: '/eggs/Common-Egg.webp'
+  },
+  {
+    id: 'uncommon-egg',
+    name: 'Uncommon Egg',
+    price: { robux: 39, sheckle: 150000 },
+    hatchTime: { free: '20 min' },
+    probabilities: [
+      { pet: 'Black Bunny', chance: '25%' },
+      { pet: 'Cat', chance: '25%' },
+      { pet: 'Chicken', chance: '25%' },
+      { pet: 'Deer', chance: '25%' }
+    ],
+    image: '/eggs/Uncommon-Egg.webp'
+  },
+  {
+    id: 'rare-egg',
+    name: 'Rare Egg',
+    price: { robux: 89, sheckle: 600000 },
+    hatchTime: { free: '2 h' },
+    probabilities: [
+      { pet: 'Monkey', chance: '8.33%' },
+      { pet: 'Orange Tabby', chance: '33.33%' },
+      { pet: 'Pig', chance: '16.67%' },
+      { pet: 'Rooster', chance: '16.67%' },
+      { pet: 'Spotted Deer', chance: '25%' }
+    ],
+    image: '/eggs/Rare-Egg.webp'
+  },
+  {
+    id: 'legendary-egg',
+    name: 'Legendary Egg',
+    price: { robux: 129, sheckle: 3000000 },
+    hatchTime: { free: '4 h' },
+    probabilities: [
+      { pet: 'Cow', chance: '42.55%' },
+      { pet: 'Polar Bear', chance: '2.13%' },
+      { pet: 'Sea Otter', chance: '10.64%' },
+      { pet: 'Silver Monkey', chance: '42.55%' },
+      { pet: 'Turtle', chance: '2.13%' }
+    ],
+    image: '/eggs/Legendary-Egg.webp'
+  },
+  {
+    id: 'mythical-egg',
+    name: 'Mythical Egg',
+    price: { robux: 119, sheckle: 8000000 },
+    hatchTime: { free: '5 h, 7 min' },
+    probabilities: [
+      { pet: 'Brown Mouse', chance: '26.79%' },
+      { pet: 'Grey Mouse', chance: '35.71%' },
+      { pet: 'Red Fox', chance: '1.79%' },
+      { pet: 'Red Giant Ant', chance: '8.93%' },
+      { pet: 'Squirrel', chance: '26.79%' }
+    ],
+    image: '/eggs/Mythical-Egg.webp'
+  },
+  {
+    id: 'bug-egg',
+    name: 'Bug Egg',
+    price: { robux: 149, sheckle: 50000000 },
+    hatchTime: { free: '8 h', premium: '30 s' },
+    probabilities: [
+      { pet: 'Caterpillar', chance: '25%' },
+      { pet: 'Dragonfly', chance: '1%' },
+      { pet: 'Giant Ant', chance: '30%' },
+      { pet: 'Praying Mantis', chance: '4%' },
+      { pet: 'Snail', chance: '40%' }
+    ],
+    image: '/eggs/Bug-Egg.webp'
+  },
+  {
+    id: 'bee-egg',
+    name: 'Bee Egg',
+    price: { honey: 18, robux: 129 },
+    hatchTime: { free: '4 h, 10 min' },
+    probabilities: [
+      { pet: 'Bear Bee', chance: '5%' },
+      { pet: 'Bee', chance: '65%' },
+      { pet: 'Honey Bee', chance: '25%' },
+      { pet: 'Petal Bee', chance: '4%' },
+      { pet: 'Queen Bee (Pet)', chance: '1%' }
+    ],
+    image: '/eggs/Bee-Egg.webp'
+  },
+  {
+    id: 'anti-bee-egg',
+    name: 'Anti Bee Egg',
+    price: { robux: 149 },
+    hatchTime: { free: '4 h, 10 min', premium: '30 s' },
+    probabilities: [
+      { pet: 'Butterfly', chance: '1%' },
+      { pet: 'Disco Bee', chance: '0.25%' },
+      { pet: 'Moth', chance: '13.75%' },
+      { pet: 'Tarantula Hawk', chance: '30%' },
+      { pet: 'Wasp', chance: '55%' }
+    ],
+    image: '/eggs/Anti-Bee-Egg.webp'
+  },
+  {
+    id: 'common-summer-egg',
+    name: 'Common Summer Egg',
+    price: { robux: 29, sheckle: 1000000 },
+    hatchTime: { free: '20 min' },
+    probabilities: [
+      { pet: 'Crab', chance: '25%' },
+      { pet: 'Seagull', chance: '25%' },
+      { pet: 'Starfish', chance: '50%' }
+    ],
+    image: '/eggs/Common-Summer-Egg.webp'
+  },
+  {
+    id: 'rare-summer-egg',
+    name: 'Rare Summer Egg',
+    price: { robux: 99, sheckle: 25000000 },
+    hatchTime: { free: '4 h' },
+    probabilities: [
+      { pet: 'Flamingo', chance: '30%' },
+      { pet: 'Orangutan', chance: '15%' },
+      { pet: 'Sea Turtle', chance: '20%' },
+      { pet: 'Seal', chance: '10%' },
+      { pet: 'Toucan', chance: '25%' }
+    ],
+    image: '/eggs/Rare-Summer-Egg.webp'
+  },
+  {
+    id: 'paradise-egg',
+    name: 'Paradise Egg',
+    price: { robux: 139, sheckle: 50000000 },
+    hatchTime: { free: '6 h, 40 min' },
+    probabilities: [
+      { pet: 'Capybara', chance: '21%' },
+      { pet: 'Mimic Octopus', chance: '1%' },
+      { pet: 'Ostrich', chance: '40%' },
+      { pet: 'Peacock', chance: '30%' },
+      { pet: 'Scarlet Macaw', chance: '8%' }
+    ],
+    image: '/eggs/Paradise-Egg.webp'
+  },
+  {
+    id: 'night-egg',
+    name: 'Night Egg',
+    price: { sheckle: 50000000 },
+    hatchTime: { free: '4 h, 10 min' },
+    probabilities: [
+      { pet: 'Echo Frog', chance: '8.23%' },
+      { pet: 'Frog', chance: '17.63%' },
+      { pet: 'Hedgehog', chance: '47%' },
+      { pet: 'Mole', chance: '23.5%' },
+      { pet: 'Night Owl', chance: '3.53%' },
+      { pet: 'Raccoon', chance: '0.12%' }
+    ],
+    image: '/eggs/Night-Egg.webp'
+  },
+  {
+    id: 'premium-night-egg',
+    name: 'Premium Night Egg',
+    price: { robux: 199 },
+    hatchTime: { free: '30 s' },
+    probabilities: [
+      { pet: 'Echo Frog', chance: '10%' },
+      { pet: 'Frog', chance: '14%' },
+      { pet: 'Hedgehog', chance: '49%' },
+      { pet: 'Mole', chance: '22%' },
+      { pet: 'Night Owl', chance: '4%' },
+      { pet: 'Raccoon', chance: '1%' }
+    ],
+    image: '/eggs/Premium-Night-Egg.webp'
+  }
 ];

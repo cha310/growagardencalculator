@@ -7,6 +7,7 @@ import { WikiPage } from './components/WikiPage';
 import { CropsPage } from './components/CropsPage';
 import { PetsPage } from './components/PetsPage';
 import { GearsPage } from './components/GearsPage';
+import { EggsPage } from './components/EggsPage';
 import { PrivacyPolicyPage } from './components/PrivacyPolicyPage';
 import { TermsOfServicePage } from './components/TermsOfServicePage';
 
@@ -20,6 +21,7 @@ function App() {
           <Route path="/grow-a-garden-wiki-crops" element={<CropsPage />} />
           <Route path="/grow-a-garden-wiki-pets" element={<PetsPage />} />
           <Route path="/grow-a-garden-wiki-gears" element={<GearsPage />} />
+          <Route path="/grow-a-garden-wiki-eggs" element={<EggsPage />} />
           <Route path="/grow-a-garden-faqs" element={<FAQPage />} />
           <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
           <Route path="/terms-of-service" element={<TermsOfServicePage />} />

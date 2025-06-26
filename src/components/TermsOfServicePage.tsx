@@ -1,8 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 
 export const TermsOfServicePage: React.FC = () => {
+  // 确保页面标题被正确设置
+  useEffect(() => {
+    document.title = 'Terms of Service - Grow a Garden Calculator';
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', 'Terms of service for Grow a Garden Calculator - understand the rules and conditions for using our Roblox calculator tool.');
+    }
+  }, []);
+
   return (
     <div className="min-h-screen bg-gray-800 text-white">
       <Helmet>

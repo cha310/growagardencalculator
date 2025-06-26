@@ -1,8 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 
 export const WikiPage: React.FC = () => {
+  // 确保页面标题被正确设置
+  useEffect(() => {
+    document.title = 'Grow a Garden Wiki - Game Guide & Information';
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', 'Complete guide to Grow a Garden game - learn about crops, pets, gears, eggs, mutations, and values in this comprehensive wiki.');
+    }
+  }, []);
+
   return (
     <div className="min-h-screen bg-gray-800 text-white">
       <Helmet>

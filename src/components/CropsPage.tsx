@@ -1,10 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { plants } from '../data/gameData';
 
 export const CropsPage: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
+
+  // 确保页面标题被正确设置
+  useEffect(() => {
+    document.title = 'Crops - Grow a Garden Calculator';
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', 'Browse all crops in Grow a Garden - detailed information about seeds, prices, values, and shop categories for every plant in the game.');
+    }
+  }, []);
 
   // 植物图片映射
   const getPlantImage = (plantId: string) => {

@@ -88,6 +88,16 @@ export const HomePage: React.FC = () => {
 
   const [result, setResult] = useState<number>(0);
 
+  // 确保页面标题被正确设置
+  useEffect(() => {
+    document.title = 'Grow a Garden Calculator - Roblox Fruit Value Calculator';
+    // 添加或更新meta description
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', 'Calculate your Grow A Garden crop values precisely, optimize your planting strategy, and maximize your profits.');
+    }
+  }, []);
+
   // Calculate result whenever state changes
   useEffect(() => {
     if (!state.selectedPlant) {

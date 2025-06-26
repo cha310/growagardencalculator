@@ -1,8 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 
 export const PrivacyPolicyPage: React.FC = () => {
+  // 确保页面标题被正确设置
+  useEffect(() => {
+    document.title = 'Privacy Policy - Grow a Garden Calculator';
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', 'Privacy policy for Grow a Garden Calculator - learn how we protect your data and what information we collect when you use our Roblox calculator tool.');
+    }
+  }, []);
+
   return (
     <div className="min-h-screen bg-gray-800 text-white">
       <Helmet>

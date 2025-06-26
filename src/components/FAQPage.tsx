@@ -77,12 +77,13 @@ export const FAQPage: React.FC = () => {
     // ... existing FAQ data ...
   ];
 
-  // Update page title for FAQ page
+  // 确保页面标题被正确设置
   useEffect(() => {
-    document.title = 'FAQs - Grow a Garden Calculator | Roblox Fruit Value Calculator';
-    return () => {
-      document.title = 'Grow a Garden Calculator - Roblox Fruit Value Calculator';
-    };
+    document.title = 'FAQs - Grow a Garden Calculator';
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', 'Frequently asked questions about the Grow a Garden Calculator - get answers to common questions about plant values, mutations, and optimization strategies.');
+    }
   }, []);
 
   return (

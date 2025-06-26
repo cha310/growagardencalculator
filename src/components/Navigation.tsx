@@ -1,8 +1,32 @@
-import React from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
 export const Navigation: React.FC = () => {
   const location = useLocation();
+  const [showWikiDropdown, setShowWikiDropdown] = useState(false);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  const handleMouseEnter = () => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+    setShowWikiDropdown(true);
+  };
+
+  const handleMouseLeave = () => {
+    timeoutRef.current = setTimeout(() => {
+      setShowWikiDropdown(false);
+    }, 150); // 150ms延迟
+  };
+
+  // Cleanup timeout on component unmount
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
+  }, []);
 
   return (
     <nav className="bg-gray-900 border-b border-gray-700 sticky top-0 z-50">
@@ -27,16 +51,41 @@ export const Navigation: React.FC = () => {
               >
                 Home
               </Link>
-              <Link 
-                to="/wiki" 
-                className={`transition-colors px-3 py-2 text-sm ${
-                  location.pathname === '/wiki' 
-                    ? 'text-yellow-300 border-b-2 border-yellow-300' 
-                    : 'text-gray-300 hover:text-yellow-300'
-                }`}
+              <div 
+                className="relative"
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
               >
-                Wiki
-              </Link>
+                <Link 
+                  to="/wiki" 
+                  className={`transition-colors px-3 py-2 text-sm flex items-center ${
+                    location.pathname === '/wiki' || location.pathname === '/crops'
+                      ? 'text-yellow-300 border-b-2 border-yellow-300' 
+                      : 'text-gray-300 hover:text-yellow-300'
+                  }`}
+                >
+                  Wiki
+                  <svg className="ml-1 w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
+                  </svg>
+                </Link>
+                
+                {/* Dropdown Menu */}
+                {showWikiDropdown && (
+                  <div 
+                    className="absolute top-full left-0 w-48 bg-gray-800 border border-gray-700 rounded-lg shadow-lg z-50"
+                    onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}
+                  >
+                    <Link 
+                      to="/crops" 
+                      className="block px-4 py-3 text-sm text-gray-300 hover:text-yellow-300 hover:bg-gray-700 transition-colors first:rounded-t-lg last:rounded-b-lg"
+                    >
+                      🌱 Crops
+                    </Link>
+                  </div>
+                )}
+              </div>
               <Link 
                 to="/faqs" 
                 className={`transition-colors px-3 py-2 text-sm ${

@@ -30,9 +30,9 @@ export const WikiPage: React.FC = () => {
               <p className="text-gray-300 mb-4">
                 Explore all seeds and crops in Grow a Garden, with details on sources, prices, and growth tips.
               </p>
-              <button className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition-colors">
+              <Link to="/crops" className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition-colors inline-block">
                 Learn More
-              </button>
+              </Link>
             </div>
           </div>
 

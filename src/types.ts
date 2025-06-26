@@ -2,8 +2,9 @@ export interface Plant {
   id: string;
   name: string;
   baseValue: number;
-  category: 'Common' | 'Uncommon' | 'Rare' | 'Epic' | 'Legendary';
+  category: 'Common' | 'Uncommon' | 'Rare' | 'Legendary' | 'Mythical' | 'Divine' | 'Prismatic';
   type: 'Flowers' | 'Vegetables' | 'Fruits' | 'Trees' | 'Plants' | 'Mushrooms' | 'Special' | 'Herbs';
+  shop?: 'Tom\'s Shop' | 'Queen Bee Shop' | 'Twilight Shop' | 'Blood Moon Shop' | 'Crafters Seed' | 'Summer Seed' | 'Flower Seed' | 'Exotic Seed' | 'Normal Seed' | 'Lunar Glow Event' | 'Angry Plant Event' | 'Easter Event 2025' | 'Bizzy Bear\'s Crafting Station' | 'Uncategorized';
 }
 
 export interface GrowthMutation {

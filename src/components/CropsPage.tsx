@@ -1,50 +1,141 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Navigation } from './Navigation';
+import { plants } from '../data/gameData';
 
 export const CropsPage: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
 
-  // 作物数据
-  const crops = [
-    { name: 'Carrot', image: '/plant/carrot.png', price: { sheckle: 10, robux: 7 }, value: 18, weight: 0.24, tier: 'Common', harvest: 'Single', obtainable: 'YES', category: "Tom's Shop" },
-    { name: 'Strawberry', image: '/plant/strawberry.png', price: { sheckle: 50, robux: 21 }, value: 14, weight: 0.29, tier: 'Common', harvest: 'Multi', obtainable: 'YES', category: "Tom's Shop" },
-    { name: 'Blueberry', image: '/plant/blueberry.png', price: { sheckle: 400, robux: 49 }, value: 18, weight: 0.17, tier: 'Uncommon', harvest: 'Multi', obtainable: 'YES', category: "Tom's Shop" },
-    { name: 'Tomato', image: '/plant/tomato.png', price: { sheckle: 800, robux: 79 }, value: 27, weight: 0.44, tier: 'Rare', harvest: 'Multi', obtainable: 'YES', category: "Tom's Shop" },
-    { name: 'Cauliflower', image: '/plant/cauliflower.png', price: { sheckle: 1300, robux: 135 }, value: 36, weight: 4.74, tier: 'Rare', harvest: 'Multi', obtainable: 'YES', category: "Tom's Shop" },
-    { name: 'Watermelon', image: '/plant/watermelon.png', price: { sheckle: 2500, robux: 195 }, value: 2708, weight: 7.3, tier: 'Rare', harvest: 'Single', obtainable: 'YES', category: "Tom's Shop" },
-    { name: 'Green Apple', image: '/plant/green-apple.png', price: { sheckle: 3500, robux: 399 }, value: 271, weight: 2.85, tier: 'Legendary', harvest: 'Multi', obtainable: 'YES', category: "Tom's Shop" },
-    { name: 'Avocado', image: '/plant/avocado.png', price: { sheckle: 5000, robux: 419 }, value: 91, weight: 3.32, tier: 'Legendary', harvest: 'Multi', obtainable: 'YES', category: "Tom's Shop" },
-    { name: 'Banana', image: '/plant/banana.png', price: { sheckle: 7000, robux: 459 }, value: 1805, weight: 1.42, tier: 'Legendary', harvest: 'Multi', obtainable: 'YES', category: "Tom's Shop" },
-    { name: 'Pineapple', image: '/plant/pineapple.png', price: { sheckle: 7500, robux: 475 }, value: 1805, weight: 2.85, tier: 'Mythical', harvest: 'Multi', obtainable: 'YES', category: "Tom's Shop" },
-    { name: 'Kiwi', image: '/plant/kiwi.png', price: { sheckle: 10000, robux: 529 }, value: 2482, weight: 4.75, tier: 'Mythical', harvest: 'Multi', obtainable: 'YES', category: "Tom's Shop" },
-    { name: 'Bell Pepper', image: '/plant/bell-pepper.png', price: { sheckle: 55000, robux: 589 }, value: 4964, weight: 7.61, tier: 'Mythical', harvest: 'Multi', obtainable: 'YES', category: "Tom's Shop" },
-    { name: 'Prickly Pear', image: '/plant/prickly-pear.png', price: { sheckle: 555000, robux: 599 }, value: 6319, weight: 6.65, tier: 'Mythical', harvest: 'Multi', obtainable: 'YES', category: "Tom's Shop" },
-    { name: 'Loquat', image: '/plant/loquat.png', price: { sheckle: 900000, robux: 629 }, value: 7220, weight: 6.17, tier: 'Divine', harvest: 'Multi', obtainable: 'YES', category: "Tom's Shop" },
-    { name: 'Feijoa', image: '/plant/feijoa.png', price: { sheckle: 2750000, robux: 679 }, value: 11733, weight: 9.5, tier: 'Divine', harvest: 'Multi', obtainable: 'YES', category: "Tom's Shop" },
-    { name: 'Sugar Apple', image: '/plant/sugar-apple.png', price: { sheckle: 25000000, robux: 819 }, value: 43320, weight: 8.55, tier: 'Prismatic', harvest: 'Multi', obtainable: 'YES', category: "Tom's Shop" },
+  // 植物图片映射
+  const getPlantImage = (plantId: string) => {
+    const plantImages: { [key: string]: string } = {
+      // Fruits
+      'apple': '/plant/apple.png',
+      'avocado': '/plant/avocado.png',
+      'banana': '/plant/banana.png',
+      'blueberry': '/plant/blueberry.png',
+      'bloodbanana': '/plant/blood-banana.png',
+      'cacao': '/plant/cacao.png',
+      'cantaloupe': '/plant/cantaloupe.png',
+      'celestiberry': '/plant/celestiberry.png',
+      'cocovine': '/plant/cocovine.png',
+      'coconut': '/plant/coconut.png',
+      'cranberry': '/plant/cranberry.png',
+      'cursedfruit': '/plant/cursed-fruit.png',
+      'dragonfruit': '/plant/dragon-fruit.png',
+      'durian': '/plant/durian.png',
+      'feijoa': '/plant/feijoa.png',
+      'grape': '/plant/grape.png',
+      'greenapple': '/plant/green-apple.png',
+      'hivefruit': '/plant/hive-fruit.png',
+      'kiwi': '/plant/kiwi.png',
+      'lemon': '/plant/lemon.png',
+      'loquat': '/plant/loquat.png',
+      'mango': '/plant/mango.png',
+      'moonmango': '/plant/moon-mango.png',
+      'moonmelon': '/plant/moon-melon.png',
+      'nectarine': '/plant/nectarine.png',
+      'papaya': '/plant/papaya.png',
+      'passionfruit': '/plant/passionfruit.png',
+      'peach': '/plant/peach.png',
+      'pear': '/plant/pear.png',
+      'pineapple': '/plant/pineapple.png',
+      'pricklypear': '/plant/prickly-pear.png',
+      'raspberry': '/plant/raspberry.png',
+      'soulfruit': '/plant/soul-fruit.png',
+      'starfruit': '/plant/starfruit.png',
+      'strawberry': '/plant/strawberry.png',
+      'sugarapple': '/plant/sugar-apple.png',
+      'watermelon': '/plant/watermelon.png',
+      
+      // Vegetables
+      'carrot': '/plant/carrot.png',
+      'cauliflower': '/plant/cauliflower.png',
+      'chocolatecarrot': '/plant/chocolate-carrot.png',
+      'corn': '/plant/corn.png',
+      'dragonpepper': '/plant/dragon-pepper.png',
+      'eggplant': '/plant/eggplant.png',
+      'pepper': '/plant/pepper.png',
+      'bellpepper': '/plant/bell-pepper.png',
+      'pumpkin': '/plant/pumpkin.png',
+      'tomato': '/plant/tomato.png',
+      'violetcorn': '/plant/violet-corn.png',
+      'wildcarrot': '/plant/wild-carrot.png',
+      
+      // Flowers
+      'beebalm': '/plant/bee-balm.png',
+      'candyblossom': '/plant/candy-blossom.png',
+      'candysunflower': '/plant/candy-sunflower.png',
+      'cherryblossom': '/plant/cherry-blossom.png',
+      'crocus': '/plant/crocus.png',
+      'daffodil': '/plant/daffodil.png',
+      'dandelion': '/plant/dandelion.png',
+      'emberlily': '/plant/ember-lily.png',
+      'foxglove': '/plant/foxglove.png',
+      'honeysuckle': '/plant/honeysuckle.png',
+      'lavender': '/plant/lavender.png',
+      'lilac': '/plant/lilac.png',
+      'lotus': '/plant/lotus.png',
+      'lumira': '/plant/lumira.png',
+      'manukaflower': '/plant/manuka-flower.png',
+      'moonblossom': '/plant/moon-blossom.png',
+      'moonflower': '/plant/moonflower.png',
+      'moonglow': '/plant/moonglow.png',
+      'orangetulip': '/plant/orange-tulip.png',
+      'parasolflower': '/plant/parasol-flower.png',
+      'pinklily': '/plant/pink-lily.png',
+      'purpledahlia': '/plant/purple-dahlia.png',
+      'rose': '/plant/rose.png',
+      'rosydelight': '/plant/rosy-delight.png',
+      'suncoil': '/plant/suncoil.png',
+      'sunflower': '/plant/sunflower.png',
+      
+      // Plants
+      'bamboo': '/plant/bamboo.png',
+      'beanstalk': '/plant/beanstalk.png',
+      'bendboo': '/plant/bendboo.png',
+      'cactus': '/plant/cactus.png',
+      'elephantears': '/plant/elephant-ears.png',
+      'nectarshade': '/plant/nectarshade.png',
+      'nectarthorn': '/plant/nectar-thorn.png',
+      'nightshade': '/plant/nightshade.png',
+      'succulent': '/plant/succulent.png',
+      'venusflytrap': '/plant/venus-fly-trap.png',
+      
+      // Mushrooms
+      'glowshroom': '/plant/glowshroom.png',
+      'mushroom': '/plant/mushroom.png',
+      
+      // Special items
+      'easteregg': '/plant/easter-egg.png',
+      'redlollipop': '/plant/red-lollipop.png',
+      
+      // Herbs
+      'mint': '/plant/mint.png',
+      
+      // Special mappings
+      'cabbageee': '/plant/Cabbageee.webp',
+      'lime': '/plant/Lime_possible_appearance.webp'
+    };
     
-    // Queen Bee Shop
-    { name: 'Bee Balm', image: '/plant/bee-balm.png', price: { sheckle: 15000, robux: 299 }, value: 3500, weight: 2.1, tier: 'Mythical', harvest: 'Multi', obtainable: 'YES', category: 'Queen Bee Shop' },
-    { name: 'Hive Fruit', image: '/plant/hive-fruit.png', price: { sheckle: 75000, robux: 599 }, value: 8200, weight: 4.5, tier: 'Divine', harvest: 'Multi', obtainable: 'YES', category: 'Queen Bee Shop' },
-    
-    // Twilight Shop
-    { name: 'Moon Blossom', image: '/plant/moon-blossom.png', price: { sheckle: 25000, robux: 399 }, value: 4200, weight: 3.2, tier: 'Mythical', harvest: 'Multi', obtainable: 'YES', category: 'Twilight Shop' },
-    { name: 'Moon Mango', image: '/plant/moon-mango.png', price: { sheckle: 85000, robux: 699 }, value: 9500, weight: 5.8, tier: 'Divine', harvest: 'Multi', obtainable: 'YES', category: 'Twilight Shop' },
-    
-    // Blood Moon Shop
-    { name: 'Blood Banana', image: '/plant/blood-banana.png', price: { sheckle: 45000, robux: 499 }, value: 6500, weight: 3.8, tier: 'Mythical', harvest: 'Multi', obtainable: 'YES', category: 'Blood Moon Shop' },
-    
-    // Flower Seed
-    { name: 'Rose', image: '/plant/rose.png', price: { sheckle: 5000, robux: 199 }, value: 850, weight: 1.2, tier: 'Legendary', harvest: 'Multi', obtainable: 'YES', category: 'Flower Seed' },
-    { name: 'Sunflower', image: '/plant/sunflower.png', price: { sheckle: 8000, robux: 249 }, value: 1200, weight: 2.5, tier: 'Legendary', harvest: 'Multi', obtainable: 'YES', category: 'Flower Seed' },
-    
-    // Summer Seed
-    { name: 'Cantaloupe', image: '/plant/cantaloupe.png', price: { sheckle: 12000, robux: 299 }, value: 2100, weight: 6.2, tier: 'Mythical', harvest: 'Single', obtainable: 'YES', category: 'Summer Seed' },
-    
-    // Easter Event 2025
-    { name: 'Easter Egg', image: '/plant/easter-egg.png', price: { sheckle: 50000, robux: 0 }, value: 7500, weight: 1.8, tier: 'Divine', harvest: 'Single', obtainable: 'YES', category: 'Easter Event 2025' }
-  ];
+    return plantImages[plantId] || '/plant/currency-0.png';
+  };
+
+  // 将gameData中的plants数据转换为crops页面需要的格式
+  const crops = plants.map(plant => ({
+    name: plant.name,
+    image: getPlantImage(plant.id),
+    price: { 
+      sheckle: Math.round(plant.baseValue * 0.5), // 估算价格，可根据实际游戏数据调整
+      robux: Math.round(plant.baseValue * 0.02) // 估算Robux价格
+    },
+    value: plant.baseValue,
+    weight: Math.round(plant.baseValue * 0.001 * 100) / 100, // 估算重量
+    tier: plant.category,
+    harvest: 'Multi', // 大部分植物都是Multi harvest
+    obtainable: 'YES',
+    category: plant.shop || "Tom's Shop" // 使用商店信息，如果没有则默认为Tom's Shop
+  }));
 
   const categories = [
     'All',

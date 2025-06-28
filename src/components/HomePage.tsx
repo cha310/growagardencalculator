@@ -442,9 +442,9 @@ export const HomePage: React.FC = () => {
               <p className="text-xs text-gray-300 mb-4">
                 Check Sam's Shop stock, event seeds, and pack availability in Grow a Garden.
               </p>
-              <button className="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg transition-colors">
+              <Link to="/grow-a-garden-stock" className="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg transition-colors inline-block" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
                 View Stock
-              </button>
+              </Link>
             </div>
 
             {/* Codes Section */}

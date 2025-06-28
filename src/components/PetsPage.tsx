@@ -247,20 +247,22 @@ export const PetsPage: React.FC = () => {
 
       {/* Back to Calculator */}
       <div className="text-center mb-8">
-        <Link 
-          to="/" 
-          className="bg-green-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-green-700 transition-colors mr-4"
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-        >
-          ← Calculator
-        </Link>
-        <Link 
-          to="/grow-a-garden-wiki" 
-          className="bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-        >
-          ← Back to Wiki
-        </Link>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <Link 
+            to="/" 
+            className="bg-green-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-green-700 transition-colors w-full sm:w-auto"
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          >
+            ← Calculator
+          </Link>
+          <Link 
+            to="/grow-a-garden-wiki" 
+            className="bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 transition-colors w-full sm:w-auto"
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          >
+            ← Back to Wiki
+          </Link>
+        </div>
       </div>
     </div>
   );

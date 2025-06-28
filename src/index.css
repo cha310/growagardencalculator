@@ -76,7 +76,7 @@
   
   /* Category Filter Buttons */
   .category-filter {
-    @apply bg-gray-700 border-2 border-gray-600 text-yellow-300 px-3 py-2 text-xs cursor-pointer transition-all duration-100;
+    @apply bg-gray-700 border-2 border-gray-600 text-yellow-300 px-2 py-1 sm:px-3 sm:py-2 text-xs cursor-pointer transition-all duration-100;
     box-shadow: 2px 2px 0px #333;
   }
   
@@ -136,9 +136,21 @@
   .plant-card {
     @apply bg-gray-700 border-2 border-gray-600 p-1 cursor-pointer transition-all duration-100 text-center;
     box-shadow: 1px 1px 0px #333;
-    min-height: 112px;
-    max-height: 112px;
     aspect-ratio: 1;
+  }
+  
+  @media (max-width: 640px) {
+    .plant-card {
+      min-height: 96px;
+      max-height: 96px;
+    }
+  }
+  
+  @media (min-width: 641px) {
+    .plant-card {
+      min-height: 112px;
+      max-height: 112px;
+    }
   }
   
   .plant-card:hover {

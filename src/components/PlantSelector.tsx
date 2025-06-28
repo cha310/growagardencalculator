@@ -66,11 +66,11 @@ export const PlantSelector: React.FC<PlantSelectorProps> = ({
         {/* Category Filter Buttons */}
         <div className="flex-shrink-0">
           <label className="block text-green-400 text-xs mb-2">CATEGORY:</label>
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2">
             {categories.map(category => (
               <button
                 key={category}
-                className={`category-filter ${
+                className={`category-filter text-xs sm:text-sm ${
                   selectedCategory === category ? 'selected' : ''
                 }`}
                 onClick={() => onCategorySelect(category)}
@@ -89,30 +89,30 @@ export const PlantSelector: React.FC<PlantSelectorProps> = ({
           <div className="flex-1 overflow-y-auto min-h-0">
             {filteredPlants.length === 0 ? (
               <div className="text-center text-gray-400 py-8">
-                <div className="text-sm">未找到匹配的植物</div>
+                <div className="text-sm">No matching plants found</div>
                 {searchTerm && (
                   <div className="text-xs mt-2">
-                    尝试搜索: "{searchTerm}"
+                    Try to search: "{searchTerm}"
                   </div>
                 )}
               </div>
             ) : (
-              <div className="grid grid-cols-5 gap-2 plant-grid content-start pb-2">
+              <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-5 gap-2 plant-grid content-start pb-2">
                 {filteredPlants.map(plant => (
                   <button
                     key={plant.id}
-                    className={`plant-card h-28 relative ${
+                    className={`plant-card h-24 sm:h-28 relative ${
                       selectedPlant?.id === plant.id ? 'selected' : ''
                     }`}
                     onClick={() => onPlantSelect(plant)}
                   >
                     <div className="flex flex-col items-center justify-center h-full">
-                      <div className="plant-icon flex-shrink-0 mb-2">
+                      <div className="plant-icon flex-shrink-0 mb-1 sm:mb-2">
                         {getPlantIcon(plant.id, plant.type)}
                       </div>
                     </div>
-                    <div className="plant-name absolute bottom-0 left-0 right-0 px-1 py-1 h-8" title={plant.name.toUpperCase()}>
-                      <div className="text-center leading-tight whitespace-pre-line text-[7px] h-full flex items-end justify-center">
+                    <div className="plant-name absolute bottom-0 left-0 right-0 px-1 py-1 h-6 sm:h-8" title={plant.name.toUpperCase()}>
+                      <div className="text-center leading-tight whitespace-pre-line text-[6px] sm:text-[7px] h-full flex items-end justify-center">
                         {getDisplayName(plant.name)}
                       </div>
                     </div>
@@ -251,11 +251,11 @@ const getPlantIcon = (plantId: string, plantType: string) => {
   // Use real image if available
   if (plantImages[plantId]) {
     return (
-      <div className="w-22 h-22 flex items-center justify-center">
+      <div className="w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center">
         <img 
           src={plantImages[plantId]} 
           alt={plantId} 
-          className="max-w-20 max-h-20 object-contain" 
+          className="max-w-14 max-h-14 sm:max-w-18 sm:max-h-18 object-contain" 
         />
       </div>
     );
@@ -274,7 +274,7 @@ const getPlantIcon = (plantId: string, plantType: string) => {
   };
   const emoji = emojiIcons[plantType as keyof typeof emojiIcons] || '🌱';
   return (
-    <div className="w-22 h-22 flex items-center justify-center text-4xl">
+    <div className="w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center text-2xl sm:text-4xl">
       {emoji}
     </div>
   );

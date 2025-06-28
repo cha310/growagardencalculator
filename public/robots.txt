@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://growagardencalculator.me/sitemap.xml
+Sitemap: https://www.growagardencalculator.me/sitemap.xml
 
 # Important pages
 Allow: /faqs

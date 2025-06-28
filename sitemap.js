@@ -1,6 +1,6 @@
 // app/sitemap.js
 export default async function sitemap() {
-    const baseUrl = 'https://growagardencalculator.me';
+    const baseUrl = 'https://www.growagardencalculator.me';
     const now = new Date();
 
     const staticPages = [

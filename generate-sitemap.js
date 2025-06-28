@@ -8,7 +8,7 @@ const __dirname = path.dirname(__filename);
 
 // 导入sitemap数据
 async function generateSitemap() {
-  const baseUrl = 'https://growagardencalculator.me';
+  const baseUrl = 'https://www.growagardencalculator.me';
   const now = new Date().toISOString().split('T')[0]; // YYYY-MM-DD format
 
   const pages = [

@@ -1,0 +1,386 @@
+import React from 'react';
+import Link from 'next/link';
+
+export const BizzyBeeEventPage: React.FC = () => {
+  return (
+    <div className="max-w-7xl mx-auto px-4 py-8">
+      {/* Breadcrumb */}
+      <nav className="text-sm text-gray-400 mb-6">
+        <Link href="/" className="hover:text-yellow-300">Home</Link>
+        <span className="mx-2">›</span>
+        <Link href="/grow-a-garden-events" className="hover:text-yellow-300">Events</Link>
+        <span className="mx-2">›</span>
+        <span className="text-white">Bizzy Bee Event</span>
+      </nav>
+
+      {/* Header */}
+      <div className="text-center mb-8">
+        <div className="flex items-center justify-center mb-4">
+          <div>
+            <h1 className="text-4xl font-bold text-yellow-300 mb-2">Bizzy Bee Event</h1>
+            <div className="flex items-center justify-center space-x-2">
+              <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-gray-600 text-gray-300">
+                <span className="mr-1">✓</span>
+                Completed
+              </span>
+              <span className="text-gray-400">May 31 - June 21, 2025</span>
+            </div>
+          </div>
+        </div>
+        <p className="text-sm text-gray-300 max-w-6xl mx-auto leading-relaxed">
+          The fourth event in Grow a Garden featuring the Queen Bee NPC, honey collection system, bee swarm events, and Bizzy Bear crafting. Players collected pollinated plants to earn Honey currency for exclusive rewards.
+        </p>
+      </div>
+
+      {/* Event Overview */}
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+        {/* Main Content */}
+        <div className="lg:col-span-2 space-y-8">
+          {/* Event Description */}
+          <div className="bg-gray-800/80 backdrop-blur-sm rounded-xl p-8 border border-gray-700">
+            <h2 className="text-2xl font-bold text-white mb-6">Event Overview</h2>
+            <div className="text-gray-300 text-sm leading-relaxed space-y-4">
+              <p>
+                The Bizzy Bee Event was a limited-time event with new features, limited-time NPCs, and rewards. This event was the fourth event added to Grow a Garden and introduced the innovative honey collection system.
+              </p>
+              <p>
+                The Queen Bee tasked users with collecting Pollinated plants in exchange for Honey currency. Players could deposit at least 10kg of these plants into the Honey Compressor operated by the "Onett" NPC to earn rewards.
+              </p>
+              <p>
+                The event featured hourly Bee Swarm Events lasting 10 minutes, where the Queen Bee sent swarms of bees to pollinate random plants every 30 seconds. There was also a Working Bee Swarm variant with multi-colored, hard-hat wearing bees.
+              </p>
+            </div>
+          </div>
+
+          {/* Event Mechanics */}
+          <div className="bg-gray-800/80 backdrop-blur-sm rounded-xl p-8 border border-gray-700">
+            <h2 className="text-2xl font-bold text-white mb-6">Event Mechanics</h2>
+            <div className="text-gray-300 text-sm leading-relaxed space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <h3 className="text-lg font-bold text-yellow-300 mb-3">Honey System</h3>
+                  <ul className="space-y-2 text-sm">
+                    <li className="flex items-start">
+                      <span className="text-yellow-300 mr-2 mt-1">•</span>
+                      <span>Collect Pollinated plants for Queen Bee</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-yellow-300 mr-2 mt-1">•</span>
+                      <span>Deposit 10kg+ into Honey Compressor</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-yellow-300 mr-2 mt-1">•</span>
+                      <span>Earn 10 Honey after 30 seconds</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-yellow-300 mr-2 mt-1">•</span>
+                      <span>Shop restocks every 30 minutes</span>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h3 className="text-lg font-bold text-yellow-300 mb-3">Bee Swarm Events</h3>
+                  <ul className="space-y-2 text-sm">
+                    <li className="flex items-start">
+                      <span className="text-yellow-300 mr-2 mt-1">•</span>
+                      <span>Hourly events lasting 10 minutes</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-yellow-300 mr-2 mt-1">•</span>
+                      <span>Bees pollinate plants every 30 seconds</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-yellow-300 mr-2 mt-1">•</span>
+                      <span>Working Bee Swarm (1/3 chance)</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-yellow-300 mr-2 mt-1">•</span>
+                      <span>3x pollination with hard-hat bees</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              
+              <div>
+                <h3 className="text-lg font-bold text-yellow-300 mb-3">Bizzy Bear Crafting</h3>
+                <p className="text-gray-300 text-sm mb-3">
+                  Players could select which seed or item to craft using unique recipes. Each recipe had specific requirements and designated craft times.
+                </p>
+                <ul className="space-y-2 text-sm">
+                  <li className="flex items-start">
+                    <span className="text-yellow-300 mr-2 mt-1">•</span>
+                    <span>Craft sprinklers, mutation sprays, and special items</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-yellow-300 mr-2 mt-1">•</span>
+                    <span>Working Bee Swarm increases craft speed by 10x</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-yellow-300 mr-2 mt-1">•</span>
+                    <span>Replaced previous quest system in Part 3</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          {/* Honey Shop */}
+          <div className="bg-gray-800/80 backdrop-blur-sm rounded-xl p-8 border border-gray-700">
+            <h2 className="text-2xl font-bold text-white mb-6">Honey Shop</h2>
+            <p className="text-gray-300 text-sm mb-6">The Queen Bee's exclusive shop offering bee-themed items, seeds, and cosmetics for Honey currency:</p>
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="border-b border-gray-600">
+                    <th className="text-left py-3 px-4 text-yellow-300">Item Name</th>
+                    <th className="text-left py-3 px-4 text-yellow-300">Honey Cost</th>
+                    <th className="text-left py-3 px-4 text-yellow-300">Robux Price</th>
+                  </tr>
+                </thead>
+                <tbody className="text-gray-300">
+                  <tr className="border-b border-gray-700">
+                    <td className="py-3 px-4 font-semibold">Flower Seed Pack</td>
+                    <td className="py-3 px-4">10</td>
+                    <td className="py-3 px-4">199</td>
+                  </tr>
+                  <tr className="border-b border-gray-700">
+                    <td className="py-3 px-4 font-semibold">Lavender Seed</td>
+                    <td className="py-3 px-4">3</td>
+                    <td className="py-3 px-4">99</td>
+                  </tr>
+                  <tr className="border-b border-gray-700">
+                    <td className="py-3 px-4 font-semibold">Nectarshade Seed</td>
+                    <td className="py-3 px-4">5</td>
+                    <td className="py-3 px-4">139</td>
+                  </tr>
+                  <tr className="border-b border-gray-700">
+                    <td className="py-3 px-4 font-semibold">Nectarine Seed</td>
+                    <td className="py-3 px-4">25</td>
+                    <td className="py-3 px-4">399</td>
+                  </tr>
+                  <tr className="border-b border-gray-700">
+                    <td className="py-3 px-4 font-semibold">Hive Fruit Seed</td>
+                    <td className="py-3 px-4">40</td>
+                    <td className="py-3 px-4">599</td>
+                  </tr>
+                  <tr className="border-b border-gray-700">
+                    <td className="py-3 px-4 font-semibold">Pollen Radar</td>
+                    <td className="py-3 px-4">20</td>
+                    <td className="py-3 px-4">249</td>
+                  </tr>
+                  <tr className="border-b border-gray-700">
+                    <td className="py-3 px-4 font-semibold">Nectar Staff</td>
+                    <td className="py-3 px-4">25</td>
+                    <td className="py-3 px-4">219</td>
+                  </tr>
+                  <tr className="border-b border-gray-700">
+                    <td className="py-3 px-4 font-semibold">Honey Sprinkler</td>
+                    <td className="py-3 px-4">30</td>
+                    <td className="py-3 px-4">199</td>
+                  </tr>
+                  <tr className="border-b border-gray-700">
+                    <td className="py-3 px-4 font-semibold">Bee Egg</td>
+                    <td className="py-3 px-4">18</td>
+                    <td className="py-3 px-4">129</td>
+                  </tr>
+                  <tr>
+                    <td className="py-3 px-4 font-semibold">Bee Crate</td>
+                    <td className="py-3 px-4">12</td>
+                    <td className="py-3 px-4">179</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p className="text-gray-400 text-xs mt-4">* Additional cosmetic items available: Honey Comb, Bee Chair, Honey Torch, Honey Walkway</p>
+          </div>
+
+          {/* Crafting Recipes */}
+          <div className="bg-gray-800/80 backdrop-blur-sm rounded-xl p-8 border border-gray-700">
+            <h2 className="text-2xl font-bold text-white mb-6">Sample Crafting Recipes</h2>
+            <p className="text-gray-300 text-sm mb-6">Bizzy Bear crafting station offered various gear and item recipes:</p>
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="border-b border-gray-600">
+                    <th className="text-left py-3 px-4 text-yellow-300">Item</th>
+                    <th className="text-left py-3 px-4 text-yellow-300">Recipe Requirements</th>
+                    <th className="text-left py-3 px-4 text-yellow-300">Craft Time</th>
+                  </tr>
+                </thead>
+                <tbody className="text-gray-300">
+                  <tr className="border-b border-gray-700">
+                    <td className="py-3 px-4 font-semibold">Tropical Mist Sprinkler</td>
+                    <td className="py-3 px-4">Coconut + Dragon Fruit + Mango + Godly Sprinkler</td>
+                    <td className="py-3 px-4">1 hour</td>
+                  </tr>
+                  <tr className="border-b border-gray-700">
+                    <td className="py-3 px-4 font-semibold">Berry Blusher Sprinkler</td>
+                    <td className="py-3 px-4">Grape + Blueberry + Strawberry + Godly Sprinkler</td>
+                    <td className="py-3 px-4">1 hour</td>
+                  </tr>
+                  <tr className="border-b border-gray-700">
+                    <td className="py-3 px-4 font-semibold">Sweet Soaker Sprinkler</td>
+                    <td className="py-3 px-4">3x Watermelon + Master Sprinkler</td>
+                    <td className="py-3 px-4">1 hour</td>
+                  </tr>
+                  <tr className="border-b border-gray-700">
+                    <td className="py-3 px-4 font-semibold">Flower Froster Sprinkler</td>
+                    <td className="py-3 px-4">Orange Tulip + Daffodil + Advanced + Basic Sprinkler</td>
+                    <td className="py-3 px-4">1 hour</td>
+                  </tr>
+                  <tr>
+                    <td className="py-3 px-4 font-semibold">Mutation Spray Choc</td>
+                    <td className="py-3 px-4">Cleaning Spray + Cacao + Chocolate Carrot</td>
+                    <td className="py-3 px-4">30 minutes</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        {/* Sidebar */}
+        <div className="space-y-6">
+          {/* Event Details */}
+          <div className="bg-gray-800/80 backdrop-blur-sm rounded-xl p-6 border border-gray-700">
+            <h3 className="text-lg font-bold text-yellow-300 mb-4">Event Details</h3>
+            <div className="mb-4 text-center">
+              <img 
+                src="/events/Bizzy_Bee_Event.webp" 
+                alt="Bizzy Bee Event"
+                className="w-32 h-32 object-cover rounded-lg mx-auto"
+              />
+            </div>
+            <div className="space-y-3 text-sm">
+              <div className="flex items-center flex-nowrap">
+                <span className="text-gray-400 mr-2 whitespace-nowrap">Start Date:</span>
+                <span className="text-white whitespace-nowrap">May 31, 2025</span>
+              </div>
+              <div className="flex items-center flex-nowrap">
+                <span className="text-gray-400 mr-2 whitespace-nowrap">End Date:</span>
+                <span className="text-white whitespace-nowrap">June 21, 2025</span>
+              </div>
+              <div className="flex items-center flex-nowrap">
+                <span className="text-gray-400 mr-2 whitespace-nowrap">Duration:</span>
+                <span className="text-white whitespace-nowrap">21 days</span>
+              </div>
+              <div className="flex items-center flex-nowrap">
+                <span className="text-gray-400 mr-2 whitespace-nowrap">Status:</span>
+                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-gray-600 text-gray-300 whitespace-nowrap">
+                <span className="mr-1">✓</span>
+                Completed
+              </span>
+              </div>
+              <div className="flex items-center flex-nowrap">
+                <span className="text-gray-400 mr-2 whitespace-nowrap">Currency:</span>
+                <span className="text-white whitespace-nowrap">Honey</span>
+              </div>
+              <div className="flex items-center flex-nowrap">
+                <span className="text-gray-400 mr-2 whitespace-nowrap">NPCs:</span>
+                <span className="text-white whitespace-nowrap">Queen Bee, Onett</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Event Features */}
+          <div className="bg-gray-800/80 backdrop-blur-sm rounded-xl p-6 border border-gray-700">
+            <h3 className="text-lg font-bold text-yellow-300 mb-4">Event Features</h3>
+            <ul className="space-y-2 text-gray-300 text-sm">
+              <li className="flex items-start">
+                <span className="text-yellow-300 mr-2 mt-1">•</span>
+                <span>Honey Collection System</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-yellow-300 mr-2 mt-1">•</span>
+                <span>Hourly Bee Swarm Events</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-yellow-300 mr-2 mt-1">•</span>
+                <span>Working Bee Swarm (1/3 chance)</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-yellow-300 mr-2 mt-1">•</span>
+                <span>Bizzy Bear Crafting System</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-yellow-300 mr-2 mt-1">•</span>
+                <span>Pollinated Plant Mutations</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-yellow-300 mr-2 mt-1">•</span>
+                <span>Honey Compressor Machine</span>
+              </li>
+            </ul>
+          </div>
+
+          {/* Event Trivia */}
+          <div className="bg-gray-800/80 backdrop-blur-sm rounded-xl p-6 border border-gray-700">
+            <h3 className="text-lg font-bold text-yellow-300 mb-4">Event Trivia</h3>
+            <div className="space-y-3 text-xs text-gray-300">
+              <div className="bg-blue-900/20 border border-blue-600 rounded-lg p-3">
+                <p className="text-blue-300">
+                  <strong>Fourth Event:</strong> This was the fourth event added to Grow a Garden.
+                </p>
+              </div>
+              <div className="bg-green-900/20 border border-green-600 rounded-lg p-3">
+                <p className="text-green-300">
+                  <strong>Onett NPC:</strong> The Honey Compressor operator is Onett, creator of Bee Swarm Simulator.
+                </p>
+              </div>
+              <div className="bg-purple-900/20 border border-purple-600 rounded-lg p-3">
+                <p className="text-purple-300">
+                  <strong>Most Crops:</strong> This event added the most event crops to the game.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Event Tips */}
+          <div className="bg-gray-800/80 backdrop-blur-sm rounded-xl p-6 border border-gray-700">
+            <h3 className="text-lg font-bold text-yellow-300 mb-4">Event Tips</h3>
+            <ul className="space-y-2 text-gray-300 text-xs">
+              <li className="flex items-start">
+                <span className="text-yellow-300 mr-2 mt-1">•</span>
+                <span>Deposit 10kg+ pollinated plants for honey</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-yellow-300 mr-2 mt-1">•</span>
+                <span>Shop restocks every 30 minutes</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-yellow-300 mr-2 mt-1">•</span>
+                <span>Working Bee Swarm boosts craft speed 10x</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-yellow-300 mr-2 mt-1">•</span>
+                <span>Bee swarms occur hourly for 10 minutes</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-yellow-300 mr-2 mt-1">•</span>
+                <span>Pollinated texture resembles gold with particles</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      {/* Navigation */}
+      <div className="text-center">
+        <Link 
+          href="/grow-a-garden-events" 
+          className="bg-gray-600 hover:bg-gray-700 text-white py-3 px-6 rounded-lg font-semibold transition-colors mr-4"
+         
+        >
+          ← Back to Events
+        </Link>
+        <Link 
+          href="/grow-a-garden-wiki" 
+          className="bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg font-semibold transition-colors"
+         
+        >
+          Explore Wiki →
+        </Link>
+      </div>
+    </div>
+  );
+}; 

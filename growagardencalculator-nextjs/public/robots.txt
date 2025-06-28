@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://www.growagardencalculator.me/sitemap.xml
+
+# Important pages
+Allow: /faqs
+
+# Crawl delay (optional)
+Crawl-delay: 1

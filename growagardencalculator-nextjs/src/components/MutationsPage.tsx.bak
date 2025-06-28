@@ -1,0 +1,269 @@
+"use client";
+import React, { useState } from 'react';
+import Link from 'next/link';
+import { mutations } from '../data/gameData';
+
+export const MutationsPage: React.FC = () => {
+  const [selectedMultiplier, setSelectedMultiplier] = useState('All');
+
+  // 根据倍数分组mutations
+  const multiplierGroups = ['All', '2x', '3x', '4x', '5x', '10x', '18x', '20x', '25x', '50x', '85x', '100x', '120x', '125x', '135x', '150x'];
+
+  const filteredMutations = selectedMultiplier === 'All' 
+    ? mutations 
+    : mutations.filter(mutation => {
+        const multiplierStr = `${mutation.multiplier}x`;
+        return multiplierStr === selectedMultiplier;
+      });
+
+  const getMultiplierColor = (multiplier: number) => {
+    if (multiplier <= 2) return 'text-gray-300';
+    if (multiplier <= 5) return 'text-green-400';
+    if (multiplier <= 10) return 'text-blue-400';
+    if (multiplier <= 25) return 'text-purple-400';
+    if (multiplier <= 50) return 'text-pink-400';
+    if (multiplier <= 100) return 'text-yellow-400';
+    return 'text-red-400';
+  };
+
+  const getMultiplierBadgeColor = (multiplier: number) => {
+    if (multiplier <= 2) return 'bg-gray-600';
+    if (multiplier <= 5) return 'bg-green-600';
+    if (multiplier <= 10) return 'bg-blue-600';
+    if (multiplier <= 25) return 'bg-purple-600';
+    if (multiplier <= 50) return 'bg-pink-600';
+    if (multiplier <= 100) return 'bg-yellow-600';
+    return 'bg-red-600';
+  };
+
+  return (
+    <div className="max-w-7xl mx-auto px-4 py-8">
+      {/* Breadcrumb */}
+      <div className="mb-6">
+        <nav className="flex items-center space-x-2 text-sm">
+          <Link href="/grow-a-garden-wiki" className="text-yellow-300 hover:text-yellow-400 transition-colors">
+            Wiki
+          </Link>
+          <span className="text-gray-500">›</span>
+          <span className="text-gray-300">Mutations</span>
+        </nav>
+      </div>
+
+      {/* Header */}
+      <div className="text-center mb-8">
+        <h1 className="text-4xl font-bold text-yellow-300 mb-4">
+          Grow A Garden Mutations
+        </h1>
+        <p className="text-sm text-gray-300 max-w-6xl mx-auto leading-relaxed">
+          Explore the Grow A Garden Mutations wiki for a complete guide on crop mutations, including value calculations, mutation multipliers, and environmental bonuses. Learn how to maximize your crop values today!
+        </p>
+      </div>
+
+      {/* Filter Controls */}
+      <div className="mb-8">
+        <h3 className="text-2xl font-bold text-white mb-4">All Mutations in Grow a Garden</h3>
+        {/* 横向滚动标签页 */}
+        <div className="relative">
+          <div className="overflow-x-auto scrollbar-hide">
+            <div className="flex gap-1 pb-1 min-w-max border-b border-gray-600">
+              {multiplierGroups.map(group => (
+                <button
+                  key={group}
+                  onClick={() => setSelectedMultiplier(group)}
+                  className={`px-4 py-3 transition-all duration-300 text-sm whitespace-nowrap flex-shrink-0 relative ${
+                    selectedMultiplier === group
+                      ? 'text-yellow-300 font-semibold'
+                      : 'text-gray-400 hover:text-gray-300'
+                  }`}
+                >
+                  {group}
+                  {selectedMultiplier === group && (
+                    <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-yellow-300"></div>
+                  )}
+                </button>
+              ))}
+            </div>
+          </div>
+          {/* 右侧渐变阴影指示器 */}
+          <div className="absolute right-0 top-0 bottom-1 w-12 bg-gradient-to-l from-gray-800 via-gray-800/60 to-transparent pointer-events-none"></div>
+        </div>
+      </div>
+
+      {/* Mutations Table */}
+      <div className="bg-gray-800/80 backdrop-blur-sm rounded-xl px-8 pt-1 pb-8 border border-gray-700 mb-12">
+        
+        {/* Desktop Table */}
+        <div className="hidden md:block">
+          <table className="w-full text-left table-fixed">
+            <thead>
+              <tr className="border-b border-gray-600">
+                <th className="p-3 text-yellow-300 font-semibold text-xs text-center w-20">Image</th>
+                <th className="p-3 text-yellow-300 font-semibold text-xs w-32">Name</th>
+                <th className="p-3 text-yellow-300 font-semibold text-xs text-center w-24">Multiplier</th>
+                <th className="p-3 text-yellow-300 font-semibold text-xs text-center w-24">Stack Bonus</th>
+                <th className="p-3 text-yellow-300 font-semibold text-xs">Triggers & Appearance</th>
+              </tr>
+            </thead>
+            <tbody>
+              {filteredMutations.map((mutation, index) => (
+                <tr key={index} className="border-b border-gray-700 hover:bg-gray-700/50 transition-colors">
+                  <td className="p-3 text-center">
+                    <img 
+                      src={mutation.image} 
+                      alt={mutation.name} 
+                      className="w-12 h-12 object-contain rounded-lg mx-auto"
+                      onError={(e) => {
+                        (e.target as HTMLImageElement).src = '/icons/growagardencalculator.png';
+                      }}
+                    />
+                  </td>
+                  <td className="p-3 text-white font-semibold text-sm">{mutation.name}</td>
+                  <td className="p-3 text-center">
+                    <span className={`inline-block px-3 py-1 rounded-full text-xs font-semibold ${getMultiplierBadgeColor(mutation.multiplier)} text-white`}>
+                      x{mutation.multiplier}
+                    </span>
+                  </td>
+                  <td className="p-3 text-center">
+                    <span className="text-gray-300 text-sm font-semibold">
+                      {mutation.stackBonus > 0 ? `+${mutation.stackBonus}` : '-'}
+                    </span>
+                  </td>
+                  <td className="p-3 text-gray-300 text-xs leading-relaxed">{mutation.triggers}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        {/* Mobile Cards */}
+        <div className="md:hidden space-y-4">
+          {filteredMutations.map((mutation, index) => (
+            <div key={index} className="bg-gray-800/80 backdrop-blur-sm rounded-xl p-4 border border-gray-700">
+              <div className="flex items-start space-x-4">
+                <img 
+                  src={mutation.image} 
+                  alt={mutation.name} 
+                  className="w-16 h-16 object-contain rounded-lg flex-shrink-0"
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).src = '/icons/growagardencalculator.png';
+                  }}
+                />
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center justify-between mb-2">
+                    <h3 className="text-white font-semibold text-lg">{mutation.name}</h3>
+                    <div className="flex space-x-2">
+                      <span className={`inline-block px-2 py-1 rounded-full text-xs font-semibold ${getMultiplierBadgeColor(mutation.multiplier)} text-white`}>
+                        x{mutation.multiplier}
+                      </span>
+                    </div>
+                  </div>
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="text-sm text-gray-400">Stack Bonus:</span>
+                    <span className="text-sm font-semibold text-gray-300">
+                      {mutation.stackBonus > 0 ? `+${mutation.stackBonus}` : '-'}
+                    </span>
+                  </div>
+                  <p className="text-gray-300 text-xs leading-relaxed">{mutation.triggers}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Information Sections */}
+      <div className="space-y-8 mb-12">
+        {/* About Mutations */}
+        <div className="bg-gray-800/80 backdrop-blur-sm rounded-xl p-8 border border-gray-700">
+          <h2 className="text-2xl font-bold text-white mb-6">About Mutations in Grow a Garden</h2>
+          <div className="text-gray-300 text-sm leading-relaxed space-y-4">
+            <p>
+              Grow a Garden offers players exclusive mutations alongside standard fruits and vegetables. These mutations are crucial for earning extra in-game cash. They are unique visual changes that boost crop value, making them stand out and often more profitable.
+            </p>
+            <p>
+              In Grow a Garden, mutations are your ticket to raking in a fortune of glittering Sheckles! These mutations supercharge your fruits' value, multiplying their sale price. From a modest 2x boost with Moonlit or Chilled fruits to an electrifying 125x surge with Disco fruit, the potential is wild! Best of all, these vibrant mutations can stack, piling on the profits and skyrocketing your crops' worth to mind-blowing heights.
+            </p>
+          </div>
+        </div>
+
+        {/* Crop Value Calculation */}
+        <div className="bg-gray-800/80 backdrop-blur-sm rounded-xl p-8 border border-gray-700">
+          <h2 className="text-2xl font-bold text-white mb-6">Crop Value Calculation</h2>
+          <div className="text-gray-300 text-sm leading-relaxed space-y-4">
+            <p>The total value of a mutated crop is determined using the following formula:</p>
+            <div className="bg-gray-900/50 rounded-lg p-4 font-mono text-yellow-300 text-sm">
+              <div className="mb-2">Total Value = Minimum Value × Total Multiplier</div>
+              <div className="mb-2">Total Multiplier = Growth Mutation × (1 + Sum of Environmental Stack Bonuses)</div>
+              <div className="text-gray-400 text-xs">or</div>
+              <div>Total Multiplier = Growth Mutation × (1 + Sum of Multipliers - Number of Mutations)</div>
+            </div>
+            <p>
+              When the weight of the crop exceeds its minimum weight, the calculation formula becomes:
+            </p>
+            <div className="bg-gray-900/50 rounded-lg p-4 font-mono text-yellow-300 text-sm">
+              Total Value = k × Weight² × Total Multiplier
+            </div>
+          </div>
+        </div>
+
+        {/* Formula Concepts */}
+        <div className="bg-gray-800/80 backdrop-blur-sm rounded-xl p-8 border border-gray-700">
+          <h2 className="text-2xl font-bold text-white mb-6">Formula Concepts</h2>
+          <div className="text-gray-300 text-sm leading-relaxed">
+            <ul className="space-y-3">
+              <li className="flex items-start">
+                <span className="text-yellow-300 mr-3 mt-1">•</span>
+                <div>
+                  <strong className="text-white">Minimum Value:</strong> The base price of the crop before any mutations are applied.
+                </div>
+              </li>
+              <li className="flex items-start">
+                <span className="text-yellow-300 mr-3 mt-1">•</span>
+                <div>
+                  <strong className="text-white">Growth Mutation:</strong> One of the following multipliers: Default (×1), Gold (×20), Rainbow (×50)
+                </div>
+              </li>
+              <li className="flex items-start">
+                <span className="text-yellow-300 mr-3 mt-1">•</span>
+                <div>
+                  <strong className="text-white">Sum of Environmental Stack Bonuses:</strong> The total bonus value of all applicable environmental mutations, added together.
+                </div>
+              </li>
+              <li className="flex items-start">
+                <span className="text-yellow-300 mr-3 mt-1">•</span>
+                <div>
+                  <strong className="text-white">Total Multiplier:</strong> The final multiplier value, calculated by multiplying the growth mutation by the sum of environmental stack bonuses.
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Constraints */}
+        <div className="bg-gray-800/80 backdrop-blur-sm rounded-xl p-8 border border-gray-700">
+          <h2 className="text-2xl font-bold text-white mb-6">Mutation Constraints</h2>
+          <div className="text-gray-300 text-sm leading-relaxed">
+            <ul className="space-y-3">
+              <li className="flex items-start">
+                <span className="text-yellow-300 mr-3 mt-1">•</span>
+                <div>Only one of Gold or Rainbow mutations can be applied to a crop.</div>
+              </li>
+              <li className="flex items-start">
+                <span className="text-yellow-300 mr-3 mt-1">•</span>
+                <div>Only one of Chilled, Wet, or Frozen mutations can be applied to a crop.</div>
+              </li>
+              <li className="flex items-start">
+                <span className="text-yellow-300 mr-3 mt-1">•</span>
+                <div>For the "Dawnbound mutation", it can only be obtained on sunflower.</div>
+              </li>
+              <li className="flex items-start">
+                <span className="text-yellow-300 mr-3 mt-1">•</span>
+                <div>Only one of Cooked or Burnt mutations can be applied to a crop.</div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}; 

@@ -1,0 +1,273 @@
+import React from 'react';
+import Link from 'next/link';
+
+export const LunarGlowEventPage: React.FC = () => {
+  return (
+    <div className="max-w-7xl mx-auto px-4 py-8">
+      {/* Breadcrumb */}
+      <nav className="text-sm text-gray-400 mb-6">
+        <Link href="/" className="hover:text-yellow-300">Home</Link>
+        <span className="mx-2">›</span>
+        <Link href="/grow-a-garden-events" className="hover:text-yellow-300">Events</Link>
+        <span className="mx-2">›</span>
+        <span className="text-white">Lunar Glow Event</span>
+      </nav>
+
+      {/* Header */}
+      <div className="text-center mb-8">
+        <div className="flex items-center justify-center mb-4">
+          <div>
+            <h1 className="text-4xl font-bold text-yellow-300 mb-2">Lunar Glow Event</h1>
+            <div className="flex items-center justify-center space-x-2">
+              <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-gray-600 text-gray-300">
+                <span className="mr-1">✓</span>
+                Completed
+              </span>
+              <span className="text-gray-400">May 10 - May 31, 2025</span>
+            </div>
+          </div>
+        </div>
+        <p className="text-sm text-gray-300 max-w-6xl mx-auto leading-relaxed">
+          The Lunar Glow Event was a limited-time event featuring the Wise Old Owl NPC, night cycles, and special mutations. Players harvested Moonlit and Bloodlit crops to earn Lunar Points and unlock exclusive rewards.
+        </p>
+      </div>
+
+      {/* Event Overview */}
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+        {/* Main Content */}
+        <div className="lg:col-span-2 space-y-8">
+          {/* Event Description */}
+          <div className="bg-gray-800/80 backdrop-blur-sm rounded-xl p-8 border border-gray-700">
+            <h2 className="text-2xl font-bold text-white mb-6">Event Overview</h2>
+            <div className="text-gray-300 text-sm leading-relaxed space-y-4">
+              <p>
+                The Lunar Glow Event was a limited-time event in Grow a Garden that introduced new features, an exclusive NPC, and rewards. The event featured the Wise Old Owl NPC, who tasked users with harvesting Moonlit, and later, Bloodlit plants.
+              </p>
+              <p>
+                The theme drew inspiration from the night cycle and nocturnal imagery. The event was the third event added to Grow a Garden and the first to feature a different currency (Lunar Points) as obtainment needs. The event was extended by one week after community backlash for Update 1.07.0.
+              </p>
+            </div>
+          </div>
+
+          {/* Event Mechanics */}
+          <div className="bg-gray-800/80 backdrop-blur-sm rounded-xl p-8 border border-gray-700">
+            <h2 className="text-2xl font-bold text-white mb-6">Event Mechanics</h2>
+            <div className="text-gray-300 text-sm leading-relaxed space-y-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <h3 className="text-lg font-bold text-yellow-300 mb-3">Lunar Points System</h3>
+                  <ul className="space-y-2 text-sm">
+                    <li className="flex items-start">
+                      <span className="text-yellow-300 mr-2 mt-1">•</span>
+                      <span>Harvest Moonlit and Bloodlit crops</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-yellow-300 mr-2 mt-1">•</span>
+                      <span>Exchange with Wise Old Owl for Lunar Points</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-yellow-300 mr-2 mt-1">•</span>
+                      <span>Points based on tier and mutations</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-yellow-300 mr-2 mt-1">•</span>
+                      <span>Complete milestones for rewards</span>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h3 className="text-lg font-bold text-yellow-300 mb-3">Night & Blood Moon Cycles</h3>
+                  <ul className="space-y-2 text-sm">
+                    <li className="flex items-start">
+                      <span className="text-yellow-300 mr-2 mt-1">•</span>
+                      <span>Hourly Night Events (10 minutes duration)</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-yellow-300 mr-2 mt-1">•</span>
+                      <span>Plants gain Moonlit mutation during Night</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-yellow-300 mr-2 mt-1">•</span>
+                      <span>Blood Moon (1/3 chance) grants Bloodlit mutation</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-yellow-300 mr-2 mt-1">•</span>
+                      <span>Meteor Shower gives Celestial mutation</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Event Shops */}
+          <div className="bg-gray-800/80 backdrop-blur-sm rounded-xl p-8 border border-gray-700">
+            <h2 className="text-2xl font-bold text-white mb-6">Event Shops</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <h3 className="text-lg font-bold text-yellow-300 mb-3">Twilight Shop</h3>
+                <div className="space-y-2 text-sm">
+                  <div className="flex justify-between items-center bg-gray-700/30 p-2 rounded flex-nowrap">
+                    <span className="text-white whitespace-nowrap">Night Egg</span>
+                    <span className="text-gray-400 whitespace-nowrap">💰 50M/💎 129</span>
+                  </div>
+                  <div className="flex justify-between items-center bg-gray-700/30 p-2 rounded flex-nowrap">
+                    <span className="text-white whitespace-nowrap">Star Caller</span>
+                    <span className="text-gray-400 whitespace-nowrap">💰 12M/💎 219</span>
+                  </div>
+                  <div className="flex justify-between items-center bg-gray-700/30 p-2 rounded flex-nowrap">
+                    <span className="text-white whitespace-nowrap">Moon Cat</span>
+                    <span className="text-gray-400 whitespace-nowrap">💰 100M/💎 439</span>
+                  </div>
+                  <div className="flex justify-between items-center bg-gray-700/30 p-2 rounded flex-nowrap">
+                    <span className="text-white whitespace-nowrap">Moon Mango</span>
+                    <span className="text-gray-400 whitespace-nowrap">💰 1B/💎 999</span>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <h3 className="text-lg font-bold text-yellow-300 mb-3">Blood Moon Shop</h3>
+                <div className="space-y-2 text-sm">
+                  <div className="flex justify-between items-center bg-gray-700/30 p-2 rounded flex-nowrap">
+                    <span className="text-white whitespace-nowrap">Blood Banana</span>
+                    <span className="text-gray-400 whitespace-nowrap">💰 200K/💎 599</span>
+                  </div>
+                  <div className="flex justify-between items-center bg-gray-700/30 p-2 rounded flex-nowrap">
+                    <span className="text-white whitespace-nowrap">Blood Kiwi</span>
+                    <span className="text-gray-400 whitespace-nowrap">💰 20M/💎 399</span>
+                  </div>
+                  <div className="flex justify-between items-center bg-gray-700/30 p-2 rounded flex-nowrap">
+                    <span className="text-white whitespace-nowrap">Blood Hedgehog</span>
+                    <span className="text-gray-400 whitespace-nowrap">💰 23M/💎 439</span>
+                  </div>
+                  <div className="flex justify-between items-center bg-gray-700/30 p-2 rounded flex-nowrap">
+                    <span className="text-white whitespace-nowrap">Blood Owl</span>
+                    <span className="text-gray-400 whitespace-nowrap">💰 60M/💎 899</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Sidebar */}
+        <div className="space-y-6">
+          {/* Event Details */}
+          <div className="bg-gray-800/80 backdrop-blur-sm rounded-xl p-6 border border-gray-700">
+            <h3 className="text-lg font-bold text-yellow-300 mb-4">Event Details</h3>
+            <div className="mb-4 text-center">
+              <img 
+                src="/events/Lunar_Event_Reward.webp" 
+                alt="Lunar Event Reward"
+                className="w-90 h-90 object-cover rounded-lg mx-auto"
+              />
+            </div>
+            <div className="space-y-3 text-sm">
+              <div className="flex items-center flex-nowrap">
+                <span className="text-gray-400 mr-2 whitespace-nowrap">Start Date:</span>
+                <span className="text-white whitespace-nowrap">May 10, 2025</span>
+              </div>
+              <div className="flex items-center flex-nowrap">
+                <span className="text-gray-400 mr-2 whitespace-nowrap">End Date:</span>
+                <span className="text-white whitespace-nowrap">May 31, 2025</span>
+              </div>
+              <div className="flex items-center flex-nowrap">
+                <span className="text-gray-400 mr-2 whitespace-nowrap">Duration:</span>
+                <span className="text-white whitespace-nowrap">21 days</span>
+              </div>
+              <div className="flex items-center flex-nowrap">
+                <span className="text-gray-400 mr-2 whitespace-nowrap">Status:</span>
+                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-gray-600 text-gray-300 whitespace-nowrap">
+                <span className="mr-1">✓</span>
+                Completed
+              </span>
+              </div>
+              <div className="flex items-center flex-nowrap">
+                <span className="text-gray-400 mr-2 whitespace-nowrap">Currency:</span>
+                <span className="text-white whitespace-nowrap">Lunar Points</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Milestone Rewards */}
+          <div className="bg-gray-800/80 backdrop-blur-sm rounded-xl p-6 border border-gray-700">
+            <h3 className="text-lg font-bold text-yellow-300 mb-4">Key Milestone Rewards</h3>
+            <div className="space-y-2 text-sm">
+              <div className="flex justify-between items-center bg-gray-700/30 p-2 rounded">
+                <span className="text-white">Hedgehog</span>
+                <span className="text-gray-400">10 Points</span>
+              </div>
+              <div className="flex justify-between items-center bg-gray-700/30 p-2 rounded">
+                <span className="text-white">Night Staff</span>
+                <span className="text-gray-400">40 Points</span>
+              </div>
+              <div className="flex justify-between items-center bg-gray-700/30 p-2 rounded">
+                <span className="text-white">Kiwi Pet</span>
+                <span className="text-gray-400">160 Points</span>
+              </div>
+              <div className="flex justify-between items-center bg-gray-700/30 p-2 rounded">
+                <span className="text-white">Owl Pet</span>
+                <span className="text-gray-400">530 Points</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Event Trivia */}
+          <div className="bg-gray-800/80 backdrop-blur-sm rounded-xl p-6 border border-gray-700">
+            <h3 className="text-lg font-bold text-yellow-300 mb-4">Event Trivia</h3>
+            <div className="bg-blue-900/20 border border-blue-600 rounded-lg p-4">
+              <p className="text-blue-300 text-sm">
+                <strong>Historical Significance:</strong> The Lunar Glow Event was the third event added to Grow a Garden and the first to feature a different currency (Lunar Points) system.
+              </p>
+            </div>
+          </div>
+
+          {/* Event Tips */}
+          <div className="bg-gray-800/80 backdrop-blur-sm rounded-xl p-6 border border-gray-700">
+            <h3 className="text-lg font-bold text-yellow-300 mb-4">Event Tips</h3>
+            <ul className="space-y-2 text-gray-300 text-xs">
+              <li className="flex items-start">
+                <span className="text-yellow-300 mr-2 mt-1">•</span>
+                <span>Bloodlit crops gave more Lunar Points than Moonlit</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-yellow-300 mr-2 mt-1">•</span>
+                <span>Night events occurred every hour for 10 minutes</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-yellow-300 mr-2 mt-1">•</span>
+                <span>Blood Moon had 1/3 chance to replace regular Night</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-yellow-300 mr-2 mt-1">•</span>
+                <span>Meteor Shower gave Celestial mutation</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-yellow-300 mr-2 mt-1">•</span>
+                <span>Event was extended due to community feedback</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      {/* Navigation */}
+      <div className="text-center">
+        <Link 
+          href="/grow-a-garden-events" 
+          className="bg-gray-600 hover:bg-gray-700 text-white py-3 px-6 rounded-lg font-semibold transition-colors mr-4"
+         
+        >
+          ← Back to Events
+        </Link>
+        <Link 
+          href="/grow-a-garden-wiki" 
+          className="bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg font-semibold transition-colors"
+         
+        >
+          Explore Wiki →
+        </Link>
+      </div>
+    </div>
+  );
+}; 

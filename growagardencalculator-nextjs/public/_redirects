@@ -1,0 +1,8 @@
+# SPA重定向规则 - 将所有路由重定向到index.html
+/*    /index.html   200
+
+# 特定文件直接访问（可选的优化）
+/sitemap.xml    /sitemap.xml    200
+/robots.txt     /robots.txt     200
+/ads.txt        /ads.txt        200
+/favicon.ico    /favicon.ico    200 

@@ -1,0 +1,335 @@
+import React from 'react';
+import Link from 'next/link';
+
+export const AngryPlantEventPage: React.FC = () => {
+  return (
+    <div className="max-w-7xl mx-auto px-4 py-8">
+      {/* Breadcrumb */}
+      <nav className="text-sm text-gray-400 mb-6">
+        <Link href="/" className="hover:text-yellow-300">Home</Link>
+        <span className="mx-2">›</span>
+        <Link href="/grow-a-garden-events" className="hover:text-yellow-300">Events</Link>
+        <span className="mx-2">›</span>
+        <span className="text-white">Angry Plant Event</span>
+      </nav>
+
+      {/* Header */}
+      <div className="text-center mb-8">
+        <div className="flex items-center justify-center mb-4">
+          <div>
+            <h1 className="text-4xl font-bold text-yellow-300 mb-2">Angry Plant Event</h1>
+            <div className="flex items-center justify-center space-x-2">
+              <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-gray-600 text-gray-300">
+                <span className="mr-1">✓</span>
+                Completed
+              </span>
+              <span className="text-gray-400">April 27 - May 9, 2025</span>
+            </div>
+          </div>
+        </div>
+        <p className="text-sm text-gray-300 max-w-6xl mx-auto leading-relaxed">
+          The second event in Grow a Garden featuring Jim, an animated Venus Flytrap NPC. Players completed quests by bringing specific crops to earn Basic and Premium Seed Packs.
+        </p>
+      </div>
+
+      {/* Event Overview */}
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+        {/* Main Content */}
+        <div className="lg:col-span-2 space-y-8">
+          {/* Event Description */}
+          <div className="bg-gray-800/80 backdrop-blur-sm rounded-xl p-8 border border-gray-700">
+            <h2 className="text-2xl font-bold text-white mb-6">Event Overview</h2>
+            <div className="text-gray-300 text-sm leading-relaxed space-y-4">
+              <p>
+                The Angry Plant Event was released on April 27th, 2025, and ended on May 9th, 2025. This event was the second ever event to be released in-game.
+              </p>
+              <p>
+                This event featured an animated plant NPC whose name was Jim, with a design that was somewhat similar to the real-life Venus Flytrap plant. Players were able to receive quests from Jim, which involved bringing him a specific type of crop that also needed to be a specified size. Sometimes the crop was also required to have a specific mutation.
+              </p>
+              <p>
+                By completing Jim's quests, players filled a progress bar, which required a maximum of 50 quests to complete. Players were rewarded with one Basic Seed Pack per quest they completed, and one Premium Seed Pack upon completion of 50 quests.
+              </p>
+            </div>
+          </div>
+
+          {/* Quest Mechanics */}
+          <div className="bg-gray-800/80 backdrop-blur-sm rounded-xl p-8 border border-gray-700">
+            <h2 className="text-2xl font-bold text-white mb-6">Quest Mechanics</h2>
+            <div className="text-gray-300 text-sm leading-relaxed space-y-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <h3 className="text-lg font-bold text-yellow-300 mb-3">Jim's Requests</h3>
+                  <ul className="space-y-2 text-sm">
+                    <li className="flex items-start">
+                      <span className="text-yellow-300 mr-2 mt-1">•</span>
+                      <span>Specific crop type required</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-yellow-300 mr-2 mt-1">•</span>
+                      <span>Minimum weight requirement</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-yellow-300 mr-2 mt-1">•</span>
+                      <span>Sometimes specific mutation needed</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-yellow-300 mr-2 mt-1">•</span>
+                      <span>Total of 50 quests to complete</span>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h3 className="text-lg font-bold text-yellow-300 mb-3">Rewards</h3>
+                  <ul className="space-y-2 text-sm">
+                    <li className="flex items-start">
+                      <span className="text-yellow-300 mr-2 mt-1">•</span>
+                      <span>1 Basic Seed Pack per quest</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-yellow-300 mr-2 mt-1">•</span>
+                      <span>1 Premium Seed Pack for completing 50 quests</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-yellow-300 mr-2 mt-1">•</span>
+                      <span>Progress bar tracking completion</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-yellow-300 mr-2 mt-1">•</span>
+                      <span>Jim eats crops and spits out rewards</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Quest Items Sample */}
+          <div className="bg-gray-800/80 backdrop-blur-sm rounded-xl p-8 border border-gray-700">
+            <h2 className="text-2xl font-bold text-white mb-6">Sample Quest Items</h2>
+            <p className="text-gray-300 text-sm mb-6">Jim requested specific crops with exact weight requirements. Here are some example quests:</p>
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="border-b border-gray-600">
+                    <th className="text-left py-3 px-4 text-yellow-300">Quest #</th>
+                    <th className="text-left py-3 px-4 text-yellow-300">Crop</th>
+                    <th className="text-left py-3 px-4 text-yellow-300">Weight</th>
+                    <th className="text-left py-3 px-4 text-yellow-300">Mutation</th>
+                  </tr>
+                </thead>
+                <tbody className="text-gray-300">
+                  <tr className="border-b border-gray-700">
+                    <td className="py-3 px-4 font-semibold">1</td>
+                    <td className="py-3 px-4">Tomato</td>
+                    <td className="py-3 px-4">0.5kg</td>
+                    <td className="py-3 px-4">Normal</td>
+                  </tr>
+                  <tr className="border-b border-gray-700">
+                    <td className="py-3 px-4 font-semibold">2</td>
+                    <td className="py-3 px-4">Strawberry</td>
+                    <td className="py-3 px-4">0.3kg</td>
+                    <td className="py-3 px-4">Normal</td>
+                  </tr>
+                  <tr className="border-b border-gray-700">
+                    <td className="py-3 px-4 font-semibold">11</td>
+                    <td className="py-3 px-4">Carrot</td>
+                    <td className="py-3 px-4">0.2kg</td>
+                    <td className="py-3 px-4">Wet</td>
+                  </tr>
+                  <tr className="border-b border-gray-700">
+                    <td className="py-3 px-4 font-semibold">27</td>
+                    <td className="py-3 px-4">Tomato</td>
+                    <td className="py-3 px-4">0.55kg</td>
+                    <td className="py-3 px-4">Chilled</td>
+                  </tr>
+                  <tr className="border-b border-gray-700">
+                    <td className="py-3 px-4 font-semibold">43</td>
+                    <td className="py-3 px-4">Tomato</td>
+                    <td className="py-3 px-4">0.6kg</td>
+                    <td className="py-3 px-4">Frozen</td>
+                  </tr>
+                  <tr className="border-b border-gray-700">
+                    <td className="py-3 px-4 font-semibold">49</td>
+                    <td className="py-3 px-4">Grape</td>
+                    <td className="py-3 px-4">3.3kg</td>
+                    <td className="py-3 px-4">Shocked</td>
+                  </tr>
+                  <tr>
+                    <td className="py-3 px-4 font-semibold">50</td>
+                    <td className="py-3 px-4">Mushroom</td>
+                    <td className="py-3 px-4">25kg</td>
+                    <td className="py-3 px-4">Normal</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p className="text-gray-400 text-xs mt-4">* Complete list includes 50 quests with various mutations: Normal, Wet, Chilled, Frozen, and Shocked</p>
+          </div>
+
+          {/* Jim's Dialogue */}
+          <div className="bg-gray-800/80 backdrop-blur-sm rounded-xl p-8 border border-gray-700">
+            <h2 className="text-2xl font-bold text-white mb-6">Jim's Dialogue Options</h2>
+            <div className="space-y-4">
+              <div className="bg-gray-700/50 rounded-lg p-4">
+                <h3 className="text-yellow-300 font-semibold mb-2">"What are you?"</h3>
+                <p className="text-gray-300 text-sm italic">Information about Jim's nature and purpose</p>
+              </div>
+              <div className="bg-gray-700/50 rounded-lg p-4">
+                <h3 className="text-yellow-300 font-semibold mb-2">"Show me Seed Pack Info"</h3>
+                <p className="text-gray-300 text-sm">Shows quest progress bar and seed pack information</p>
+              </div>
+              <div className="bg-gray-700/50 rounded-lg p-4">
+                <h3 className="text-yellow-300 font-semibold mb-2">"Take this Plant!"</h3>
+                <p className="text-gray-300 text-sm">Give crops to Jim - he eats them and spits out Basic Seed Packs</p>
+                <p className="text-gray-400 text-xs mt-1">Note: Must be holding the correct crop when selecting this option</p>
+              </div>
+              <div className="bg-gray-700/50 rounded-lg p-4">
+                <h3 className="text-yellow-300 font-semibold mb-2">"Let's be friends"</h3>
+                <div className="text-gray-300 text-sm space-y-1">
+                  <p><strong>Jim:</strong> "FRIEND???🔥😡"</p>
+                  <p><strong>Jim:</strong> "frend... with me?? 🥺🥺🥺"</p>
+                  <p><strong>Jim:</strong> "angry plant always wanted frens... :)"</p>
+                </div>
+                <p className="text-gray-400 text-xs mt-2">* This option was added in the last week of the event</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Sidebar */}
+        <div className="space-y-6">
+          {/* Event Details */}
+          <div className="bg-gray-800/80 backdrop-blur-sm rounded-xl p-6 border border-gray-700">
+            <h3 className="text-lg font-bold text-yellow-300 mb-4">Event Details</h3>
+            <div className="mb-4 text-center">
+              <img 
+                src="/events/Angry_plant.webp" 
+                alt="Angry Plant Event - Jim"
+                className="w-90 h-90 object-cover rounded-lg mx-auto"
+              />
+            </div>
+            <div className="space-y-3 text-sm">
+              <div className="flex items-center flex-nowrap">
+                <span className="text-gray-400 mr-2 whitespace-nowrap">Start Date:</span>
+                <span className="text-white whitespace-nowrap">April 27, 2025</span>
+              </div>
+              <div className="flex items-center flex-nowrap">
+                <span className="text-gray-400 mr-2 whitespace-nowrap">End Date:</span>
+                <span className="text-white whitespace-nowrap">May 9, 2025</span>
+              </div>
+              <div className="flex items-center flex-nowrap">
+                <span className="text-gray-400 mr-2 whitespace-nowrap">Duration:</span>
+                <span className="text-white whitespace-nowrap">12 days</span>
+              </div>
+              <div className="flex items-center flex-nowrap">
+                <span className="text-gray-400 mr-2 whitespace-nowrap">Status:</span>
+                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-gray-600 text-gray-300 whitespace-nowrap">
+                <span className="mr-1">✓</span>
+                Completed
+              </span>
+              </div>
+              <div className="flex items-center flex-nowrap">
+                <span className="text-gray-400 mr-2 whitespace-nowrap">Currency:</span>
+                <span className="text-white whitespace-nowrap">Sheckles</span>
+              </div>
+              <div className="flex items-center flex-nowrap">
+                <span className="text-gray-400 mr-2 whitespace-nowrap">NPC:</span>
+                <span className="text-white whitespace-nowrap">Jim (Venus Flytrap)</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Quest Progress */}
+          <div className="bg-gray-800/80 backdrop-blur-sm rounded-xl p-6 border border-gray-700">
+            <h3 className="text-lg font-bold text-yellow-300 mb-4">Quest Progress</h3>
+            <ul className="space-y-2 text-gray-300 text-sm">
+              <li className="flex items-start">
+                <span className="text-yellow-300 mr-2 mt-1">•</span>
+                <span>50 total quests to complete</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-yellow-300 mr-2 mt-1">•</span>
+                <span>Progress bar tracks completion</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-yellow-300 mr-2 mt-1">•</span>
+                <span>1 Basic Seed Pack per quest</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-yellow-300 mr-2 mt-1">•</span>
+                <span>1 Premium Seed Pack at completion</span>
+              </li>
+            </ul>
+          </div>
+
+          {/* Event Trivia */}
+          <div className="bg-gray-800/80 backdrop-blur-sm rounded-xl p-6 border border-gray-700">
+            <h3 className="text-lg font-bold text-yellow-300 mb-4">Event Trivia</h3>
+            <div className="space-y-3 text-xs text-gray-300">
+              <div className="bg-blue-900/20 border border-blue-600 rounded-lg p-3">
+                <p className="text-blue-300">
+                  <strong>Second Event:</strong> This was the second ever event released in Grow a Garden.
+                </p>
+              </div>
+              <div className="bg-green-900/20 border border-green-600 rounded-lg p-3">
+                <p className="text-green-300">
+                  <strong>Jim's Design:</strong> Jim is a Venus Flytrap with an animated design.
+                </p>
+              </div>
+              <div className="bg-red-900/20 border border-red-600 rounded-lg p-3">
+                <p className="text-red-300">
+                  <strong>Head Bug:</strong> There was a bug where Jim's head wouldn't appear on his body.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Event Tips */}
+          <div className="bg-gray-800/80 backdrop-blur-sm rounded-xl p-6 border border-gray-700">
+            <h3 className="text-lg font-bold text-yellow-300 mb-4">Event Tips</h3>
+            <ul className="space-y-2 text-gray-300 text-xs">
+              <li className="flex items-start">
+                <span className="text-yellow-300 mr-2 mt-1">•</span>
+                <span>Must hold correct crop when offering to Jim</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-yellow-300 mr-2 mt-1">•</span>
+                <span>Check weight and mutation requirements</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-yellow-300 mr-2 mt-1">•</span>
+                <span>Complete all 50 quests for Premium Seed Pack</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-yellow-300 mr-2 mt-1">•</span>
+                <span>Friendship option added in final week</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-yellow-300 mr-2 mt-1">•</span>
+                <span>Some bugs existed with quest completion</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      {/* Navigation */}
+      <div className="text-center">
+        <Link 
+          href="/grow-a-garden-events" 
+          className="bg-gray-600 hover:bg-gray-700 text-white py-3 px-6 rounded-lg font-semibold transition-colors mr-4"
+         
+        >
+          ← Back to Events
+        </Link>
+        <Link 
+          href="/grow-a-garden-wiki" 
+          className="bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg font-semibold transition-colors"
+         
+        >
+          Explore Wiki →
+        </Link>
+      </div>
+    </div>
+  );
+}; 

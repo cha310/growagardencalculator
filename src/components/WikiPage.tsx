@@ -92,17 +92,19 @@ export const WikiPage: React.FC = () => {
         </Link>
 
         {/* Values Section */}
-        <div className="bg-gray-800/80 backdrop-blur-sm rounded-xl p-6 border border-gray-700 hover:border-indigo-500 transition-all duration-300 hover:transform hover:scale-105 aspect-square flex items-center">
-          <div className="text-center w-full">
-            <div className="w-16 h-16 bg-indigo-600 rounded-full flex items-center justify-center mx-auto mb-4">
-              <span className="text-2xl">💰</span>
+        <Link to="/grow-a-garden-values" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+          <div className="bg-gray-800/80 backdrop-blur-sm rounded-xl p-6 border border-gray-700 hover:border-indigo-500 transition-all duration-300 hover:transform hover:scale-105 cursor-pointer aspect-square flex items-center">
+            <div className="text-center w-full">
+              <div className="w-16 h-16 bg-indigo-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl">💰</span>
+              </div>
+              <h3 className="text-2xl font-bold text-white mb-6">Grow A Garden Values</h3>
+              <p className="text-gray-300 text-xs">
+                Learn crop values, trade insights, and market trends for Grow a Garden.
+              </p>
             </div>
-            <h3 className="text-2xl font-bold text-white mb-6">Grow A Garden Values</h3>
-            <p className="text-gray-300 text-xs">
-              Learn crop values, trade insights, and market trends for Grow a Garden.
-            </p>
           </div>
-        </div>
+        </Link>
       </div>
 
       {/* Additional Sections */}

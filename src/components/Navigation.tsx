@@ -145,6 +145,18 @@ export const Navigation: React.FC = () => {
               </div>
 
               <Link 
+                to="/grow-a-garden-events" 
+                className={`transition-colors px-3 py-2 text-sm ${
+                  location.pathname === '/grow-a-garden-events' 
+                    ? 'text-yellow-300 border-b-2 border-yellow-300' 
+                    : 'text-gray-300 hover:text-yellow-300'
+                }`}
+                onClick={scrollToTop}
+              >
+                Events
+              </Link>
+
+              <Link 
                 to="/grow-a-garden-faqs" 
                 className={`transition-colors px-3 py-2 text-sm ${
                   location.pathname === '/grow-a-garden-faqs' 

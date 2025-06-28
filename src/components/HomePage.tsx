@@ -433,21 +433,6 @@ export const HomePage: React.FC = () => {
                 </div>
               </div>
             </Link>
-
-            {/* Events Section */}
-            <Link to="/grow-a-garden-events" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-              <div className="bg-gray-800/80 backdrop-blur-sm rounded-xl p-6 border border-gray-700 hover:border-orange-500 transition-all duration-300 hover:transform hover:scale-105 cursor-pointer aspect-square flex items-center">
-                <div className="text-center w-full">
-                  <div className="w-16 h-16 bg-orange-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <span className="text-2xl">🎉</span>
-                  </div>
-                  <h3 className="text-2xl font-bold text-white mb-6">Grow A Garden Events</h3>
-                  <p className="text-gray-300 text-xs">
-                    Stay updated with seasonal events, exclusive rewards, and limited-time content.
-                  </p>
-                </div>
-              </div>
-            </Link>
           </div>
 
           {/* Additional Sections */}
@@ -489,6 +474,206 @@ export const HomePage: React.FC = () => {
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             >
               Explore Complete Wiki →
+            </Link>
+          </div>
+        </div>
+
+        {/* Events Section */}
+        <div className="mt-16 mb-12">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl font-bold text-white mb-4">
+              Grow A Garden Events
+            </h2>
+            <p className="text-md text-gray-300 max-w-6xl mx-auto">
+              Explore the complete timeline of Grow a Garden events! From seasonal celebrations to limited-time challenges, discover exclusive rewards and unique gameplay features.
+            </p>
+          </div>
+
+          {/* Events Timeline */}
+          <div className="space-y-4 mb-8">
+            {/* Summer Harvest Event */}
+            <Link to="/grow-garden-summer-harvest" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+              <div className="bg-gray-800/80 backdrop-blur-sm rounded-xl p-6 border border-gray-700 hover:border-orange-500 transition-all duration-300 hover:transform hover:scale-[1.02] cursor-pointer">
+                <div className="flex items-center space-x-6">
+                  <div className="flex-shrink-0">
+                    <img 
+                      src="/events/Summer_Harvest_Almost_Filled.webp" 
+                      alt="Summer Harvest Event"
+                      className="w-20 h-20 object-cover rounded-lg"
+                      onError={(e) => {
+                        (e.target as HTMLImageElement).src = '/plant/currency-0.png';
+                      }}
+                    />
+                  </div>
+                  <div className="flex-grow">
+                    <div className="flex items-center justify-between mb-2">
+                      <h3 className="text-xl font-bold text-white">Summer Harvest Event</h3>
+                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-gray-600 text-gray-300">
+                        <span className="mr-1">✓</span>
+                        Completed
+                      </span>
+                    </div>
+                    <p className="text-sm text-gray-400 mb-2">June 21 - July 5, 2025 • 14 days</p>
+                    <p className="text-sm text-gray-300">The fifth event featuring hourly harvest challenges where players submit summer crops to earn Harvest Points. Brought back rewards from previous events.</p>
+                  </div>
+                </div>
+              </div>
+            </Link>
+
+            {/* Bizzy Bee Event */}
+            <Link to="/grow-garden-Bizzy-Bee-Event" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+              <div className="bg-gray-800/80 backdrop-blur-sm rounded-xl p-6 border border-gray-700 hover:border-yellow-500 transition-all duration-300 hover:transform hover:scale-[1.02] cursor-pointer">
+                <div className="flex items-center space-x-6">
+                  <div className="flex-shrink-0">
+                    <img 
+                      src="/events/Bizzy_Bee_Event.webp" 
+                      alt="Bizzy Bee Event"
+                      className="w-20 h-20 object-cover rounded-lg"
+                      onError={(e) => {
+                        (e.target as HTMLImageElement).src = '/plant/currency-0.png';
+                      }}
+                    />
+                  </div>
+                  <div className="flex-grow">
+                    <div className="flex items-center justify-between mb-2">
+                      <h3 className="text-xl font-bold text-white">Bizzy Bee Event</h3>
+                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-gray-600 text-gray-300">
+                        <span className="mr-1">✓</span>
+                        Completed
+                      </span>
+                    </div>
+                    <p className="text-sm text-gray-400 mb-2">May 31 - June 21, 2025 • 21 days</p>
+                    <p className="text-sm text-gray-300">The fourth event featuring Queen Bee NPC, honey collection system, bee swarm events, and Bizzy Bear crafting. Players collected pollinated plants for Honey currency.</p>
+                  </div>
+                </div>
+              </div>
+            </Link>
+
+            {/* Lunar Glow Event */}
+            <Link to="/grow-garden-Lunar-Glow-Event" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+              <div className="bg-gray-800/80 backdrop-blur-sm rounded-xl p-6 border border-gray-700 hover:border-purple-500 transition-all duration-300 hover:transform hover:scale-[1.02] cursor-pointer">
+                <div className="flex items-center space-x-6">
+                  <div className="flex-shrink-0">
+                    <img 
+                      src="/events/Lunar_Event_Reward.webp" 
+                      alt="Lunar Glow Event"
+                      className="w-20 h-20 object-cover rounded-lg"
+                      onError={(e) => {
+                        (e.target as HTMLImageElement).src = '/plant/currency-0.png';
+                      }}
+                    />
+                  </div>
+                  <div className="flex-grow">
+                    <div className="flex items-center justify-between mb-2">
+                      <h3 className="text-xl font-bold text-white">Lunar Glow Event</h3>
+                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-gray-600 text-gray-300">
+                        <span className="mr-1">✓</span>
+                        Completed
+                      </span>
+                    </div>
+                    <p className="text-sm text-gray-400 mb-2">May 10 - May 31, 2025 • 21 days</p>
+                    <p className="text-sm text-gray-300">The third event featuring Wise Old Owl NPC, night cycles, Lunar Points system, and exclusive Twilight and Blood Moon shops with unique rewards.</p>
+                  </div>
+                </div>
+              </div>
+            </Link>
+
+            {/* Blood Moon Event */}
+            <Link to="/grow-garden-Blood-Moon-Event" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+              <div className="bg-gray-800/80 backdrop-blur-sm rounded-xl p-6 border border-gray-700 hover:border-red-500 transition-all duration-300 hover:transform hover:scale-[1.02] cursor-pointer">
+                <div className="flex items-center space-x-6">
+                  <div className="flex-shrink-0">
+                    <img 
+                      src="/events/Blood_Shop.webp" 
+                      alt="Blood Moon Event"
+                      className="w-20 h-20 object-cover rounded-lg"
+                      onError={(e) => {
+                        (e.target as HTMLImageElement).src = '/plant/currency-0.png';
+                      }}
+                    />
+                  </div>
+                  <div className="flex-grow">
+                    <div className="flex items-center justify-between mb-2">
+                      <h3 className="text-xl font-bold text-white">Blood Moon Event</h3>
+                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-gray-600 text-gray-300">
+                        <span className="mr-1">✓</span>
+                        Completed
+                      </span>
+                    </div>
+                    <p className="text-sm text-gray-400 mb-2">May 17 - May 31, 2025 • 14 days</p>
+                    <p className="text-sm text-gray-300">Part of the Lunar Glow Event featuring exclusive Blood Moon shop with rare items, Bloodlit mutations, and 33% Blood Moon spawn chance during night cycles.</p>
+                  </div>
+                </div>
+              </div>
+            </Link>
+
+            {/* Angry Plant Event */}
+            <Link to="/grow-garden-Angry-Plant-Event" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+              <div className="bg-gray-800/80 backdrop-blur-sm rounded-xl p-6 border border-gray-700 hover:border-green-500 transition-all duration-300 hover:transform hover:scale-[1.02] cursor-pointer">
+                <div className="flex items-center space-x-6">
+                  <div className="flex-shrink-0">
+                    <img 
+                      src="/events/Angry_plant.webp" 
+                      alt="Angry Plant Event"
+                      className="w-20 h-20 object-cover rounded-lg"
+                      onError={(e) => {
+                        (e.target as HTMLImageElement).src = '/plant/currency-0.png';
+                      }}
+                    />
+                  </div>
+                  <div className="flex-grow">
+                    <div className="flex items-center justify-between mb-2">
+                      <h3 className="text-xl font-bold text-white">Angry Plant Event</h3>
+                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-gray-600 text-gray-300">
+                        <span className="mr-1">✓</span>
+                        Completed
+                      </span>
+                    </div>
+                    <p className="text-sm text-gray-400 mb-2">April 27 - May 9, 2025 • 12 days</p>
+                    <p className="text-sm text-gray-300">The second event featuring Jim, an animated Venus Flytrap NPC. Players completed 50 quests by bringing specific crops to earn seed packs and rewards.</p>
+                  </div>
+                </div>
+              </div>
+            </Link>
+
+            {/* Easter Event 2025 */}
+            <Link to="/grow-garden-Easter-Event-2025" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+              <div className="bg-gray-800/80 backdrop-blur-sm rounded-xl p-6 border border-gray-700 hover:border-pink-500 transition-all duration-300 hover:transform hover:scale-[1.02] cursor-pointer">
+                <div className="flex items-center space-x-6">
+                  <div className="flex-shrink-0">
+                    <img 
+                      src="/events/Easter_shop.webp" 
+                      alt="Easter Event 2025"
+                      className="w-20 h-20 object-cover rounded-lg"
+                      onError={(e) => {
+                        (e.target as HTMLImageElement).src = '/plant/currency-0.png';
+                      }}
+                    />
+                  </div>
+                  <div className="flex-grow">
+                    <div className="flex items-center justify-between mb-2">
+                      <h3 className="text-xl font-bold text-white">Easter Event 2025</h3>
+                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-gray-600 text-gray-300">
+                        <span className="mr-1">✓</span>
+                        Completed
+                      </span>
+                    </div>
+                    <p className="text-sm text-gray-400 mb-2">April 19 - April 27, 2025 • 8 days</p>
+                    <p className="text-sm text-gray-300">The first event added to Grow a Garden! A seasonal limited-time event featuring Easter Shop, Poppy's Golden Request, and Chocolate mutation.</p>
+                  </div>
+                </div>
+              </div>
+            </Link>
+          </div>
+
+          {/* Action Button */}
+          <div className="text-center">
+            <Link 
+              to="/grow-a-garden-events" 
+              className="bg-orange-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-orange-700 transition-colors"
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            >
+              Explore All Events →
             </Link>
           </div>
         </div>

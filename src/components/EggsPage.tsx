@@ -36,21 +36,21 @@ export const EggsPage: React.FC = () => {
 
       {/* Header */}
       <div className="text-center mb-8">
-        <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+        <h1 className="text-4xl font-bold text-yellow-300 mb-4">
           Grow A Garden Eggs
         </h1>
-        <p className="text-base text-gray-300 max-w-6xl mx-auto leading-relaxed">
+        <p className="text-xs text-gray-300 max-w-6xl mx-auto leading-relaxed">
           Pet Eggs are special items in Grow a Garden that you can buy, hatch, and use to bring adorable pets into your garden. Each egg type corresponds to different pet species, rarity, hatch times, and costs.
         </p>
       </div>
 
       {/* How to Get Eggs Section */}
       <div className="bg-gray-800/80 backdrop-blur-sm rounded-xl p-8 border border-gray-700 mb-8">
-        <h2 className="text-3xl font-bold text-white mb-6">How to Get Eggs in Grow a Garden</h2>
+        <h2 className="text-2xl font-bold text-white mb-6">How to Get Eggs in Grow a Garden</h2>
         
         <div className="mb-6">
           <h3 className="text-xl font-bold text-white mb-4">How to Get Eggs</h3>
-          <ul className="text-gray-300 text-lg leading-relaxed space-y-2">
+          <ul className="text-gray-300 text-xs leading-relaxed space-y-2">
             <li className="flex items-start">
               <span className="text-yellow-300 mr-3 mt-1">•</span>
               <span>Purchase Pet Eggs from the Pet Eggs shop, which refreshes every 30 minutes.</span>
@@ -68,7 +68,7 @@ export const EggsPage: React.FC = () => {
 
         <div>
           <h3 className="text-xl font-bold text-white mb-4">How to Hatch Eggs</h3>
-          <ul className="text-gray-300 text-lg leading-relaxed space-y-2">
+          <ul className="text-gray-300 text-xs leading-relaxed space-y-2">
             <li className="flex items-start">
               <span className="text-yellow-300 mr-3 mt-1">•</span>
               <span>Equip an egg from your inventory and place it on any space on your plot.</span>
@@ -234,8 +234,8 @@ export const EggsPage: React.FC = () => {
       <div className="space-y-8 mb-12">
         {/* About Eggs */}
         <div className="bg-gray-800/80 backdrop-blur-sm rounded-xl p-8 border border-gray-700">
-          <h2 className="text-3xl font-bold text-white mb-6">About Eggs in Grow a Garden</h2>
-          <div className="text-gray-300 text-lg leading-relaxed space-y-4">
+          <h2 className="text-2xl font-bold text-white mb-6">About Eggs in Grow a Garden</h2>
+          <div className="text-gray-300 text-xs leading-relaxed space-y-4">
             <p>
               Pet Eggs are one of the most exciting features in Grow a Garden, offering players the chance to obtain various pets that can significantly enhance their farming experience. Each egg type has different costs, hatch times, and probability distributions for the pets they can produce.
             </p>
@@ -247,8 +247,8 @@ export const EggsPage: React.FC = () => {
 
         {/* Egg Strategy Tips */}
         <div className="bg-gray-800/80 backdrop-blur-sm rounded-xl p-8 border border-gray-700">
-          <h2 className="text-3xl font-bold text-white mb-6">Egg Strategy Tips</h2>
-          <div className="text-gray-300 text-lg leading-relaxed space-y-4">
+          <h2 className="text-2xl font-bold text-white mb-6">Egg Strategy Tips</h2>
+          <div className="text-gray-300 text-xs leading-relaxed space-y-4">
             <ul className="space-y-3">
               <li className="flex items-start">
                 <span className="text-green-400 mr-3 mt-1">✓</span>

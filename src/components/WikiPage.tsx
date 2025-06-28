@@ -22,7 +22,7 @@ export const WikiPage: React.FC = () => {
             <div className="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
               <span className="text-2xl">🌱</span>
             </div>
-            <h3 className="text-2xl font-bold text-white mb-3">Crops</h3>
+            <h3 className="text-2xl font-bold text-white mb-3">Grow A Garden Crops</h3>
             <p className="text-gray-300 mb-4">
               Explore all seeds and crops in Grow a Garden, with details on sources, prices, and growth tips.
             </p>
@@ -38,7 +38,7 @@ export const WikiPage: React.FC = () => {
             <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
               <span className="text-2xl">🐾</span>
             </div>
-            <h3 className="text-2xl font-bold text-white mb-3">Pets</h3>
+            <h3 className="text-2xl font-bold text-white mb-3">Grow A Garden Pets</h3>
             <p className="text-gray-300 mb-4">
               Each pet has unique abilities that help players grow their gardens more efficiently.
             </p>
@@ -54,7 +54,7 @@ export const WikiPage: React.FC = () => {
             <div className="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
               <span className="text-2xl">⚙️</span>
             </div>
-            <h3 className="text-2xl font-bold text-white mb-3">Gears</h3>
+            <h3 className="text-2xl font-bold text-white mb-3">Grow A Garden Gears</h3>
             <p className="text-gray-300 mb-4">
               Gears are essential tools and equipment that enhance your gardening experience.
             </p>
@@ -70,7 +70,7 @@ export const WikiPage: React.FC = () => {
             <div className="w-16 h-16 bg-yellow-600 rounded-full flex items-center justify-center mx-auto mb-4">
               <span className="text-2xl">🥚</span>
             </div>
-            <h3 className="text-2xl font-bold text-white mb-3">Eggs</h3>
+            <h3 className="text-2xl font-bold text-white mb-3">Grow A Garden Eggs</h3>
             <p className="text-gray-300 mb-4">
               Learn about prices, hatch times, and probabilities on our detailed Eggs wiki page.
             </p>
@@ -86,7 +86,7 @@ export const WikiPage: React.FC = () => {
             <div className="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
               <span className="text-2xl">🧬</span>
             </div>
-            <h3 className="text-2xl font-bold text-white mb-3">Mutations</h3>
+            <h3 className="text-2xl font-bold text-white mb-3">Grow A Garden Mutations</h3>
             <p className="text-gray-300 mb-4">
               Discover crop mutations, their triggers, and how to unlock rare varieties in Grow a Garden.
             </p>
@@ -102,7 +102,7 @@ export const WikiPage: React.FC = () => {
             <div className="w-16 h-16 bg-indigo-600 rounded-full flex items-center justify-center mx-auto mb-4">
               <span className="text-2xl">💰</span>
             </div>
-            <h3 className="text-2xl font-bold text-white mb-3">Values</h3>
+            <h3 className="text-2xl font-bold text-white mb-3">Grow A Garden Values</h3>
             <p className="text-gray-300 mb-4">
               Learn crop values, trade insights, and market trends for Grow a Garden.
             </p>
@@ -119,7 +119,7 @@ export const WikiPage: React.FC = () => {
         <div className="bg-gray-800/80 backdrop-blur-sm rounded-xl p-6 border border-gray-700">
           <h3 className="text-2xl font-bold text-white mb-4 flex items-center">
             <span className="text-2xl mr-3">📦</span>
-            Stock
+            Grow A Garden Stock
           </h3>
           <p className="text-gray-300 mb-4">
             Check Sam's Shop stock, event seeds, and pack availability in Grow a Garden.
@@ -133,7 +133,7 @@ export const WikiPage: React.FC = () => {
         <div className="bg-gray-800/80 backdrop-blur-sm rounded-xl p-6 border border-gray-700">
           <h3 className="text-2xl font-bold text-white mb-4 flex items-center">
             <span className="text-2xl mr-3">🎁</span>
-            Codes
+            Grow A Garden Codes
           </h3>
           <p className="text-gray-300 mb-4">
             Get the latest Grow a Garden Codes for 2025.

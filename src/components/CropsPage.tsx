@@ -194,21 +194,19 @@ export const CropsPage: React.FC = () => {
         </div>
 
         {/* Header */}
-        <div className="text-center mb-12">
-          <h1 className="text-5xl font-bold text-white mb-4">
-            Grow a Garden Crops
+        <div className="text-center mb-8">
+          <h1 className="text-4xl font-bold text-yellow-300 mb-4">
+            Grow A Garden Crops
           </h1>
-          <div className="max-w-6xl mx-auto text-gray-300 text-base leading-relaxed">
-            <p className="mb-4">
+          <p className="text-xs text-gray-300 max-w-6xl mx-auto leading-relaxed">
             Hey, fellow gardeners! If you're diving into the colorful world of Grow a Garden on Roblox, you're probably wondering, "What exactly are crops, and how can I maximize them?" Well, get ready—because crops are the lifeblood of this fantastic gardening sim! Whether you're a beginner sowing your first radish or a pro farmer hunting for those elusive mutations, mastering crops is the secret to cultivating a flourishing, profit-making paradise. Let's dig into the dirt and uncover all the juicy tips you need to make your garden thrive! 🌱
-            </p>
-          </div>
+          </p>
         </div>
 
         {/* What Are Crops Section */}
         <div className="bg-gray-800/80 backdrop-blur-sm rounded-xl p-8 border border-gray-700 mb-12">
-          <h2 className="text-3xl font-bold text-white mb-6">What Are Crops in Grow a Garden?</h2>
-          <div className="text-gray-300 text-lg leading-relaxed space-y-4">
+          <h2 className="text-2xl font-bold text-white mb-6">What Are Crops in Grow a Garden?</h2>
+          <div className="text-gray-300 text-xs leading-relaxed space-y-4">
             <p>
               In Grow a Garden, crops are the plants you grow from seeds in your personal garden plot. These crops range from classic veggies like carrots and pumpkins to exotic fruits like Moon Mango and Hive Fruit, each with unique appearances, growth times, and sell values.
             </p>
@@ -351,8 +349,8 @@ export const CropsPage: React.FC = () => {
 
         {/* Why Crops Make Grow a Garden So Fun */}
         <div className="bg-gray-800/80 backdrop-blur-sm rounded-xl p-8 border border-gray-700 mb-12">
-          <h2 className="text-3xl font-bold text-white mb-6">Why Crops Make Grow a Garden So Fun?</h2>
-          <div className="text-gray-300 text-lg leading-relaxed space-y-4">
+          <h2 className="text-2xl font-bold text-white mb-6">Why Crops Make Grow a Garden So Fun?</h2>
+          <div className="text-gray-300 text-xs leading-relaxed space-y-4">
             <p>
               Crops aren't just about making money—they're about creativity and community! Show off your garden's unique layout to friends, trade rare mutated crops, or compete to grow the most epic plants.
             </p>

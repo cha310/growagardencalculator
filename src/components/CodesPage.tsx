@@ -6,7 +6,7 @@ export const CodesPage: React.FC = () => {
     <div className="max-w-7xl mx-auto px-4 py-8">
       {/* Header */}
       <div className="text-center mb-8">
-        <h1 className="text-2xl font-bold text-yellow-300 mb-4">
+        <h1 className="text-4xl font-bold text-yellow-300 mb-4">
           Grow a Garden Codes
         </h1>
         <p className="text-xs text-gray-300 max-w-6xl mx-auto leading-relaxed">
@@ -17,7 +17,7 @@ export const CodesPage: React.FC = () => {
       {/* Active Codes Section */}
       <div className="mb-8">
         <div className="bg-gray-800 p-4">
-          <h2 className="text-lg font-bold text-yellow-300 mb-4 flex items-center">
+          <h2 className="text-lg font-bold text-white mb-4 flex items-center">
             <span className="text-lg mr-2">✅</span>
             Active Codes
           </h2>
@@ -51,7 +51,7 @@ export const CodesPage: React.FC = () => {
       {/* Expired Codes Section */}
       <div className="mb-8">
         <div className="bg-gray-800 p-4">
-          <h2 className="text-lg font-bold text-yellow-300 mb-4 flex items-center">
+          <h2 className="text-lg font-bold text-white mb-4 flex items-center">
             <span className="text-lg mr-2">❌</span>
             Expired Codes
           </h2>
@@ -78,7 +78,7 @@ export const CodesPage: React.FC = () => {
       {/* How to Redeem Section */}
       <div className="mb-8">
         <div className="bg-gray-800 p-4">
-          <h2 className="text-lg font-bold text-yellow-300 mb-4 flex items-center">
+          <h2 className="text-lg font-bold text-white mb-4 flex items-center">
             <span className="text-lg mr-2">🎯</span>
             How to Redeem Grow a Garden Codes
           </h2>
@@ -89,28 +89,28 @@ export const CodesPage: React.FC = () => {
                 <li className="flex items-start">
                   <span className="bg-green-600 text-white border-2 border-green-800 w-6 h-6 flex items-center justify-center text-xs font-bold mr-3 mt-1">1</span>
                   <div>
-                    <h3 className="text-yellow-300 text-xs font-bold mb-1">Open Game</h3>
+                    <h3 className="text-white text-xs font-bold mb-1">Open Game</h3>
                     <p className="text-gray-300 text-xs">Open Grow a Garden on the Roblox platform.</p>
                   </div>
                 </li>
                 <li className="flex items-start">
                   <span className="bg-green-600 text-white border-2 border-green-800 w-6 h-6 flex items-center justify-center text-xs font-bold mr-3 mt-1">2</span>
                   <div>
-                    <h3 className="text-yellow-300 text-xs font-bold mb-1">Find Settings</h3>
+                    <h3 className="text-white text-xs font-bold mb-1">Find Settings</h3>
                     <p className="text-gray-300 text-xs">Tap the Settings icon in the top-left corner.</p>
                   </div>
                 </li>
                 <li className="flex items-start">
                   <span className="bg-green-600 text-white border-2 border-green-800 w-6 h-6 flex items-center justify-center text-xs font-bold mr-3 mt-1">3</span>
                   <div>
-                    <h3 className="text-yellow-300 text-xs font-bold mb-1">Enter Code</h3>
+                    <h3 className="text-white text-xs font-bold mb-1">Enter Code</h3>
                     <p className="text-gray-300 text-xs">Type an active code into the "Type code here…" box.</p>
                   </div>
                 </li>
                 <li className="flex items-start">
                   <span className="bg-green-600 text-white border-2 border-green-800 w-6 h-6 flex items-center justify-center text-xs font-bold mr-3 mt-1">4</span>
                   <div>
-                    <h3 className="text-yellow-300 text-xs font-bold mb-1">Claim Rewards</h3>
+                    <h3 className="text-white text-xs font-bold mb-1">Claim Rewards</h3>
                     <p className="text-gray-300 text-xs">Hit the Claim button to grab your rewards.</p>
                   </div>
                 </li>

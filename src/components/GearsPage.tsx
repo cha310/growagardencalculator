@@ -61,10 +61,10 @@ export const GearsPage: React.FC = () => {
 
       {/* Header */}
       <div className="text-center mb-8">
-        <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+        <h1 className="text-4xl font-bold text-yellow-300 mb-4">
           Grow A Garden Gears
         </h1>
-        <p className="text-base text-gray-300 max-w-6xl mx-auto leading-relaxed">
+        <p className="text-xs text-gray-300 max-w-6xl mx-auto leading-relaxed">
           Discover all the essential tools and equipment in Roblox's Grow a Garden! From basic watering cans to divine artifacts, each gear serves a specific purpose to help you cultivate your garden more efficiently. Explore gear descriptions, rarity tiers, and pricing information.
         </p>
       </div>
@@ -189,8 +189,8 @@ export const GearsPage: React.FC = () => {
       <div className="space-y-8 mb-12">
         {/* About Gears */}
         <div className="bg-gray-800/80 backdrop-blur-sm rounded-xl p-8 border border-gray-700">
-          <h2 className="text-3xl font-bold text-white mb-6">About Gears in Grow a Garden</h2>
-          <div className="text-gray-300 text-lg leading-relaxed space-y-4">
+          <h2 className="text-2xl font-bold text-white mb-6">About Gears in Grow a Garden</h2>
+          <div className="text-gray-300 text-xs leading-relaxed space-y-4">
             <p>
               Gears in Grow a Garden are essential tools and equipment that enhance your farming capabilities and garden management. From simple watering cans to advanced mystical artifacts, these items provide various benefits including faster crop growth, automated watering, improved harvesting efficiency, and special mutation opportunities.
             </p>
@@ -202,8 +202,8 @@ export const GearsPage: React.FC = () => {
 
         {/* How Gears Work */}
         <div className="bg-gray-800/80 backdrop-blur-sm rounded-xl p-8 border border-gray-700">
-          <h2 className="text-3xl font-bold text-white mb-6">How Do Gears Work in Grow a Garden?</h2>
-          <div className="text-gray-300 text-lg leading-relaxed space-y-4">
+          <h2 className="text-2xl font-bold text-white mb-6">How Do Gears Work in Grow a Garden?</h2>
+          <div className="text-gray-300 text-xs leading-relaxed space-y-4">
             <ul className="space-y-3">
               <li className="flex items-start">
                 <span className="text-yellow-300 mr-3 mt-1">•</span>
@@ -235,8 +235,8 @@ export const GearsPage: React.FC = () => {
 
         {/* Why Gears Are Important */}
         <div className="bg-gray-800/80 backdrop-blur-sm rounded-xl p-8 border border-gray-700">
-          <h2 className="text-3xl font-bold text-white mb-6">Why Are Gears Important in Grow a Garden?</h2>
-          <div className="text-gray-300 text-lg leading-relaxed space-y-4">
+          <h2 className="text-2xl font-bold text-white mb-6">Why Are Gears Important in Grow a Garden?</h2>
+          <div className="text-gray-300 text-xs leading-relaxed space-y-4">
             <p>
               Gears are crucial for advancing your farming operations and maximizing efficiency. They help players:
             </p>

@@ -136,11 +136,11 @@ export const WikiPage: React.FC = () => {
             Codes
           </h3>
           <p className="text-gray-300 mb-4">
-            Get the latest Grow a Garden Codes for June 2025.
+            Get the latest Grow a Garden Codes for 2025.
           </p>
-          <button className="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg transition-colors">
+          <Link to="/grow-a-garden-codes" className="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg transition-colors inline-block" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
             View Codes
-          </button>
+          </Link>
         </div>
       </div>
 

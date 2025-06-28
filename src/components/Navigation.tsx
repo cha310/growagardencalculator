@@ -65,7 +65,7 @@ export const Navigation: React.FC = () => {
                 <Link 
                   to="/grow-a-garden-wiki" 
                   className={`transition-colors px-3 py-2 text-sm flex items-center ${
-                    location.pathname === '/grow-a-garden-wiki' || location.pathname === '/grow-a-garden-wiki-crops' || location.pathname === '/grow-a-garden-wiki-pets' || location.pathname === '/grow-a-garden-wiki-gears' || location.pathname === '/grow-a-garden-wiki-eggs'
+                    location.pathname === '/grow-a-garden-wiki' || location.pathname === '/grow-a-garden-wiki-crops' || location.pathname === '/grow-a-garden-wiki-pets' || location.pathname === '/grow-a-garden-wiki-gears' || location.pathname === '/grow-a-garden-wiki-eggs' || location.pathname === '/grow-a-garden-codes'
                       ? 'text-yellow-300 border-b-2 border-yellow-300' 
                       : 'text-gray-300 hover:text-yellow-300'
                   }`}
@@ -107,14 +107,22 @@ export const Navigation: React.FC = () => {
                     </Link>
                     <Link 
                       to="/grow-a-garden-wiki-eggs" 
-                      className="block px-4 py-3 text-sm text-gray-300 hover:text-yellow-300 hover:bg-gray-700 transition-colors last:rounded-b-lg"
+                      className="block px-4 py-3 text-sm text-gray-300 hover:text-yellow-300 hover:bg-gray-700 transition-colors"
                       onClick={scrollToTop}
                     >
                       🥚 Eggs
                     </Link>
+                    <Link 
+                      to="/grow-a-garden-codes" 
+                      className="block px-4 py-3 text-sm text-gray-300 hover:text-yellow-300 hover:bg-gray-700 transition-colors last:rounded-b-lg"
+                      onClick={scrollToTop}
+                    >
+                      🎁 Codes
+                    </Link>
                   </div>
                 )}
               </div>
+
               <Link 
                 to="/grow-a-garden-faqs" 
                 className={`transition-colors px-3 py-2 text-sm ${

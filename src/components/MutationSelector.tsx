@@ -53,7 +53,7 @@ export const MutationSelector: React.FC<MutationSelectorProps> = ({
             {growthMutations.map(mutation => (
               <button
                 key={mutation.id}
-                className={`mutation-option multiple text-center py-1.5 px-0.5 ${
+                className={`mutation-option multiple text-center py-2.5 px-0.5 ${
                   isGrowthSelected(mutation) ? 'selected' : ''
                 }`}
                 onClick={() => onGrowthMutationToggle(mutation)}
@@ -74,7 +74,7 @@ export const MutationSelector: React.FC<MutationSelectorProps> = ({
                               {allTemperatureMutations.map((mutation: TemperatureMutation) => (
                   <button
                     key={mutation.id}
-                    className={`mutation-option multiple text-center py-1.5 px-0.5 ${
+                    className={`mutation-option multiple text-center py-2.5 px-0.5 ${
                       isTemperatureSelected(mutation) ? 'selected' : ''
                     }`}
                     onClick={() => onTemperatureMutationToggle(mutation)}

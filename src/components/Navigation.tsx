@@ -65,7 +65,7 @@ export const Navigation: React.FC = () => {
                 <Link 
                   to="/grow-a-garden-wiki" 
                   className={`transition-colors px-3 py-2 text-sm flex items-center ${
-                    location.pathname === '/grow-a-garden-wiki' || location.pathname === '/grow-a-garden-wiki-crops' || location.pathname === '/grow-a-garden-wiki-pets' || location.pathname === '/grow-a-garden-wiki-gears' || location.pathname === '/grow-a-garden-wiki-eggs' || location.pathname === '/grow-a-garden-codes' || location.pathname === '/grow-a-garden-stock'
+                    location.pathname === '/grow-a-garden-wiki' || location.pathname === '/grow-a-garden-wiki-crops' || location.pathname === '/grow-a-garden-wiki-pets' || location.pathname === '/grow-a-garden-wiki-gears' || location.pathname === '/grow-a-garden-wiki-eggs' || location.pathname === '/grow-a-garden-wiki-mutations' || location.pathname === '/grow-a-garden-codes' || location.pathname === '/grow-a-garden-stock'
                       ? 'text-yellow-300 border-b-2 border-yellow-300' 
                       : 'text-gray-300 hover:text-yellow-300'
                   }`}
@@ -121,10 +121,17 @@ export const Navigation: React.FC = () => {
                     </Link>
                     <Link 
                       to="/grow-a-garden-stock" 
-                      className="block px-4 py-3 text-sm text-gray-300 hover:text-yellow-300 hover:bg-gray-700 transition-colors last:rounded-b-lg"
+                      className="block px-4 py-3 text-sm text-gray-300 hover:text-yellow-300 hover:bg-gray-700 transition-colors"
                       onClick={scrollToTop}
                     >
                       📦 Stock
+                    </Link>
+                    <Link 
+                      to="/grow-a-garden-wiki-mutations" 
+                      className="block px-4 py-3 text-sm text-gray-300 hover:text-yellow-300 hover:bg-gray-700 transition-colors last:rounded-b-lg"
+                      onClick={scrollToTop}
+                    >
+                      ✨ Mutations
                     </Link>
                   </div>
                 )}

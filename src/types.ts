@@ -39,6 +39,34 @@ export interface Gear {
   image?: string;
 }
 
+export interface Egg {
+  id: string;
+  name: string;
+  price: {
+    sheckle?: number;
+    robux?: number;
+    honey?: number;
+  };
+  hatchTime: {
+    free: string;
+    premium?: string;
+  };
+  probabilities: {
+    pet: string;
+    chance: string;
+  }[];
+  image?: string;
+}
+
+export interface Mutation {
+  id: string;
+  name: string;
+  multiplier: number;
+  stackBonus: number;
+  triggers: string;
+  image?: string;
+}
+
 export interface GrowthMutation {
   id: string;
   name: string;

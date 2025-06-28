@@ -1,4 +1,4 @@
-import { Plant, GrowthMutation, TemperatureMutation, EnvironmentMutation, Pet, Gear, Egg } from '../types';
+import { Plant, GrowthMutation, TemperatureMutation, EnvironmentMutation, Pet, Gear, Egg, Mutation } from '../types';
 
 export const plants: Plant[] = [
   // Common Plants
@@ -447,5 +447,240 @@ export const eggs: Egg[] = [
       { pet: 'Raccoon', chance: '1%' }
     ],
     image: '/eggs/Premium-Night-Egg.webp'
+  }
+];
+
+export const mutations: Mutation[] = [
+  {
+    id: 'wet',
+    name: 'Wet',
+    multiplier: 2,
+    stackBonus: 1,
+    triggers: 'Triggered during Rain or Thunderstorm events, or with a low probability from Sprinklers. Affected plants exhibit water droplets on their surface.',
+    image: 'https://img.growagardencalculator.net/mutations/Wet.webp'
+  },
+  {
+    id: 'chilled',
+    name: 'Chilled',
+    multiplier: 2,
+    stackBonus: 1,
+    triggers: 'Occurs during Frost events or through interaction with a Polar Bear. Plants display a bluish tint and frost particles.',
+    image: 'https://img.growagardencalculator.net/mutations/Chilled.webp'
+  },
+  {
+    id: 'choc',
+    name: 'Choc',
+    multiplier: 2,
+    stackBonus: 1,
+    triggers: 'Applied by placing a Chocolate Sprinkler, available during the Easter Event 2025 or admin-triggered Chocolate Rain events. Plants take on a brown, chocolate-like appearance.',
+    image: 'https://img.growagardencalculator.net/mutations/Choc.webp'
+  },
+  {
+    id: 'moonlit',
+    name: 'Moonlit',
+    multiplier: 2,
+    stackBonus: 1,
+    triggers: 'Activates at night, affecting six plants every two minutes within a 10-minute period. Plants emit a purple glow with a shining appearance.',
+    image: 'https://img.growagardencalculator.net/mutations/Moonlit.webp'
+  },
+  {
+    id: 'windstruck',
+    name: 'Windstruck',
+    multiplier: 2,
+    stackBonus: 1,
+    triggers: 'Triggered during Windy or Gale conditions. With wind gusts swooping around the crop for a dynamic visual effect.',
+    image: 'https://img.growagardencalculator.net/mutations/Windstruck.webp'
+  },
+  {
+    id: 'pollinated',
+    name: 'Pollinated',
+    multiplier: 3,
+    stackBonus: 2,
+    triggers: 'Triggered during Bee Swarm events or by specific bee pets (Bee, Honey Bee, Petal Bee, Queen Bee). Plants exhibit a yellow shine with yellow gas-like particles.',
+    image: 'https://img.growagardencalculator.net/mutations/Pollinated.webp'
+  },
+  {
+    id: 'bloodlit',
+    name: 'Bloodlit',
+    multiplier: 4,
+    stackBonus: 3,
+    triggers: 'Occurs during the Blood Moon Event. Affected plants display a red, radiant appearance.',
+    image: 'https://img.growagardencalculator.net/mutations/Bloodlit.webp'
+  },
+  {
+    id: 'burnt',
+    name: 'Burnt',
+    multiplier: 4,
+    stackBonus: 3,
+    triggers: 'Crops may be affected by the \'Burnt\' mutation triggered by the Cooked Owl. Plants exhibiting this mutation will display a blackened model, accompanied by a sparking effect at the top when unharvested.',
+    image: 'https://img.growagardencalculator.net/mutations/Burnt.webp'
+  },
+  {
+    id: 'verdant',
+    name: 'Verdant',
+    multiplier: 4,
+    stackBonus: 3,
+    triggers: 'May occasionally be triggered by the Scarlet Macaw pet. Showcasing a green hue and releasing green rectangular particles.',
+    image: 'https://img.growagardencalculator.net/mutations/Verdant.webp'
+  },
+  {
+    id: 'plasma',
+    name: 'Plasma',
+    multiplier: 5,
+    stackBonus: 4,
+    triggers: 'Triggered during admin-spawned Laser Storm events. Plants exhibit a static pinkish-purple glow with intermittent red flashes.',
+    image: 'https://img.growagardencalculator.net/mutations/Plasma.webp'
+  },
+  {
+    id: 'honeyglazed',
+    name: 'HoneyGlazed',
+    multiplier: 5,
+    stackBonus: 4,
+    triggers: 'Applied by placing a Honey Sprinkler or through interaction with Bear Bee. Plants are surrounded by yellow fog and drip with yellow liquid.',
+    image: 'https://img.growagardencalculator.net/mutations/HoneyGlazed.webp'
+  },
+  {
+    id: 'heavenly',
+    name: 'Heavenly',
+    multiplier: 5,
+    stackBonus: 4,
+    triggers: 'Triggered during admin-spawned Floating Jandel events. Plants emit golden, radiant light from their base.',
+    image: 'https://img.growagardencalculator.net/mutations/Heavenly.webp'
+  },
+  {
+    id: 'twisted',
+    name: 'Twisted',
+    multiplier: 5,
+    stackBonus: 4,
+    triggers: 'Activated during Tornado conditions, featuring tornado-like swirls emanating from the crop.',
+    image: 'https://img.growagardencalculator.net/mutations/Twisted.webp'
+  },
+  {
+    id: 'frozen',
+    name: 'Frozen',
+    multiplier: 10,
+    stackBonus: 9,
+    triggers: 'Occurs during Frost when crops are both Wet and Chilled, or through Polar Bear interaction. Plants are encased in an ice block.',
+    image: 'https://img.growagardencalculator.net/mutations/Frozen.webp'
+  },
+  {
+    id: 'cooked',
+    name: 'Cooked',
+    multiplier: 10,
+    stackBonus: 9,
+    triggers: 'There is a low probability that Cooked Owl will apply this mutation instead of Burnt. Affected plants will exhibit an orange coloration.',
+    image: 'https://img.growagardencalculator.net/mutations/Cooked.webp'
+  },
+  {
+    id: 'paradisal',
+    name: 'Paradisal',
+    multiplier: 18,
+    stackBonus: 17,
+    triggers: 'Triggered by combining Verdant and Sundried mutations on the crop. Features vibrant tropical colors with lush, paradise-inspired effects.',
+    image: 'https://img.growagardencalculator.net/mutations/Paradisal.webp'
+  },
+  {
+    id: 'golden',
+    name: 'Golden',
+    multiplier: 20,
+    stackBonus: 0,
+    triggers: 'Has a 1% chance to replace the standard crop variant or can be applied by Dragonfly. Plants display a shining, golden appearance.',
+    image: 'https://img.growagardencalculator.net/mutations/Golden.webp'
+  },
+  {
+    id: 'zombified',
+    name: 'Zombified',
+    multiplier: 25,
+    stackBonus: 24,
+    triggers: 'Caused by interaction with the unobtainable Chicken Zombie. Plants are surrounded by green fog and drip with green liquid.',
+    image: 'https://img.growagardencalculator.net/mutations/Zombified.webp'
+  },
+  {
+    id: 'molten',
+    name: 'Molten',
+    multiplier: 25,
+    stackBonus: 24,
+    triggers: 'During the volcano event, crops may undergo a \'Molten\' mutation. Affected plants will display vibrant orange, yellow, and red hues, with a neon glow akin to the Shocked mutation.',
+    image: 'https://img.growagardencalculator.net/mutations/Molten.webp'
+  },
+  {
+    id: 'rainbow',
+    name: 'Rainbow',
+    multiplier: 50,
+    stackBonus: 0,
+    triggers: 'Has a 0.1% chance to replace the standard crop variant or can be applied by Butterfly. Plants continuously cycle through colors, emitting yellow particles and displaying a rainbow above.',
+    image: 'https://img.growagardencalculator.net/mutations/Rainbow.webp'
+  },
+  {
+    id: 'sundried',
+    name: 'Sundried',
+    multiplier: 85,
+    stackBonus: 84,
+    triggers: 'Triggered during the Heatwave event. Apply deep brown hue.',
+    image: 'https://img.growagardencalculator.net/mutations/Sundried.webp'
+  },
+  {
+    id: 'shocked',
+    name: 'Shocked',
+    multiplier: 100,
+    stackBonus: 99,
+    triggers: 'Triggered by lightning strikes during Thunderstorm events or Jandel Storm. Plants exhibit a bright, neon glow, lacking the typical studded texture.',
+    image: 'https://img.growagardencalculator.net/mutations/Shocked.webp'
+  },
+  {
+    id: 'alienlike',
+    name: 'Alienlike',
+    multiplier: 100,
+    stackBonus: 99,
+    triggers: 'Activated during a Alien Invasion Event. Displaying a cyan hue with cyan particles emanating from the fruit, which may have fully or partially transparent sections.',
+    image: 'https://img.growagardencalculator.net/mutations/Alienlike.webp'
+  },
+  {
+    id: 'celestial',
+    name: 'Celestial',
+    multiplier: 120,
+    stackBonus: 119,
+    triggers: 'Occurs during Meteor Shower events. Plants appear slightly discolored with sparkling yellow and purple effects.',
+    image: 'https://img.growagardencalculator.net/mutations/Celestial.webp'
+  },
+  {
+    id: 'galactic',
+    name: 'Galactic',
+    multiplier: 120,
+    stackBonus: 119,
+    triggers: 'Triggered during the Space Travel Event, showcasing a light purple or pink hue with neon accents and emitting pink sparkling glimmers.',
+    image: 'https://img.growagardencalculator.net/mutations/Galactic.webp'
+  },
+  {
+    id: 'disco',
+    name: 'Disco',
+    multiplier: 125,
+    stackBonus: 124,
+    triggers: 'Triggered during admin-spawned Disco events or via Disco Bee. Plants flash through red, pink, yellow, green, and blue colors instantly, distinct from the gradual color transitions of Rainbow.',
+    image: 'https://img.growagardencalculator.net/mutations/Disco.webp'
+  },
+  {
+    id: 'meteoric',
+    name: 'Meteoric',
+    multiplier: 125,
+    stackBonus: 124,
+    triggers: 'Triggered during the Meteor Strike event, which can only be initiated by administrators.',
+    image: 'https://img.growagardencalculator.net/mutations/Meteoric.webp'
+  },
+  {
+    id: 'voidtouched',
+    name: 'Voidtouched',
+    multiplier: 135,
+    stackBonus: 134,
+    triggers: 'Occurs during admin-spawned Black Hole Events. Plants are surrounded by purple particles resembling miniature black holes, similar to Moonlit effects.',
+    image: 'https://img.growagardencalculator.net/mutations/Voidtouched.webp'
+  },
+  {
+    id: 'dawnbound',
+    name: 'Dawnbound',
+    multiplier: 150,
+    stackBonus: 149,
+    triggers: 'Triggered during admin-spawned Sun God Events or with a low natural occurrence probability. Sunflowers with this mutation glow in neon yellow, updated from an original neon-white color after the initial Sun God event.',
+    image: 'https://img.growagardencalculator.net/mutations/Dawnbound.webp'
   }
 ];

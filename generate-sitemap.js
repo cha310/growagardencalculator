@@ -17,131 +17,131 @@ async function generateSitemap() {
       url: baseUrl,
       lastModified: now,
       changeFrequency: 'daily',
-      priority: 1.0,
+      priority: '1.0',
     },
     // Wiki主页
     {
       url: `${baseUrl}/grow-a-garden-wiki`,
       lastModified: now,
       changeFrequency: 'weekly',
-      priority: 0.9,
+      priority: '0.9',
     },
     // Wiki子页面
     {
       url: `${baseUrl}/grow-a-garden-wiki-crops`,
       lastModified: now,
       changeFrequency: 'weekly',
-      priority: 0.8,
+      priority: '0.8',
     },
     {
       url: `${baseUrl}/grow-a-garden-wiki-pets`,
       lastModified: now,
       changeFrequency: 'weekly',
-      priority: 0.8,
+      priority: '0.8',
     },
     {
       url: `${baseUrl}/grow-a-garden-wiki-gears`,
       lastModified: now,
       changeFrequency: 'weekly',
-      priority: 0.8,
+      priority: '0.8',
     },
     {
       url: `${baseUrl}/grow-a-garden-wiki-eggs`,
       lastModified: now,
       changeFrequency: 'weekly',
-      priority: 0.8,
+      priority: '0.8',
     },
     {
       url: `${baseUrl}/grow-a-garden-wiki-mutations`,
       lastModified: now,
       changeFrequency: 'monthly',
-      priority: 0.7,
+      priority: '0.7',
     },
     // Events主页
     {
       url: `${baseUrl}/grow-a-garden-events`,
       lastModified: now,
       changeFrequency: 'monthly',
-      priority: 0.8,
+      priority: '0.8',
     },
     // Events子页面
     {
       url: `${baseUrl}/grow-garden-summer-harvest`,
       lastModified: now,
       changeFrequency: 'monthly',
-      priority: 0.6,
+      priority: '0.6',
     },
     {
       url: `${baseUrl}/grow-garden-Easter-Event-2025`,
       lastModified: now,
       changeFrequency: 'monthly',
-      priority: 0.6,
+      priority: '0.6',
     },
     {
       url: `${baseUrl}/grow-garden-Bizzy-Bee-Event`,
       lastModified: now,
       changeFrequency: 'monthly',
-      priority: 0.6,
+      priority: '0.6',
     },
     {
       url: `${baseUrl}/grow-garden-Lunar-Glow-Event`,
       lastModified: now,
       changeFrequency: 'monthly',
-      priority: 0.6,
+      priority: '0.6',
     },
     {
       url: `${baseUrl}/grow-garden-Blood-Moon-Event`,
       lastModified: now,
       changeFrequency: 'monthly',
-      priority: 0.6,
+      priority: '0.6',
     },
     {
       url: `${baseUrl}/grow-garden-Angry-Plant-Event`,
       lastModified: now,
       changeFrequency: 'monthly',
-      priority: 0.6,
+      priority: '0.6',
     },
     // 其他功能页面
     {
       url: `${baseUrl}/grow-a-garden-values`,
       lastModified: now,
       changeFrequency: 'weekly',
-      priority: 0.7,
+      priority: '0.7',
     },
     {
       url: `${baseUrl}/grow-a-garden-stock`,
       lastModified: now,
       changeFrequency: 'weekly',
-      priority: 0.7,
+      priority: '0.7',
     },
     {
       url: `${baseUrl}/grow-a-garden-codes`,
       lastModified: now,
       changeFrequency: 'weekly',
-      priority: 0.7,
+      priority: '0.7',
     },
     {
       url: `${baseUrl}/grow-a-garden-faqs`,
       lastModified: now,
       changeFrequency: 'monthly',
-      priority: 0.5,
+      priority: '0.5',
     },
     // 法律页面
     {
       url: `${baseUrl}/privacy-policy`,
       lastModified: '2024-06-25',
       changeFrequency: 'yearly',
-      priority: 0.1,
+      priority: '0.1',
     },
     {
       url: `${baseUrl}/terms-of-service`,
       lastModified: '2024-06-25',
       changeFrequency: 'yearly',
-      priority: 0.1,
+      priority: '0.1',
     }
   ];
 
-  // 生成XML内容
+  // 生成XML内容 - 使用更标准的格式
   let xml = '<?xml version="1.0" encoding="UTF-8"?>\n';
   xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
   
@@ -154,7 +154,7 @@ async function generateSitemap() {
     xml += '  </url>\n';
   });
   
-  xml += '</urlset>';
+  xml += '</urlset>\n';
 
   // 写入文件
   const outputPath = path.join(__dirname, 'public', 'sitemap.xml');
@@ -162,6 +162,7 @@ async function generateSitemap() {
   
   console.log(`✅ Sitemap generated successfully at ${outputPath}`);
   console.log(`📊 Total pages: ${pages.length}`);
+  console.log(`🔗 Sitemap URL: https://www.growagardencalculator.me/sitemap.xml`);
 }
 
 // 运行生成器

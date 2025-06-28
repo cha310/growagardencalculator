@@ -15,8 +15,8 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  // 暂时禁用静态导出以测试基本功能
-  // output: 'export',
+  // 启用静态导出以支持所有路由
+  output: 'export',
   trailingSlash: true,
   // 确保静态文件可以正确访问
   assetPrefix: process.env.NODE_ENV === 'production' ? '' : '',

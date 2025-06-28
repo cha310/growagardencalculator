@@ -5,4 +5,33 @@
 /sitemap.xml    /sitemap.xml    200
 /robots.txt     /robots.txt     200
 /ads.txt        /ads.txt        200
-/favicon.ico    /favicon.ico    200 
+/favicon.ico    /favicon.ico    200
+
+# 图片和静态资源
+/plant/*        /plant/:splat   200
+/pet/*          /pet/:splat     200
+/gears/*        /gears/:splat   200
+/eggs/*         /eggs/:splat    200
+/events/*       /events/:splat  200
+/icons/*        /icons/:splat   200
+
+# Next.js页面路由 - 每个页面都有对应的HTML文件
+/grow-a-garden-codes/           /grow-a-garden-codes/index.html          200
+/grow-a-garden-events/          /grow-a-garden-events/index.html         200
+/grow-a-garden-faqs/            /grow-a-garden-faqs/index.html           200
+/grow-a-garden-stock/           /grow-a-garden-stock/index.html          200
+/grow-a-garden-values/          /grow-a-garden-values/index.html         200
+/grow-a-garden-wiki/            /grow-a-garden-wiki/index.html           200
+/grow-a-garden-wiki-crops/      /grow-a-garden-wiki-crops/index.html     200
+/grow-a-garden-wiki-eggs/       /grow-a-garden-wiki-eggs/index.html      200
+/grow-a-garden-wiki-gears/      /grow-a-garden-wiki-gears/index.html     200
+/grow-a-garden-wiki-mutations/  /grow-a-garden-wiki-mutations/index.html 200
+/grow-a-garden-wiki-pets/       /grow-a-garden-wiki-pets/index.html      200
+/grow-garden-Angry-Plant-Event/ /grow-garden-Angry-Plant-Event/index.html 200
+/grow-garden-Bizzy-Bee-Event/   /grow-garden-Bizzy-Bee-Event/index.html  200
+/grow-garden-Blood-Moon-Event/  /grow-garden-Blood-Moon-Event/index.html 200
+/grow-garden-Easter-Event-2025/ /grow-garden-Easter-Event-2025/index.html 200
+/grow-garden-Lunar-Glow-Event/  /grow-garden-Lunar-Glow-Event/index.html 200
+/grow-garden-summer-harvest/    /grow-garden-summer-harvest/index.html   200
+/privacy-policy/                /privacy-policy/index.html               200
+/terms-of-service/              /terms-of-service/index.html             200 
